@@ -1,0 +1,42 @@
+# OCTAVIRE
+
+> AI-powered studio software for tattoo artists. Sketch fast, capture any body in 3D, and place your work on real skin in AR — before the needle touches it.
+
+OCTAVIRE is a design + scanning + AR-placement platform built for the next generation of tattoo artists. The software combines AI sketching, proprietary 3D body capture (using LiDAR / depth sensors on iPhone, iPad Pro and Pixel Pro), smart-learning stencils, and on-skin AR projection so the design and placement are approved before any ink touches skin.
+
+## What it does
+
+- **AI sketching** — pressure-true brush engine, style-aware variations (fine-line, blackwork, dotwork, traditional), built-in reference boards.
+- **3D body scanning** — full body mesh in under 10 seconds. No markers. No calibration rig. Works on any skin tone or body type. On-device, encrypted.
+- **Smart stencils** — re-vector, clean, recolour and re-mesh designs without leaving the studio. One-tap symmetry across limbs. Vector + raster in one canvas.
+- **AR placement** — project your art onto the actual 3D body of your client. Re-mesh to true geometry. Approve placement before the needle touches skin. True-scale stencil export, curve-aware re-meshing, live AR preview on the client.
+
+## Audience
+
+Tattoo artists (especially studio owners, founding artists, and clients of those artists) — independent professionals who currently rely on Procreate + iPad + sharpies + stencil paper and want a unified workflow.
+
+## Status
+
+Private beta opens June 17, 2026. Public launch later in 2026. Founding artists on the waitlist receive a permanent lifetime discount, first access, and a permanent name in the Hall of Founders. The free tier is permanent and requires no credit card. The client scanner companion app is free forever.
+
+## Hardware requirements
+
+- iPad Pro (M2 or newer) — recommended studio device
+- iPhone 15+ with LiDAR — for in-studio or remote client scanning
+- macOS / Windows desktop companion app — at beta
+- Android (Pixel Pro line with depth sensor) — within 90 days of public launch
+
+## Privacy
+
+End-to-end encrypted. Designs and body scans are stored on-device by default. No artwork is ever used to train models. Cloud sync is opt-in and fully deletable. Exports remain available for 90 days after account cancellation.
+
+## Pricing
+
+Pricing announced at beta launch. Founding artists receive a lifetime discount off the professional tier and free access throughout the beta period.
+
+## Links
+
+- Home: https://octavire.com/
+- Privacy: https://octavire.com/privacy.html
+- Terms: https://octavire.com/terms.html
+- Sitemap: https://octavire.com/sitemap.xml
