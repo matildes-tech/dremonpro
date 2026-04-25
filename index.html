@@ -95,159 +95,6 @@ body {
   transition: background-color 0.4s var(--ease), color 0.4s var(--ease);
 }
 
-/* ============================================================
-   LIGHT MODE — invoked by body.light
-   White bg · soft gradient black text · black cursor
-   ============================================================ */
-body.light {
-  --bg: #ffffff;
-  --surface:    rgba(10,10,12,0.025);
-  --surface-2:  rgba(10,10,12,0.05);
-  --line:       rgba(10,10,12,0.08);
-  --line-2:     rgba(10,10,12,0.16);
-  --text:       #0a0a0c;
-  --text-dim:   rgba(10,10,12,0.66);
-  --text-mute:  rgba(10,10,12,0.42);
-  --t-heading:  #0a0a0c;
-  --t-lead:     rgba(10,10,12,0.78);
-  --t-body:     rgba(10,10,12,0.62);
-  --t-meta:     rgba(10,10,12,0.45);
-  --t-quiet:    rgba(10,10,12,0.32);
-  background:
-    radial-gradient(1200px 700px at 12% -10%, rgba(79,158,255,0.06), transparent 60%),
-    radial-gradient(900px 600px at 100% 18%, rgba(183,148,246,0.05), transparent 60%),
-    radial-gradient(900px 500px at 50% 110%, rgba(0,255,163,0.03), transparent 60%),
-    #ffffff;
-  color: var(--t-heading);
-}
-body.light ::selection { background: #0a0a0c; color: #ffffff; }
-
-/* Soft gradient on headings in light mode (subtle fade-out so it's not pure flat black) */
-body.light .hero-title,
-body.light .section-head h2,
-body.light .feature-row h3,
-body.light .problem-card h3,
-body.light .how-card h3,
-body.light h3.plan-name,
-body.light .waitlist h2,
-body.light .final h2,
-body.light .faq-q .label {
-  background: linear-gradient(180deg, #0a0a0c 0%, rgba(10,10,12,0.78) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-/* Light-mode buttons: invert primary, soften ghost */
-body.light .btn-primary { background: #0a0a0c; color: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.18); }
-body.light .btn-primary:hover { background: #1a1a1d; box-shadow: 0 8px 24px rgba(10,10,12,0.18); }
-body.light .btn-ghost { color: #0a0a0c; border-color: rgba(10,10,12,0.16); }
-body.light .btn-ghost:hover { background: rgba(10,10,12,0.04); border-color: rgba(10,10,12,0.32); }
-body.light .play-pip,
-body.light .hero-watch .pip { background: #0a0a0c; color: #ffffff; }
-
-/* Hero watch card */
-body.light .hero-watch { background: rgba(255,255,255,0.6); border-color: rgba(10,10,12,0.12); }
-body.light .hero-watch:hover { background: rgba(10,10,12,0.06); }
-body.light .hero-watch .lab-k { color: rgba(10,10,12,0.55); }
-body.light .hero-watch .lab-t { color: #0a0a0c; }
-
-/* Hero visual frame stays dark — looks intentional */
-
-/* Cards & surfaces */
-body.light .problem-card,
-body.light .how-card {
-  background: #ffffff;
-  border-color: rgba(10,10,12,0.10);
-  color: #0a0a0c;
-}
-body.light .problem-card h3,
-body.light .how-card h3 {
-  background: none;
-  -webkit-background-clip: border-box;
-  background-clip: border-box;
-  -webkit-text-fill-color: #0a0a0c;
-  color: #0a0a0c;
-}
-body.light .problem-card .n,
-body.light .how-card .n { color: rgba(10,10,12,0.45); }
-body.light .problem-card p,
-body.light .how-card p { color: rgba(10,10,12,0.66); }
-body.light .testi,
-body.light .plan,
-body.light .wl-card {
-  background: linear-gradient(180deg, rgba(10,10,12,0.025), rgba(10,10,12,0.005));
-  border-color: rgba(10,10,12,0.10);
-}
-body.light .plan.featured {
-  border-color: rgba(10,10,12,0.32);
-  background: linear-gradient(180deg, rgba(10,10,12,0.05), rgba(10,10,12,0.01));
-  box-shadow: 0 30px 120px -40px rgba(10,10,12,0.18);
-}
-body.light .plan-badge { background: #0a0a0c; color: #ffffff; }
-body.light .plan-badge .d { background: #ffffff; }
-
-/* Toggles */
-body.light .toggle-inner { background: rgba(255,255,255,0.6); border-color: rgba(10,10,12,0.16); }
-body.light .toggle-inner button { color: rgba(10,10,12,0.62); }
-body.light .toggle-inner button[aria-selected="true"] { background: #0a0a0c; color: #ffffff; }
-body.light .toggle-inner button[aria-selected="true"] .save { color: rgba(255,255,255,0.7); border-color: rgba(255,255,255,0.3); }
-
-/* Plan check icons */
-body.light .plan-features li svg { stroke: #0a0a0c; }
-
-/* FAQ */
-body.light .faq-q .ico { border-color: rgba(10,10,12,0.16); }
-body.light .faq-q .ico svg { stroke: #0a0a0c; }
-body.light .faq-item[aria-expanded="true"] .ico { background: #0a0a0c; border-color: #0a0a0c; }
-body.light .faq-item[aria-expanded="true"] .ico svg { stroke: #ffffff; }
-
-/* Waitlist countdown — flip cards become inverted (dark cards on light bg) */
-body.light .flip-card { background: #0a0a0c; color: #ffffff; box-shadow: 0 2px 0 rgba(10,10,12,0.04), 0 10px 28px rgba(10,10,12,0.18); }
-body.light .flip-card::before { background: rgba(255,255,255,0.08); }
-body.light .flip-sep { color: rgba(10,10,12,0.45); }
-body.light .flip-label { color: rgba(10,10,12,0.55); }
-
-/* Waitlist form */
-body.light .wl-form input[type=email] { background: rgba(10,10,12,0.04); border-color: rgba(10,10,12,0.16); color: #0a0a0c; }
-body.light .wl-form input[type=email]::placeholder { color: rgba(10,10,12,0.42); }
-body.light .wl-form input[type=email]:focus { border-color: rgba(10,10,12,0.5); box-shadow: 0 0 0 4px rgba(10,10,12,0.06); }
-body.light .wl-form button { background: #0a0a0c; color: #ffffff; }
-body.light .wl-form button:hover { background: #1a1a1d; }
-body.light .wl-queue strong { color: #0a0a0c; }
-
-/* Footer social pills */
-body.light .footer-social a { color: rgba(10,10,12,0.6); border-color: rgba(10,10,12,0.16); }
-body.light .footer-social a:hover { color: #0a0a0c; border-color: #0a0a0c; }
-
-/* Nav scrolled state — light glass */
-body.light .nav.scrolled { background: rgba(255,255,255,0.7); border-bottom-color: rgba(10,10,12,0.08); }
-body.light .nav-links a:hover { background: rgba(10,10,12,0.06); color: #0a0a0c; }
-
-/* Cursor effect — identical across light & dark modes (V1-style blue radial) */
-/* No light-mode override; .cursor-glow base style applies in both themes. */
-
-/* Version switcher — flip dark glass to light glass */
-body.light .vs { background: rgba(255,255,255,0.7); border-color: rgba(10,10,12,0.16); color: #0a0a0c; }
-body.light .vs:hover { background: #0a0a0c; color: #ffffff; border-color: #0a0a0c; }
-body.light .vs .chip { background: #0a0a0c; color: #ffffff; }
-body.light .vs:hover .chip { background: #ffffff; color: #0a0a0c; }
-
-/* Theme toggle button — its own surface */
-body.light .theme-toggle { background: rgba(255,255,255,0.7); border-color: rgba(10,10,12,0.16); color: #0a0a0c; }
-body.light .theme-toggle:hover { background: #0a0a0c; color: #ffffff; }
-
-/* Smooth all theme transitions */
-body, body * {
-  transition-property: background-color, border-color, color, box-shadow;
-  transition-duration: 0.35s;
-  transition-timing-function: var(--ease);
-}
-body, body *,
-body .ghost-cursor canvas, body .cursor-glow {
-  /* exclude transform/opacity from theme transition (keeps cursor & flip animations crisp) */
-}
 /* Sensible heading defaults — each class controls its own weight (hierarchy ladder) */
 h1, h2, h3, h4, h5, h6 { margin: 0; }
 p { margin: 0; }
@@ -391,13 +238,6 @@ header.nav { z-index: 60; }
   background-clip: border-box;
   text-shadow: none;
 }
-body.light .hero-title .hero-tagline {
-  color: #0a0a0c;
-  -webkit-text-fill-color: #0a0a0c;
-  background: none;
-  background-clip: border-box;
-  -webkit-background-clip: border-box;
-}
 .hero-sub {
   font-size: var(--fs-lead);
   color: var(--t-lead);
@@ -512,9 +352,6 @@ section.section { padding: 96px 0; position: relative; }
   --glow-color-10:  hsl(40deg 80% 80% / 10%);
   isolation: isolate;
 }
-body.light .problem-card,
-body.light .how-card { --card-bg: #ffffff; }
-
 /* mesh-gradient border slice (follows cursor) */
 .problem-card::before,
 .how-card::before {
@@ -658,8 +495,8 @@ body.light .how-card { --card-bg: #ffffff; }
   transform: translate(-50%, -50%);
   background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 40%);
 }
-/* In dark mode (no body.light), spotlight is dimmed to 0.5 (matches dark:opacity-50) */
-body:not(.light) .tilt-card.is-tilting .tilt-spotlight { opacity: 0.5; }
+/* spotlight dimmed to 0.5 (dark theme) */
+.tilt-card.is-tilting .tilt-spotlight { opacity: 0.5; }
 @media (prefers-reduced-motion: reduce) {
   .tilt-card { transition: none; }
 }
@@ -893,31 +730,16 @@ h3.plan-name { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.022
   position: relative;
   background: transparent;
 }
-/* Force V1 styling inside the countdown regardless of theme (section is always dark) */
-body .countdown .flip-card,
-body.light .countdown .flip-card { background: #fff; color: #0b0d14; box-shadow: 0 2px 0 rgba(0,0,0,0.04), 0 10px 28px rgba(0,0,0,0.35); }
-body .countdown .flip-card::before,
-body.light .countdown .flip-card::before { background: rgba(11,13,20,0.08); }
-body .countdown .flip-card span,
-body.light .countdown .flip-card span { color: #0b0d14; }
-body .countdown .flip-sep,
-body.light .countdown .flip-sep { color: rgba(255,255,255,0.45); }
-body .countdown .flip-label,
-body.light .countdown .flip-label { color: rgba(255,255,255,0.55); }
-body .countdown .btn-primary,
-body.light .countdown .btn-primary { background: #fff; color: #000; box-shadow: none; }
-body .countdown .btn-primary:hover,
-body.light .countdown .btn-primary:hover { background: #f4f4f5; box-shadow: 0 8px 24px rgba(255,255,255,0.18); }
-body .countdown .waitlist-form input[type="email"],
-body.light .countdown .waitlist-form input[type="email"] { background: rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.16); color: #f4f4f5; }
-body .countdown .waitlist-form input[type="email"]::placeholder,
-body.light .countdown .waitlist-form input[type="email"]::placeholder { color: rgba(244,244,245,0.42); }
-body.light .countdown .queue-line strong { color: var(--green); }
-body.light .countdown .section-title,
-body.light .countdown h2.section-title { color: #fff; }
-body.light .countdown .section-sub { color: rgba(244,244,245,0.66); }
-body.light .countdown .queue-line { color: rgba(244,244,245,0.66); }
-body.light .countdown .waitlist-micro { color: rgba(244,244,245,0.42); }
+/* Countdown styling — V1-style flip cards on dark bg */
+.countdown .flip-card { background: #fff; color: #0b0d14; box-shadow: 0 2px 0 rgba(0,0,0,0.04), 0 10px 28px rgba(0,0,0,0.35); }
+.countdown .flip-card::before { background: rgba(11,13,20,0.08); }
+.countdown .flip-card span { color: #0b0d14; }
+.countdown .flip-sep { color: rgba(255,255,255,0.45); }
+.countdown .flip-label { color: rgba(255,255,255,0.55); }
+.countdown .btn-primary { background: #fff; color: #000; box-shadow: none; }
+.countdown .btn-primary:hover { background: #f4f4f5; box-shadow: 0 8px 24px rgba(255,255,255,0.18); }
+.countdown .waitlist-form input[type="email"] { background: rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.16); color: #f4f4f5; }
+.countdown .waitlist-form input[type="email"]::placeholder { color: rgba(244,244,245,0.42); }
 .section-header {
   text-align: center;
   max-width: 1040px;
@@ -1209,32 +1031,6 @@ h2.section-title .serif {
 .footer-social a:hover { color: #fff; border-color: #fff; }
 .footer-social svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 
-/* ============== THEME TOGGLE (floating, dark <-> light) ============== */
-.theme-toggle {
-  position: fixed; right: 18px; bottom: 70px; z-index: 200;
-  width: 40px; height: 40px;
-  display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 50%;
-  border: 1px solid var(--line-2);
-  background: rgba(0,0,0,0.72);
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  color: rgba(255,255,255,0.92);
-  cursor: pointer;
-  box-shadow: 0 6px 28px rgba(0,0,0,0.5);
-  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
-}
-.theme-toggle:hover { background: #fff; color: #000; border-color: #fff; transform: translateY(-1px); }
-.theme-toggle svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; }
-.theme-toggle .ico-sun, .theme-toggle .ico-moon { transition: opacity 0.2s var(--ease), transform 0.3s var(--ease); }
-.theme-toggle .ico-sun { display: none; }
-body.light .theme-toggle .ico-sun { display: block; }
-body.light .theme-toggle .ico-moon { display: none; }
-@media (max-width: 720px) {
-  .theme-toggle { right: 12px; bottom: 60px; width: 36px; height: 36px; }
-  .theme-toggle svg { width: 16px; height: 16px; }
-}
-
 /* reveal-on-scroll */
 [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
 [data-reveal].is-in { opacity: 1; transform: none; }
@@ -1248,31 +1044,6 @@ body.light .theme-toggle .ico-moon { display: none; }
 <!-- Cursor effects (ported from V1) -->
 <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 <div class="ghost-cursor" id="ghostCursor" aria-hidden="true"></div>
-
-<!-- ============== VERSION SWITCHER ============== -->
-<div class="version-switcher" role="group" aria-label="Page version">
-  <span class="version-switcher__label">Version</span>
-  <div class="version-switcher__pill">
-    <a href="v1.html" class="version-switcher__opt">V1</a>
-    <a href="/" class="version-switcher__opt is-active" aria-current="page">V2</a>
-  </div>
-</div>
-<style>
-.version-switcher{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:9999;display:flex;align-items:center;gap:10px;padding:6px 8px 6px 14px;background:rgba(12,12,16,.72);border:1px solid rgba(255,255,255,.10);border-radius:999px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);font-family:var(--font-sans,'Inter',system-ui,-apple-system,sans-serif);box-shadow:0 12px 40px rgba(0,0,0,.45)}
-.version-switcher__label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45);font-weight:600}
-.version-switcher__pill{display:flex;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:999px;padding:3px}
-.version-switcher__opt{display:inline-flex;align-items:center;justify-content:center;min-width:36px;height:26px;padding:0 12px;font-size:12px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.62);text-decoration:none;border-radius:999px;transition:color .2s ease,background .2s ease}
-.version-switcher__opt:hover{color:#fff}
-.version-switcher__opt.is-active{color:#0a0a0c;background:#fff;box-shadow:0 1px 0 rgba(0,0,0,.2)}
-body.light .version-switcher{background:rgba(255,255,255,.78);border-color:rgba(10,10,12,.10)}
-body.light .version-switcher__label{color:rgba(10,10,12,.55)}
-body.light .version-switcher__pill{background:rgba(10,10,12,.04);border-color:rgba(10,10,12,.08)}
-body.light .version-switcher__opt{color:rgba(10,10,12,.6)}
-body.light .version-switcher__opt:hover{color:#0a0a0c}
-body.light .version-switcher__opt.is-active{background:#0a0a0c;color:#fff}
-@media (max-width:520px){.version-switcher{padding:5px 6px 5px 12px;gap:8px}.version-switcher__label{font-size:9px;letter-spacing:.2em}}
-@media print{.version-switcher{display:none}}
-</style>
 
 <!-- ============== NAV ============== -->
 <header class="nav" id="nav">
@@ -1889,40 +1660,7 @@ body.light .version-switcher__opt.is-active{background:#0a0a0c;color:#fff}
   </div>
 </footer>
 
-<!-- ============== THEME TOGGLE (dark <-> light) ============== -->
-<button type="button" class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme" aria-pressed="false">
-  <svg class="ico-moon" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M21 13.4A8.5 8.5 0 1 1 10.6 3a7 7 0 0 0 10.4 10.4z" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
-  <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true">
-    <circle cx="12" cy="12" r="4"/>
-    <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4" stroke-linecap="round"/>
-  </svg>
-</button>
-
 <script>
-  // Theme toggle — dark <-> light, persisted via localStorage
-  (function () {
-    var btn = document.getElementById('themeToggle');
-    if (!btn) return;
-    var STORAGE_KEY = 'octavire-v2-theme';
-    function apply(theme) {
-      var isLight = theme === 'light';
-      document.body.classList.toggle('light', isLight);
-      btn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
-      btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
-      window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: theme } }));
-    }
-    var saved = null;
-    try { saved = localStorage.getItem(STORAGE_KEY); } catch (_) {}
-    apply(saved === 'light' ? 'light' : 'dark');
-    btn.addEventListener('click', function () {
-      var next = document.body.classList.contains('light') ? 'dark' : 'light';
-      try { localStorage.setItem(STORAGE_KEY, next); } catch (_) {}
-      apply(next);
-    });
-  })();
-
   // Cursor glow — radial blue tint that follows the pointer (desktop only)
   (function () {
     var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
