@@ -3,23 +3,23 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://octavire.com/</loc>
+    <loc>https://dremonpro.com/</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://octavire.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://octavire.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://dremonpro.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://dremonpro.com/" />
   </url>
 
   <url>
-    <loc>https://octavire.com/privacy.html</loc>
+    <loc>https://dremonpro.com/privacy.html</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://octavire.com/terms.html</loc>
+    <loc>https://dremonpro.com/terms.html</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
