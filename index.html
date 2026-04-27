@@ -222,7 +222,7 @@ img, svg, video { display: block; max-width: 100%; }
 ::selection { background: var(--blue); color: #000; }
 
 /* ============== CURSOR EFFECTS (ported from V1) ============== */
-/* Cursor glow (desktop only) — radial blue tint following the pointer */
+/* Cursor glow (desktop only) — soft white cloud with an orange ring */
 .cursor-glow {
   position: fixed;
   top: 0; left: 0;
@@ -230,7 +230,9 @@ img, svg, video { display: block; max-width: 100%; }
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
-  background: radial-gradient(circle, rgba(79,158,255,0.12) 0%, rgba(79,158,255,0) 60%);
+  background:
+    radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 22%, rgba(255,255,255,0) 45%),
+    radial-gradient(circle, rgba(255,126,0,0) 30%, rgba(255,126,0,0.10) 50%, rgba(255,126,0,0) 65%);
   transform: translate(-50%, -50%);
   transition: opacity 0.3s var(--ease);
   will-change: transform;
@@ -263,7 +265,7 @@ header.nav { z-index: 60; }
   display: inline-block;
   font-size: var(--fs-micro); font-weight: 600;
   letter-spacing: 0.26em; text-transform: uppercase;
-  color: var(--t-quiet);
+  color: var(--orange);
   line-height: var(--lh-tight);
 }
 
