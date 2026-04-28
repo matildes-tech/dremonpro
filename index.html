@@ -849,13 +849,13 @@ section.section { padding: 96px 0; position: relative; }
   border: 1px solid currentColor; border-radius: 100px; padding: 2px 7px; line-height: 1;
 }
 .plans {
+  /* Carousel layout overrides this entirely (see .plans-carousel .plans).
+     Falling back to a grid only if the carousel wrapper is absent. */
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
   align-items: stretch;
 }
-@media (min-width: 640px) { .plans { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 1100px) { .plans { grid-template-columns: repeat(5, 1fr); gap: 16px; } }
 .plan {
   position: relative; display: flex; flex-direction: column;
   border: 1px solid var(--line); border-radius: var(--radius-lg);
@@ -923,6 +923,72 @@ h3.plan-name {
 
 /* Press feedback for any button */
 .btn:active { transform: scale(0.97); transition: transform 0.08s var(--ease); }
+
+/* ============== PLANS CAROUSEL (all viewports — embla-style) ============== */
+.plans-carousel { position: relative; }
+.plans-carousel .plans {
+  display: flex;
+  grid-template-columns: none;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x proximity;
+  gap: 16px;
+  padding: 4px 0 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.plans-carousel .plans::-webkit-scrollbar { display: none; }
+.plans-carousel .plan {
+  scroll-snap-align: start;
+  flex: 0 0 86%;        /* mobile default: ~1 card */
+}
+@media (min-width: 720px) {
+  .plans-carousel .plan { flex: 0 0 calc(50% - 8px); } /* 2 cards */
+}
+@media (min-width: 1100px) {
+  .plans-carousel .plan { flex: 0 0 calc(33.333% - 11px); } /* 3 cards */
+}
+/* extend rail to viewport edge on small screens so cards can peek */
+@media (max-width: 719px) {
+  .plans-carousel .plans { padding-left: 24px; padding-right: 24px; margin: 0 -24px; }
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 22px;
+}
+.carousel-btn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  cursor: pointer;
+  display: grid; place-items: center;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.08s var(--ease);
+}
+.carousel-btn:hover:not(:disabled) { background: var(--orange); color: #000; border-color: var(--orange); }
+.carousel-btn:active:not(:disabled) { transform: scale(0.94); }
+.carousel-btn:disabled { opacity: 0.32; cursor: not-allowed; }
+.carousel-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+.carousel-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+  border: 0; padding: 0; cursor: pointer;
+  transition: background-color 0.2s var(--ease), width 0.25s var(--ease);
+}
+.carousel-dot.is-active { background: var(--orange); width: 18px; border-radius: 100px; }
 
 /* ============== TESTIMONIALS (Section 07.5) ============== */
 .testimonials {
@@ -1790,6 +1856,7 @@ body.video-modal-open { overflow: hidden; }
       <span class="toggle-save">Save up to 20% with yearly billing</span>
     </div>
 
+    <div class="plans-carousel" role="region" aria-roledescription="carousel" aria-label="Subscription plans">
     <div class="plans">
 
       <article class="plan">
@@ -1883,6 +1950,17 @@ body.video-modal-open { overflow: hidden; }
         <p class="plan-foot">Built for B2B, collaboration, and scaling.</p>
       </article>
 
+    </div>
+
+    <div class="carousel-dots" id="plansDots" role="tablist" aria-label="Select plan"></div>
+    <div class="carousel-controls">
+      <button type="button" class="carousel-btn" data-carousel-prev aria-label="Previous plan">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 L9 12 L15 18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="carousel-btn" data-carousel-next aria-label="Next plan">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 L15 12 L9 18" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
     </div>
 
     <p class="pricing-fine">All plans include encrypted, on-device scans. No artwork is ever used to train models.</p>
@@ -2280,6 +2358,95 @@ body.video-modal-open { overflow: hidden; }
       });
       plan.setAttribute('tabindex', '0');
     });
+  })();
+
+  // Plans carousel — mobile (< 640px) horizontal scroll-snap rail + arrows + dots
+  (function () {
+    var carousel = document.querySelector('.plans-carousel');
+    if (!carousel) return;
+    var rail = carousel.querySelector('.plans');
+    var prev = carousel.querySelector('[data-carousel-prev]');
+    var next = carousel.querySelector('[data-carousel-next]');
+    var dotsHost = carousel.querySelector('#plansDots');
+    if (!rail || !prev || !next) return;
+
+    var planItems = rail.querySelectorAll('.plan');
+
+    // Build dots, one per plan
+    if (dotsHost && !dotsHost.children.length) {
+      planItems.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'carousel-dot';
+        b.setAttribute('role', 'tab');
+        b.setAttribute('aria-label', 'Go to plan ' + (i + 1));
+        b.addEventListener('click', function () { goTo(i); });
+        dotsHost.appendChild(b);
+      });
+    }
+
+    function gap() { return parseFloat(getComputedStyle(rail).columnGap || '0') || 14; }
+    function cardStep() {
+      var first = rail.querySelector('.plan');
+      return first ? first.offsetWidth + gap() : rail.clientWidth;
+    }
+    function activeIndex() {
+      // Card whose left edge is closest to (rail.scrollLeft + paddingLeft)
+      var pad = parseFloat(getComputedStyle(rail).paddingLeft || '0');
+      var ref = rail.scrollLeft + pad;
+      var best = 0, bestDist = Infinity;
+      planItems.forEach(function (el, i) {
+        var d = Math.abs(el.offsetLeft - ref);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    }
+    function update() {
+      var atStart = rail.scrollLeft <= 4;
+      var atEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 4;
+      prev.disabled = atStart;
+      next.disabled = atEnd;
+      if (dotsHost) {
+        var idx = activeIndex();
+        dotsHost.querySelectorAll('.carousel-dot').forEach(function (d, i) {
+          d.classList.toggle('is-active', i === idx);
+          d.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+        });
+      }
+    }
+    function goTo(i) {
+      var item = planItems[i];
+      if (!item) return;
+      // Align card to the rail's left edge (matches scroll-snap-align: start)
+      var target = Math.max(0, item.offsetLeft - parseFloat(getComputedStyle(rail).paddingLeft || '0'));
+      var max = rail.scrollWidth - rail.clientWidth;
+      target = Math.max(0, Math.min(target, max));
+      var from = rail.scrollLeft;
+      var dist = target - from;
+      if (Math.abs(dist) < 0.5) return;
+      // rAF animation (immune to snap-mandatory pinning, works across browsers)
+      var dur = 380;
+      var t0 = performance.now();
+      function ease(t){ return 1 - Math.pow(1 - t, 3); }
+      function tick(now){
+        var t = Math.min(1, (now - t0) / dur);
+        rail.scrollLeft = from + dist * ease(t);
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    function step(dir) {
+      var idx = activeIndex();
+      goTo(Math.max(0, Math.min(planItems.length - 1, idx + dir)));
+    }
+
+    prev.addEventListener('click', function (e) { e.stopPropagation(); step(-1); });
+    next.addEventListener('click', function (e) { e.stopPropagation(); step(1); });
+    rail.addEventListener('scroll', function () { update(); }, { passive: true });
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+    // Wait for layout to settle (next paint after current frame)
+    requestAnimationFrame(function () { requestAnimationFrame(update); });
   })();
 
   // ============== TiltCard (vanilla port) — applied to .problem-card x3 ==============
