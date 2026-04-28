@@ -1111,19 +1111,46 @@ h3.plan-name {
   .testi-slide { transition: none; }
 }
 
-/* ============== USE CASES (Section 07.6) ============== */
-.usecases-grid {
-  margin-top: 56px;
-  display: grid;
-  grid-template-columns: 1fr;
+/* ============== USE CASES (Section 07.6) — vertical carousel ============== */
+.usecases-carousel {
+  position: relative;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.usecases-rail {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+.usecases-track {
+  display: flex;
+  flex-direction: column;
   gap: 14px;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
+  height: 380px;
+  scrollbar-width: none;
+  padding: 2px;
 }
-@media (min-width: 880px) {
-  .usecases-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-  }
+.usecases-track::-webkit-scrollbar { display: none; }
+.usecases-track .usecase {
+  flex: 0 0 calc(50% - 7px);
+  scroll-snap-align: start;
 }
+.usecase-arrow {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  cursor: pointer;
+  display: grid; place-items: center;
+  margin: 14px auto;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.08s var(--ease);
+}
+.usecase-arrow:hover:not(:disabled) { background: var(--orange); color: #000; border-color: var(--orange); }
+.usecase-arrow:disabled { opacity: 0.32; cursor: not-allowed; }
+.usecase-arrow:active:not(:disabled) { transform: scale(0.94); }
+.usecase-arrow svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
 .usecase {
   position: relative;
   border: 1px solid var(--line);
@@ -2095,60 +2122,70 @@ body.video-modal-open { overflow: hidden; }
 <!-- ============== 07.6 — USE CASES ============== -->
 <section class="section" id="usecases" aria-labelledby="usecases-h">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head center">
       <span class="kicker">Use cases</span>
       <h2 id="usecases-h">How artists are using <span class="serif-i" style="color:rgba(255,255,255,0.7)">DREMONPRO.</span></h2>
       <p>Four ways the studio software earns its place every day.</p>
     </div>
 
-    <div class="usecases-grid">
-      <article class="usecase">
-        <div class="usecase-num">01</div>
-        <div class="usecase-body">
-          <h3>Walk-in to wallet in 20 minutes.</h3>
-          <p>Studio scans the client at the door, pulls a flash variation off the AI, AR-places it on real skin, takes the deposit before the coffee gets cold.</p>
-          <div class="usecase-tags">
-            <span class="usecase-tag">Walk-in</span>
-            <span class="usecase-tag">Conversion</span>
-          </div>
-        </div>
-      </article>
+    <div class="usecases-carousel" role="region" aria-roledescription="carousel" aria-label="Use cases">
+      <button type="button" class="usecase-arrow" data-uc-prev aria-label="Previous use cases">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 15 L12 9 L18 15" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="usecases-rail">
+        <div class="usecases-track">
+          <article class="usecase">
+            <div class="usecase-num">01</div>
+            <div class="usecase-body">
+              <h3>Walk-in to wallet in 20 minutes.</h3>
+              <p>Studio scans the client at the door, pulls a flash variation off the AI, AR-places it on real skin, takes the deposit before the coffee gets cold.</p>
+              <div class="usecase-tags">
+                <span class="usecase-tag">Walk-in</span>
+                <span class="usecase-tag">Conversion</span>
+              </div>
+            </div>
+          </article>
 
-      <article class="usecase">
-        <div class="usecase-num">02</div>
-        <div class="usecase-body">
-          <h3>Touring &amp; guest-spot consults.</h3>
-          <p>Remote clients scan from home with the free companion app. Design and AR-check placement before they fly in. No wasted chair time on day one.</p>
-          <div class="usecase-tags">
-            <span class="usecase-tag">Touring</span>
-            <span class="usecase-tag">Remote</span>
-          </div>
-        </div>
-      </article>
+          <article class="usecase">
+            <div class="usecase-num">02</div>
+            <div class="usecase-body">
+              <h3>Touring &amp; guest-spot consults.</h3>
+              <p>Remote clients scan from home with the free companion app. Design and AR-check placement before they fly in. No wasted chair time on day one.</p>
+              <div class="usecase-tags">
+                <span class="usecase-tag">Touring</span>
+                <span class="usecase-tag">Remote</span>
+              </div>
+            </div>
+          </article>
 
-      <article class="usecase">
-        <div class="usecase-num">03</div>
-        <div class="usecase-body">
-          <h3>Cover-up planning, automated.</h3>
-          <p>The 3D scan auto-traces existing tattoos. AI generates designs that fit the geometry that's already on the body, not a flat reference photo.</p>
-          <div class="usecase-tags">
-            <span class="usecase-tag">Cover-ups</span>
-            <span class="usecase-tag">Reworks</span>
-          </div>
-        </div>
-      </article>
+          <article class="usecase">
+            <div class="usecase-num">03</div>
+            <div class="usecase-body">
+              <h3>Cover-up planning, automated.</h3>
+              <p>The 3D scan auto-traces existing tattoos. AI generates designs that fit the geometry that's already on the body, not a flat reference photo.</p>
+              <div class="usecase-tags">
+                <span class="usecase-tag">Cover-ups</span>
+                <span class="usecase-tag">Reworks</span>
+              </div>
+            </div>
+          </article>
 
-      <article class="usecase">
-        <div class="usecase-num">04</div>
-        <div class="usecase-body">
-          <h3>Sleeve mapping across sessions.</h3>
-          <p>Long-form sleeves planned across the whole arm in 3D. Sequence sessions so the linework, fills and details flow as one piece, not five.</p>
-          <div class="usecase-tags">
-            <span class="usecase-tag">Multi-session</span>
-            <span class="usecase-tag">Composition</span>
-          </div>
+          <article class="usecase">
+            <div class="usecase-num">04</div>
+            <div class="usecase-body">
+              <h3>Sleeve mapping across sessions.</h3>
+              <p>Long-form sleeves planned across the whole arm in 3D. Sequence sessions so the linework, fills and details flow as one piece, not five.</p>
+              <div class="usecase-tags">
+                <span class="usecase-tag">Multi-session</span>
+                <span class="usecase-tag">Composition</span>
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
+      </div>
+      <button type="button" class="usecase-arrow" data-uc-next aria-label="Next use cases">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9 L12 15 L18 9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -2430,6 +2467,56 @@ body.video-modal-open { overflow: hidden; }
       });
       plan.setAttribute('tabindex', '0');
     });
+  })();
+
+  // Use cases — vertical carousel (2 cards visible per view, JS-driven scroll)
+  (function () {
+    var track = document.querySelector('.usecases-track');
+    var prev = document.querySelector('[data-uc-prev]');
+    var next = document.querySelector('[data-uc-next]');
+    if (!track || !prev || !next) return;
+    var items = track.querySelectorAll('.usecase');
+
+    function activeIndex() {
+      var pad = parseFloat(getComputedStyle(track).paddingTop || '0');
+      var ref = track.scrollTop + pad;
+      var best = 0, bestDist = Infinity;
+      items.forEach(function (el, i) {
+        var d = Math.abs(el.offsetTop - ref);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    }
+    function update() {
+      prev.disabled = track.scrollTop <= 4;
+      next.disabled = track.scrollTop + track.clientHeight >= track.scrollHeight - 4;
+    }
+    function goTo(i) {
+      var item = items[i];
+      if (!item) return;
+      var max = track.scrollHeight - track.clientHeight;
+      var target = Math.max(0, Math.min(item.offsetTop, max));
+      var from = track.scrollTop;
+      var dist = target - from;
+      if (Math.abs(dist) < 0.5) return;
+      var t0 = performance.now();
+      function ease(t) { return 1 - Math.pow(1 - t, 3); }
+      function tick(now) {
+        var t = Math.min(1, (now - t0) / 380);
+        track.scrollTop = from + dist * ease(t);
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    function step(dir) {
+      goTo(Math.max(0, Math.min(items.length - 1, activeIndex() + dir)));
+    }
+    prev.addEventListener('click', function () { step(-1); });
+    next.addEventListener('click', function () { step(1); });
+    track.addEventListener('scroll', function () { update(); }, { passive: true });
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+    requestAnimationFrame(function () { requestAnimationFrame(update); });
   })();
 
   // Animated testimonials — auto-rotating with pagination dots, pause on hover
