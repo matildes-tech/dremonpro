@@ -1046,28 +1046,28 @@ h3.plan-name {
 
 .testi-stage {
   position: relative;
-  min-height: 320px;
+  display: grid;
+  grid-template-areas: "stack";
+  align-items: start;
 }
-@media (min-width: 880px) { .testi-stage { min-height: 380px; } }
 .testi-stage::before, .testi-stage::after {
   content: ""; position: absolute;
   width: 96px; height: 96px;
   border-radius: var(--radius-lg);
   background: rgba(255,126,0,0.05);
   pointer-events: none;
+  z-index: 0;
 }
 .testi-stage::before { bottom: -24px; left: -24px; }
 .testi-stage::after  { top: -24px; right: -24px; }
 
 .testi-slide {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
+  grid-area: stack;
+  align-self: start;
   background: #000;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 36px;
+  padding: 32px;
   box-shadow: 0 30px 80px -40px rgba(0,0,0,0.7);
   opacity: 0;
   transform: translateX(80px) scale(0.95);
@@ -1084,7 +1084,7 @@ h3.plan-name {
 .testi-stars {
   display: flex; gap: 6px;
   color: #facc15;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 .testi-stars svg { width: 18px; height: 18px; fill: currentColor; }
 .testi-slide blockquote {
@@ -1093,7 +1093,6 @@ h3.plan-name {
   line-height: 1.5;
   color: var(--t-heading);
   font-weight: 500;
-  flex: 1;
   position: relative;
 }
 .testi-slide blockquote::before {
