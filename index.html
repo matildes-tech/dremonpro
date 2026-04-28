@@ -386,6 +386,16 @@ input:focus-visible,
 }
 .hero-visual::after { content: none; display: none; }
 .hero-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+  background: #000;
+}
 .hero-watch {
   position: absolute; right: 16px; bottom: 16px;
   display: flex; align-items: center; gap: 12px;
@@ -1356,96 +1366,26 @@ h2.section-title .serif {
         </a>
         <a href="#demo" class="btn btn-ghost btn-lg">
           <span class="play-pip"><svg viewBox="0 0 12 12"><polygon points="3,2 10,6 3,10"/></svg></span>
-          Watch 60-sec demo
+          Watch 36-sec demo
         </a>
       </div>
       <p class="hero-meta">Free during beta · Founding artist seats · Works on iPad Pro &amp; iPhone with LiDAR</p>
     </div>
 
-    <div class="hero-visual" aria-hidden="true">
-      <svg viewBox="0 0 720 540" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <linearGradient id="skin" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="#fff" stop-opacity="0.32"/>
-            <stop offset="0.5" stop-color="#fff" stop-opacity="0.12"/>
-            <stop offset="1" stop-color="#fff" stop-opacity="0.02"/>
-          </linearGradient>
-          <linearGradient id="scan" x1="0" x2="1">
-            <stop offset="0" stop-color="rgba(255,255,255,0)"/>
-            <stop offset="0.5" stop-color="rgba(255,255,255,0.9)"/>
-            <stop offset="1" stop-color="rgba(255,255,255,0)"/>
-          </linearGradient>
-          <linearGradient id="art" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0" stop-color="#4F9EFF"/>
-            <stop offset="0.5" stop-color="#fff"/>
-            <stop offset="1" stop-color="#B794F6"/>
-          </linearGradient>
-        </defs>
+    <div class="hero-visual" aria-label="DREMONPRO product demo">
+      <video
+        class="hero-video"
+        autoplay muted loop playsinline
+        preload="metadata"
+        aria-label="DREMONPRO 36-second product demo">
+        <source src="videos/dremonpro-hero.mp4" type="video/mp4" />
+      </video>
 
-        <!-- corner ticks -->
-        <g fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.2">
-          <path d="M24 24 L 24 56 M 24 24 L 56 24"/>
-          <path d="M696 24 L 696 56 M 696 24 L 664 24"/>
-          <path d="M24 516 L 24 484 M 24 516 L 56 516"/>
-          <path d="M696 516 L 696 484 M 696 516 L 664 516"/>
-        </g>
-
-        <!-- readouts -->
-        <g fill="rgba(255,255,255,0.6)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" letter-spacing="0.18em">
-          <text x="40" y="56">DREMONPRO · PLACE v1</text>
-          <text x="680" y="56" text-anchor="end">● LIVE</text>
-          <text x="40" y="508">FIT · 99.4% · FOREARM L</text>
-          <text x="680" y="508" text-anchor="end">READY</text>
-        </g>
-
-        <!-- forearm silhouette -->
-        <g stroke="rgba(255,255,255,0.55)" stroke-width="1.2" fill="url(#skin)" stroke-linejoin="round">
-          <path d="
-            M 200 110
-            C 230 120 270 140 320 170
-            C 380 210 430 270 470 330
-            C 510 390 540 440 540 480
-            L 460 480
-            C 440 440 410 390 370 340
-            C 330 290 290 250 250 220
-            C 220 200 190 180 160 160
-            Z"/>
-        </g>
-
-        <!-- design overlay sliding in -->
-        <g fill="none" stroke="url(#art)" stroke-width="1.6" stroke-linecap="round" opacity="0.95">
-          <g>
-            <animateTransform attributeName="transform" type="translate"
-              values="-180 -90; 0 0; 0 0; 0 0"
-              keyTimes="0; 0.45; 0.9; 1"
-              dur="5.5s" repeatCount="indefinite"/>
-            <path d="M 320 230 Q 360 180 410 220 Q 460 260 430 310 Q 400 360 350 340 Q 300 320 320 270 Z"/>
-            <path d="M 340 250 Q 370 220 400 245 Q 430 270 410 300 Q 380 330 355 310 Q 330 290 340 270 Z" opacity="0.6"/>
-            <circle cx="385" cy="275" r="2.6" fill="#fff" stroke="none"/>
-          </g>
-        </g>
-
-        <!-- markers -->
-        <g fill="#fff" opacity="0">
-          <animate attributeName="opacity" values="0;0;0.95;0.95;0" keyTimes="0;0.5;0.6;0.92;1" dur="5.5s" repeatCount="indefinite"/>
-          <circle cx="320" cy="230" r="2.2"/>
-          <circle cx="410" cy="220" r="2.2"/>
-          <circle cx="430" cy="310" r="2.2"/>
-          <circle cx="350" cy="340" r="2.2"/>
-        </g>
-
-        <!-- scan line -->
-        <rect x="120" y="80" width="500" height="1.6" fill="url(#scan)">
-          <animate attributeName="y" from="80" to="480" dur="4.2s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.1;0.9;1" dur="4.2s" repeatCount="indefinite"/>
-        </rect>
-      </svg>
-
-      <a href="#demo" class="hero-watch" aria-label="Watch the 60-second demo">
-        <span class="pip"><svg viewBox="0 0 12 12"><polygon points="3,2 10,6 3,10"/></svg></span>
+      <a href="#demo" class="hero-watch" aria-label="Watch the 36-second demo">
+        <span class="pip"><svg viewBox="0 0 12 12" aria-hidden="true"><polygon points="3,2 10,6 3,10"/></svg></span>
         <span class="lab">
           <span class="lab-k">Watch</span>
-          <span class="lab-t">60-sec product film</span>
+          <span class="lab-t">36-sec product film</span>
         </span>
       </a>
     </div>
@@ -2007,7 +1947,7 @@ h2.section-title .serif {
     <p>Join the next generation of tattoo artists building with DREMONPRO. Start free, ship to clients in a day, redefine the craft.</p>
     <div class="final-ctas">
       <a href="#waitlist" class="btn btn-primary btn-lg">Claim your founding seat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 L17 7 M7 7 h10 v10"/></svg></a>
-      <a href="#demo" class="btn btn-ghost btn-lg">Watch the 60-second demo</a>
+      <a href="#demo" class="btn btn-ghost btn-lg">Watch the 36-second demo</a>
     </div>
     <p class="final-fine">Free during beta · Founding artists get a lifetime discount</p>
     <div class="final-tag"><span class="li"></span>Built for the craft<span class="li"></span></div>
