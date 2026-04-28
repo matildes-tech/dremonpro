@@ -285,11 +285,101 @@ header.nav { z-index: 60; }
   -webkit-backdrop-filter: none !important;
   border-bottom-color: transparent;
 }
-.nav-inner { display: flex; height: 64px; align-items: center; justify-content: space-between; gap: 16px; }
-.logo {
-  font-size: 20px; font-weight: 800; letter-spacing: 0.04em;
-  display: inline-flex; align-items: center; gap: 10px; color: #fff;
+.nav-inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  height: 64px;
+  align-items: center;
+  gap: 16px;
 }
+.nav-burger {
+  justify-self: start;
+}
+.nav-right {
+  justify-self: end;
+}
+.logo {
+  justify-self: center;
+  font-size: 18px; font-weight: 800; letter-spacing: 0.04em;
+  display: inline-flex; align-items: center; gap: 10px; color: #fff;
+  text-decoration: none;
+}
+/* Black "pill" background only behind individual items (not the whole bar) */
+.nav-pill {
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 100px;
+  padding: 8px 14px;
+  transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.logo.nav-pill { padding: 8px 18px; }
+.nav-burger.nav-pill { padding: 0; width: 44px; height: 44px; }
+.nav-burger {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+.burger-line {
+  display: block;
+  width: 18px;
+  height: 1.5px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
+}
+.nav-burger[aria-expanded="true"] .burger-line:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.nav-burger[aria-expanded="true"] .burger-line:nth-child(2) { opacity: 0; }
+.nav-burger[aria-expanded="true"] .burger-line:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+.nav-burger:hover { border-color: rgba(255,126,0,0.4); }
+
+/* Dropdown panel revealed by burger */
+.nav-menu {
+  position: absolute;
+  top: 64px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px;
+  background: rgba(0,0,0,0.92);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  min-width: 220px;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+}
+.nav-menu[hidden] { display: flex; }
+.nav-menu.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.nav-menu a {
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  color: rgba(255,255,255,0.78);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.nav-menu a:hover { background: rgba(255,126,0,0.12); color: var(--orange); }
+@media (min-width: 768px) { .nav-menu { left: 40px; } }
 .logo-mark {
   width: 22px; height: 22px; border-radius: 50%;
   background: conic-gradient(from 0deg, var(--blue), var(--green), var(--mauve), var(--blue));
@@ -400,20 +490,27 @@ input:focus-visible,
   display: block;
   background: #000;
 }
-.hero-watch {
-  position: absolute; right: 16px; bottom: 16px;
-  display: flex; align-items: center; gap: 12px;
-  background: rgba(0,0,0,0.6); backdrop-filter: blur(10px);
-  border: 1px solid var(--line-2); border-radius: 16px;
-  padding: 10px 18px 10px 12px;
-  transition: background-color 0.2s var(--ease);
+/* Centered play button overlaying the hero video */
+.hero-play {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.94);
+  border: 0;
+  cursor: pointer;
+  display: grid; place-items: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
+  z-index: 3;
 }
-.hero-watch:hover { background: rgba(255,255,255,0.08); }
-.hero-watch .pip { width: 38px; height: 38px; border-radius: 50%; background: #fff; color: #000; display: grid; place-items: center; }
-.hero-watch .pip svg { width: 12px; height: 12px; fill: currentColor; margin-left: 1px; }
-.hero-watch .lab { display: flex; flex-direction: column; line-height: 1.18; }
-.hero-watch .lab-k { font-size: var(--fs-micro); font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
-.hero-watch .lab-t { font-size: 14px; font-weight: 500; margin-top: 2px; }
+.hero-play:hover {
+  background: var(--orange);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+.hero-play:active { transform: translate(-50%, -50%) scale(0.96); }
+.hero-play svg { width: 32px; height: 32px; fill: #000; margin-left: 4px; }
 
 /* ============== TRUST STRIP (Section 02) ============== */
 .trust {
@@ -1590,22 +1687,26 @@ body.video-modal-open { overflow: hidden; }
 <!-- ============== NAV ============== -->
 <header class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#top" class="logo" aria-label="DREMONPRO V2 home">
+    <button type="button" class="nav-burger nav-pill" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <a href="#top" class="logo nav-pill" aria-label="DREMONPRO home">
       <span class="logo-mark" aria-hidden="true"></span>
       DREMONPRO
     </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="#features">Features</a>
-      <a href="#how">How it works</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="#waitlist">Waitlist</a>
-    </nav>
     <div class="nav-right">
-      <a href="#demo" class="btn btn-ghost btn-sm">Watch demo</a>
-      <a href="#waitlist" class="btn btn-primary btn-sm">Join waitlist</a>
+      <a href="#waitlist" class="btn btn-primary btn-sm">Join the waitlist</a>
     </div>
   </div>
+  <nav class="nav-menu" id="navMenu" aria-label="Primary" hidden>
+    <a href="#features">Features</a>
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#waitlist">Waitlist</a>
+  </nav>
 </header>
 
 <main id="top">
@@ -1628,10 +1729,6 @@ body.video-modal-open { overflow: hidden; }
           Join the waitlist
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 L17 7 M7 7 h10 v10"/></svg>
         </a>
-        <a href="#demo" class="btn btn-ghost btn-lg">
-          <span class="play-pip"><svg viewBox="0 0 12 12"><polygon points="3,2 10,6 3,10"/></svg></span>
-          Watch 36-sec demo
-        </a>
       </div>
       <p class="hero-meta">Free during beta · Founding artist seats · Works on iPad Pro &amp; iPhone with LiDAR</p>
     </div>
@@ -1645,13 +1742,9 @@ body.video-modal-open { overflow: hidden; }
         <source src="videos/dremonpro-hero.mp4" type="video/mp4" />
       </video>
 
-      <a href="#demo" class="hero-watch" aria-label="Watch the 36-second demo">
-        <span class="pip"><svg viewBox="0 0 12 12" aria-hidden="true"><polygon points="3,2 10,6 3,10"/></svg></span>
-        <span class="lab">
-          <span class="lab-k">Watch</span>
-          <span class="lab-t">36-sec product film</span>
-        </span>
-      </a>
+      <button type="button" class="hero-play" aria-label="Play DREMONPRO product demo">
+        <svg viewBox="0 0 64 64" aria-hidden="true"><polygon points="22,16 50,32 22,48"/></svg>
+      </button>
     </div>
   </div>
 </section>
@@ -2358,6 +2451,36 @@ body.video-modal-open { overflow: hidden; }
     function onScroll() { if (window.scrollY > 20) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+  })();
+
+  // Burger menu — toggles the dropdown nav-menu
+  (function () {
+    var burger = document.getElementById('navBurger');
+    var menu = document.getElementById('navMenu');
+    if (!burger || !menu) return;
+    function setOpen(open) {
+      menu.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open) menu.removeAttribute('hidden');
+      else menu.setAttribute('hidden', '');
+    }
+    burger.addEventListener('click', function (e) {
+      e.stopPropagation();
+      setOpen(!menu.classList.contains('is-open'));
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setOpen(false); });
+    });
+    document.addEventListener('click', function (e) {
+      if (!menu.classList.contains('is-open')) return;
+      if (!menu.contains(e.target) && !burger.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+        setOpen(false);
+        burger.focus();
+      }
+    });
   })();
 
   // Reveal on scroll
@@ -3089,18 +3212,21 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     if (heroVid) { try { heroVid.play(); } catch (e) {} }
   }
 
-  // Wire all "demo" links + the hero-watch overlay + the hero-visual itself
+  // Wire all "demo" links + the centered play button + the hero-visual itself
   document.querySelectorAll('a[href="#demo"]').forEach(function (a) {
     a.addEventListener('click', function (e) { e.preventDefault(); open(); });
   });
+  var heroPlay = document.querySelector('.hero-play');
+  if (heroPlay) {
+    heroPlay.addEventListener('click', function (e) { e.stopPropagation(); open(); });
+  }
   var heroVisual = document.querySelector('.hero-visual');
   if (heroVisual) {
     heroVisual.setAttribute('role', 'button');
     heroVisual.setAttribute('tabindex', '0');
     heroVisual.setAttribute('aria-label', 'Play DREMONPRO product demo with audio');
     heroVisual.addEventListener('click', function (e) {
-      // ignore clicks bubbled from the inner hero-watch link (already handled)
-      if (e.target.closest('.hero-watch')) return;
+      if (e.target.closest('.hero-play')) return;
       open();
     });
     heroVisual.addEventListener('keydown', function (e) {
