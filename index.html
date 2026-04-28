@@ -797,7 +797,41 @@ section.section { padding: 96px 0; position: relative; }
 .ba-half svg { width: 100%; height: 100%; }
 
 /* ============== PRICING (Section 07) ============== */
-.toggle { display: flex; justify-content: center; margin-bottom: 40px; }
+.pricing-trial {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin: 0 auto 18px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--t-lead);
+}
+.pricing-trial .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 10px rgba(255,126,0,0.6);
+}
+.pricing-trust {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  justify-content: center;
+  margin: 22px auto 0;
+}
+.pricing-trust-pill {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: var(--fs-meta);
+  color: var(--t-lead);
+  font-weight: 500;
+}
+.toggle { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
+.toggle-save { font-size: var(--fs-meta); color: var(--orange); font-weight: 500; }
 .toggle-inner {
   display: inline-flex; align-items: center; gap: 4px;
   padding: 4px; border-radius: 100px; border: 1px solid var(--line-2);
@@ -814,36 +848,81 @@ section.section { padding: 96px 0; position: relative; }
   font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
   border: 1px solid currentColor; border-radius: 100px; padding: 2px 7px; line-height: 1;
 }
-.plans { display: grid; grid-template-columns: 1fr; gap: 16px; align-items: stretch; }
-@media (min-width: 880px) { .plans { grid-template-columns: repeat(3, 1fr); } }
+.plans {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+@media (min-width: 640px) { .plans { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .plans { grid-template-columns: repeat(5, 1fr); gap: 16px; } }
 .plan {
   position: relative; display: flex; flex-direction: column;
   border: 1px solid var(--line); border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent);
-  padding: 30px;
+  background: #000;
+  padding: 26px;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.plan:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,126,0,0.35);
+  box-shadow: 0 24px 60px -30px rgba(255,126,0,0.18);
+}
+.plan:active {
+  transform: translateY(-1px) scale(0.992);
+  transition: transform 0.08s var(--ease);
 }
 .plan.featured {
-  border-color: rgba(255,255,255,0.32);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
-  box-shadow: 0 30px 120px -40px rgba(79,158,255,0.25);
+  border-color: rgba(255,126,0,0.5);
+  box-shadow: 0 30px 100px -30px rgba(255,126,0,0.28);
 }
-.plan-badge {
-  position: absolute; top: -12px; left: 24px;
-  background: #fff; color: #000; border-radius: 100px;
-  font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
-  padding: 5px 12px; display: inline-flex; align-items: center; gap: 8px; line-height: 1.2;
+.plan-tag {
+  display: inline-flex; align-self: flex-start;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--line);
+  border-radius: 100px;
+  padding: 4px 10px;
+  font-size: var(--fs-micro);
+  font-weight: 500;
+  color: var(--t-lead);
+  margin-bottom: 16px;
+  line-height: 1.2;
 }
-.plan-badge .d { width: 6px; height: 6px; border-radius: 50%; background: #000; }
-h3.plan-name { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.022em; color: var(--t-heading); line-height: var(--lh-h3); margin: 0; }
-.plan-blurb { font-size: var(--fs-small); color: var(--t-meta); margin-top: 6px; line-height: 1.5; font-weight: 400; }
-.plan-price { display: flex; align-items: baseline; gap: 8px; margin-top: 22px; }
-.plan-price .num { font-size: 44px; font-weight: 600; letter-spacing: -0.03em; color: var(--t-heading); font-variant-numeric: tabular-nums; line-height: 1; }
-.plan-price .per { font-size: var(--fs-meta); color: var(--t-meta); line-height: 1.4; font-weight: 400; }
-.plan .btn { margin-top: 24px; }
-.plan-features { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-direction: column; gap: 12px; }
-.plan-features li { display: flex; gap: 10px; font-size: var(--fs-body); color: var(--t-body); align-items: flex-start; line-height: 1.5; font-weight: 400; }
-.plan-features li svg { flex: none; width: 14px; height: 14px; stroke: var(--t-heading); fill: none; stroke-width: 2; margin-top: 5px; }
+.plan.featured .plan-tag {
+  background: rgba(255,126,0,0.12);
+  border-color: rgba(255,126,0,0.4);
+  color: var(--orange);
+}
+h3.plan-name {
+  font-size: 22px; font-weight: 600; letter-spacing: -0.022em;
+  color: var(--t-heading); line-height: 1.1; margin: 0;
+}
+.plan-price { display: flex; flex-direction: column; gap: 0; margin: 6px 0 16px; }
+.plan-price .num { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; color: var(--t-heading); font-variant-numeric: tabular-nums; line-height: 1.05; }
+.plan-price .per { font-size: var(--fs-meta); color: var(--t-meta); line-height: 1.4; margin-top: 4px; }
+.plan-blurb { font-size: var(--fs-small); color: var(--t-body); margin: 0 0 18px; line-height: 1.5; }
+.plan-features {
+  list-style: none; padding: 0; margin: 0 0 22px;
+  display: flex; flex-direction: column; gap: 10px;
+  flex: 1;
+}
+.plan-features li {
+  display: flex; gap: 10px;
+  font-size: var(--fs-small); color: var(--t-body);
+  align-items: flex-start; line-height: 1.45;
+}
+.plan-features li::before {
+  content: ""; flex: none; width: 5px; height: 5px;
+  border-radius: 50%; background: var(--t-meta);
+  margin-top: 8px;
+}
+.plan .btn { width: 100%; margin-top: auto; }
+.plan-foot { font-size: var(--fs-micro); color: var(--t-meta); margin: 14px 0 0; text-align: center; font-style: italic; line-height: 1.4; }
 .pricing-fine { margin-top: 32px; text-align: center; font-size: var(--fs-small); color: var(--t-meta); line-height: 1.5; }
+
+/* Press feedback for any button */
+.btn:active { transform: scale(0.97); transition: transform 0.08s var(--ease); }
 
 /* ============== TESTIMONIALS (Section 07.5) ============== */
 .testimonials {
@@ -1692,67 +1771,118 @@ body.video-modal-open { overflow: hidden; }
 <section class="section" id="pricing">
   <div class="container">
     <div class="section-head center">
-      <span class="kicker">Pricing</span>
-      <h2>Transparent tiers. <span class="serif-i" style="color:rgba(255,255,255,0.7)">Built for artists.</span></h2>
-      <p>Start free. No credit card required. Cancel anytime.</p>
+      <span class="pricing-trial"><span class="dot"></span>7-day trial · no credit card</span>
+      <h2>Premium pricing built to convert visitors into <span class="serif-i" style="color:rgba(255,255,255,0.7)">loyal users.</span></h2>
+      <p>A polished, high-end pricing experience that shows value fast, reduces friction, and makes upgrading feel like the natural next step.</p>
+      <div class="pricing-trust">
+        <span class="pricing-trust-pill">Fast setup</span>
+        <span class="pricing-trust-pill">Cancel anytime</span>
+        <span class="pricing-trust-pill">Built for creators, pros &amp; teams</span>
+        <span class="pricing-trust-pill">4.9/5 average rating</span>
+      </div>
     </div>
 
     <div class="toggle">
       <div class="toggle-inner" role="tablist" aria-label="Billing period">
-        <button id="bill-m" role="tab" aria-selected="false">Monthly</button>
-        <button id="bill-a" role="tab" aria-selected="true">Annual <span class="save">−20%</span></button>
+        <button id="bill-m" role="tab" aria-selected="true">Monthly</button>
+        <button id="bill-a" role="tab" aria-selected="false">Yearly</button>
       </div>
+      <span class="toggle-save">Save up to 20% with yearly billing</span>
     </div>
 
     <div class="plans">
+
       <article class="plan">
-        <h3 class="plan-name">Free</h3>
-        <div class="plan-blurb">For artists trying it out.</div>
+        <span class="plan-tag">Start here</span>
+        <h3 class="plan-name">Free Trial</h3>
         <div class="plan-price">
-          <span class="num" data-monthly="$0" data-annual="$0">$0</span>
-          <span class="per" data-monthly="forever" data-annual="forever">forever</span>
+          <span class="num" data-monthly="€0" data-annual="€0">€0</span>
+          <span class="per">free for 7 days</span>
         </div>
-        <a href="#waitlist" class="btn btn-ghost">Start free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19 M12 5 L19 12 L12 19"/></svg></a>
+        <p class="plan-blurb">See the core experience in 7 days with enough access to understand the product.</p>
         <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Sketch &amp; AI variations</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>1 body scan / month</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Stencil export (low-res)</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Watermarked AR previews</li>
+          <li>7 days access</li>
+          <li>1 demo flow</li>
+          <li>1-3 scans</li>
+          <li>Basic preview</li>
+          <li>Limited AI actions</li>
         </ul>
+        <a href="#waitlist" class="btn btn-ghost">Start free trial</a>
+        <p class="plan-foot">Designed to create upgrade intent, not full usage.</p>
       </article>
+
+      <article class="plan">
+        <span class="plan-tag">For beginners</span>
+        <h3 class="plan-name">Starter</h3>
+        <div class="plan-price">
+          <span class="num" data-monthly="€29" data-annual="€23">€29</span>
+          <span class="per" data-monthly="/ month" data-annual="/ month · billed yearly">/ month</span>
+        </div>
+        <p class="plan-blurb">For users who want to get serious without a big commitment.</p>
+        <ul class="plan-features">
+          <li>10-15 uses / month</li>
+          <li>Basic exports</li>
+          <li>Limited AI credits</li>
+          <li>Single user</li>
+        </ul>
+        <a href="#waitlist" class="btn btn-ghost">Start Starter</a>
+        <p class="plan-foot">A clean first paid step.</p>
+      </article>
+
       <article class="plan featured">
-        <span class="plan-badge"><span class="d"></span>Most popular</span>
-        <h3 class="plan-name">Studio</h3>
-        <div class="plan-blurb">For working artists.</div>
+        <span class="plan-tag">Most popular</span>
+        <h3 class="plan-name">Pro</h3>
         <div class="plan-price">
-          <span class="num" data-monthly="$29" data-annual="$23">$23</span>
-          <span class="per" data-monthly="/ artist / mo" data-annual="/ artist / mo · billed yearly">/ artist / mo · billed yearly</span>
+          <span class="num" data-monthly="€89" data-annual="€71">€89</span>
+          <span class="per" data-monthly="/ month" data-annual="/ month · billed yearly">/ month</span>
         </div>
-        <a href="#waitlist" class="btn btn-primary">Start 14-day trial <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19 M12 5 L19 12 L12 19"/></svg></a>
+        <p class="plan-blurb">The best value for everyday professional use.</p>
         <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Unlimited body scans</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>True-scale stencil export</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Live AR placement on clients</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Style-learned AI on your portfolio</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Priority support</li>
+          <li>50-100 uses / month</li>
+          <li>Full core features</li>
+          <li>More AI credits</li>
+          <li>Client projects</li>
         </ul>
+        <a href="#waitlist" class="btn btn-primary">Choose Pro</a>
+        <p class="plan-foot">The plan you want to sell the most.</p>
       </article>
+
       <article class="plan">
-        <h3 class="plan-name">House</h3>
-        <div class="plan-blurb">For multi-artist studios.</div>
+        <span class="plan-tag">For power users</span>
+        <h3 class="plan-name">Elite</h3>
         <div class="plan-price">
-          <span class="num" data-monthly="$79" data-annual="$65">$65</span>
-          <span class="per" data-monthly="/ studio / mo" data-annual="/ studio / mo · billed yearly">/ studio / mo · billed yearly</span>
+          <span class="num" data-monthly="€159" data-annual="€127">€159</span>
+          <span class="per" data-monthly="/ month" data-annual="/ month · billed yearly">/ month</span>
         </div>
-        <a href="#waitlist" class="btn btn-ghost">Talk to us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12 H19 M12 5 L19 12 L12 19"/></svg></a>
+        <p class="plan-blurb">For users who want advanced tools and fewer limits.</p>
         <ul class="plan-features">
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Everything in Studio</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Up to 5 artist seats</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Shared client library</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Studio booking integrations</li>
-          <li><svg viewBox="0 0 24 24"><path d="M5 12 L10 17 L20 7"/></svg>Custom training &amp; onboarding</li>
+          <li>Unlimited / high limits</li>
+          <li>Advanced AI tools</li>
+          <li>Priority support</li>
+          <li>Automation + scheduling</li>
         </ul>
+        <a href="#waitlist" class="btn btn-ghost">Go Elite</a>
+        <p class="plan-foot">Premium experience for demanding users.</p>
       </article>
+
+      <article class="plan">
+        <span class="plan-tag">Teams</span>
+        <h3 class="plan-name">Studio</h3>
+        <div class="plan-price">
+          <span class="num" data-monthly="€299+" data-annual="€239+">€299+</span>
+          <span class="per">/ seat / month</span>
+        </div>
+        <p class="plan-blurb">For teams, agencies, and white-label workflows.</p>
+        <ul class="plan-features">
+          <li>Multi-seat</li>
+          <li>Shared assets</li>
+          <li>White label</li>
+          <li>CRM / notes / team workflows</li>
+        </ul>
+        <a href="#waitlist" class="btn btn-ghost">Contact sales</a>
+        <p class="plan-foot">Built for B2B, collaboration, and scaling.</p>
+      </article>
+
     </div>
 
     <p class="pricing-fine">All plans include encrypted, on-device scans. No artwork is ever used to train models.</p>
@@ -2118,6 +2248,7 @@ body.video-modal-open { overflow: hidden; }
   (function () {
     var m = document.getElementById('bill-m');
     var a = document.getElementById('bill-a');
+    if (!m || !a) return;
     function setMode(annual) {
       m.setAttribute('aria-selected', annual ? 'false' : 'true');
       a.setAttribute('aria-selected', annual ? 'true' : 'false');
@@ -2127,6 +2258,28 @@ body.video-modal-open { overflow: hidden; }
     }
     m.addEventListener('click', function () { setMode(false); });
     a.addEventListener('click', function () { setMode(true); });
+    // initialise to current aria-selected state (Monthly default)
+    setMode(a.getAttribute('aria-selected') === 'true');
+  })();
+
+  // Pricing cards — clicking the card forwards to its CTA
+  (function () {
+    document.querySelectorAll('.plan').forEach(function (plan) {
+      plan.addEventListener('click', function (e) {
+        if (e.target.closest('a, button, input, label')) return;
+        var cta = plan.querySelector('a.btn, button.btn');
+        if (cta) cta.click();
+      });
+      plan.addEventListener('keydown', function (e) {
+        if (e.target !== plan) return;
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          var cta = plan.querySelector('a.btn, button.btn');
+          if (cta) cta.click();
+        }
+      });
+      plan.setAttribute('tabindex', '0');
+    });
   })();
 
   // ============== TiltCard (vanilla port) — applied to .problem-card x3 ==============
