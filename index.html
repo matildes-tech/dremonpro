@@ -380,9 +380,13 @@ input:focus-visible,
 
 /* hero visual */
 .hero-visual {
-  position: relative; aspect-ratio: 4/3; border-radius: var(--radius-lg);
+  position: relative; aspect-ratio: 4/3; border-radius: 12px;
   border: 1px solid var(--line); overflow: hidden;
   background: transparent;
+  cursor: pointer;
+}
+@media (max-width: 979px) {
+  .hero-visual { order: -1; }
 }
 .hero-visual::after { content: none; display: none; }
 .hero-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -1315,6 +1319,43 @@ h2.section-title .serif {
 @media (prefers-reduced-motion: reduce) {
   [data-reveal] { opacity: 1; transform: none; transition: none; }
 }
+
+/* ============== VIDEO MODAL (fullscreen lightbox with audio) ============== */
+.video-modal {
+  position: fixed; inset: 0; z-index: 9000;
+  display: flex; align-items: center; justify-content: center;
+  padding: clamp(16px, 4vw, 56px);
+  background: rgba(0,0,0,0.92);
+  animation: vm-fade 0.22s var(--ease);
+}
+.video-modal[hidden] { display: none; }
+.video-modal-player {
+  width: 100%; max-width: 1400px;
+  max-height: 100%;
+  border-radius: 12px;
+  background: #000;
+  outline: 0;
+  box-shadow: 0 30px 120px rgba(0,0,0,0.7);
+}
+.video-modal-close {
+  position: absolute; top: 18px; right: 18px;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  cursor: pointer;
+  display: grid; place-items: center;
+  transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.video-modal-close svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2; fill: none; }
+.video-modal-close:hover { background: #fff; color: #000; border-color: #fff; }
+.video-modal-close:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+body.video-modal-open { overflow: hidden; }
+@keyframes vm-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .video-modal { animation: none; } }
 </style>
 </head>
 <body>
@@ -2475,5 +2516,76 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
   ensureLoop();
 })();
 </script>
+
+<!-- ============== VIDEO MODAL (fullscreen lightbox) ============== -->
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="videoModalLabel" hidden>
+  <h2 id="videoModalLabel" class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">DREMONPRO product demo</h2>
+  <button type="button" class="video-modal-close" id="videoModalClose" aria-label="Close video">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18" stroke-linecap="round"/></svg>
+  </button>
+  <video class="video-modal-player" id="videoModalPlayer" controls playsinline preload="metadata">
+    <source src="videos/dremonpro-hero.mp4" type="video/mp4" />
+  </video>
+</div>
+
+<script>
+(function () {
+  var modal = document.getElementById('videoModal');
+  var player = document.getElementById('videoModalPlayer');
+  var closeBtn = document.getElementById('videoModalClose');
+  if (!modal || !player) return;
+
+  // Pause and reset hero autoplay video while modal is open
+  var heroVid = document.querySelector('.hero-video');
+
+  function open() {
+    modal.hidden = false;
+    document.body.classList.add('video-modal-open');
+    if (heroVid) { try { heroVid.pause(); } catch (e) {} }
+    player.muted = false;
+    player.volume = 1;
+    player.currentTime = 0;
+    var p = player.play();
+    if (p && typeof p.catch === 'function') p.catch(function () { /* user gesture should allow audio */ });
+    // Move focus to close button for keyboard users
+    closeBtn.focus();
+  }
+  function close() {
+    try { player.pause(); } catch (e) {}
+    player.currentTime = 0;
+    modal.hidden = true;
+    document.body.classList.remove('video-modal-open');
+    if (heroVid) { try { heroVid.play(); } catch (e) {} }
+  }
+
+  // Wire all "demo" links + the hero-watch overlay + the hero-visual itself
+  document.querySelectorAll('a[href="#demo"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); open(); });
+  });
+  var heroVisual = document.querySelector('.hero-visual');
+  if (heroVisual) {
+    heroVisual.setAttribute('role', 'button');
+    heroVisual.setAttribute('tabindex', '0');
+    heroVisual.setAttribute('aria-label', 'Play DREMONPRO product demo with audio');
+    heroVisual.addEventListener('click', function (e) {
+      // ignore clicks bubbled from the inner hero-watch link (already handled)
+      if (e.target.closest('.hero-watch')) return;
+      open();
+    });
+    heroVisual.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+    });
+  }
+
+  closeBtn.addEventListener('click', close);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hidden) close();
+  });
+})();
+</script>
+
 </body>
 </html>
