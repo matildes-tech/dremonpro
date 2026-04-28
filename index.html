@@ -222,7 +222,7 @@ img, svg, video { display: block; max-width: 100%; }
 ::selection { background: var(--blue); color: #000; }
 
 /* ============== CURSOR EFFECTS (ported from V1) ============== */
-/* Cursor glow (desktop only) — soft white cloud with an orange ring */
+/* Cursor glow (desktop only) — soft white cloud */
 .cursor-glow {
   position: fixed;
   top: 0; left: 0;
@@ -230,9 +230,7 @@ img, svg, video { display: block; max-width: 100%; }
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
-  background:
-    radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 22%, rgba(255,255,255,0) 45%),
-    radial-gradient(circle, rgba(255,126,0,0) 30%, rgba(255,126,0,0.10) 50%, rgba(255,126,0,0) 65%);
+  background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 22%, rgba(255,255,255,0) 45%);
   transform: translate(-50%, -50%);
   transition: opacity 0.3s var(--ease);
   will-change: transform;
@@ -1344,9 +1342,7 @@ h2.section-title .serif {
     <div>
       <span class="hero-eyebrow"><span class="dot"></span><span class="kicker">AI tattoo studio software · Beta open</span></span>
       <h1 class="hero-title">
-        Design, scan, <span class="accent-4">place.</span>
-        <br/>
-        <span class="hero-tagline">Tattoos, redefined.</span>
+        Where ink becomes <span class="serif-i accent-4">intelligence.</span>
       </h1>
       <p class="hero-sub">
         AI-powered studio software for tattoo artists. Sketch fast, capture any
