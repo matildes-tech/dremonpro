@@ -833,6 +833,146 @@ h3.plan-name { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.022
 .plan-features li svg { flex: none; width: 14px; height: 14px; stroke: var(--t-heading); fill: none; stroke-width: 2; margin-top: 5px; }
 .pricing-fine { margin-top: 32px; text-align: center; font-size: var(--fs-small); color: var(--t-meta); line-height: 1.5; }
 
+/* ============== TESTIMONIALS (Section 07.5) ============== */
+.testimonials {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 880px) {
+  .testimonials {
+    grid-template-columns: 1.45fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+    gap: 18px;
+  }
+  .testimonial.featured { grid-row: span 2; }
+}
+.testimonial {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(255,255,255,0.025), transparent);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+.testimonial::before {
+  content: "\201C";
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 88px;
+  line-height: 0.7;
+  color: var(--orange);
+  opacity: 0.45;
+  pointer-events: none;
+}
+.testimonial blockquote {
+  margin: 0 0 28px;
+  font-size: var(--fs-body-lg);
+  line-height: 1.55;
+  color: var(--t-lead);
+  font-weight: 400;
+  position: relative;
+  z-index: 1;
+}
+.testimonial.featured blockquote {
+  font-size: var(--fs-quote);
+  line-height: 1.4;
+  color: var(--t-heading);
+  font-weight: 500;
+}
+.testimonial-meta {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.testimonial-name {
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  color: var(--t-heading);
+  letter-spacing: -0.005em;
+}
+.testimonial-loc {
+  font-size: var(--fs-meta);
+  color: var(--t-meta);
+  letter-spacing: -0.005em;
+}
+
+/* ============== USE CASES (Section 07.6) ============== */
+.usecases-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+@media (min-width: 880px) {
+  .usecases-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+}
+.usecase {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+  padding: 32px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 22px;
+  align-items: start;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.usecase:hover { border-color: rgba(255,126,0,0.32); }
+.usecase-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--orange);
+  color: var(--orange);
+  font-weight: 600;
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  background: rgba(255, 126, 0, 0.05);
+  letter-spacing: 0.04em;
+}
+.usecase-body { min-width: 0; }
+.usecase h3 {
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  color: var(--t-heading);
+  margin: 0 0 10px;
+  line-height: 1.2;
+}
+.usecase p {
+  font-size: var(--fs-body);
+  color: var(--t-body);
+  margin: 0;
+  line-height: var(--lh-body);
+}
+.usecase-tags {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 18px;
+}
+.usecase-tag {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--t-meta);
+  border: 1px solid var(--line);
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
 /* ============== FAQ (Section 08) ============== */
 .faq-list { border-top: 1px solid var(--line); }
 .faq-item { border-bottom: 1px solid var(--line); }
@@ -1639,6 +1779,120 @@ h2.section-title .serif {
     </div>
 
     <p class="pricing-fine">All plans include encrypted, on-device scans. No artwork is ever used to train models.</p>
+  </div>
+</section>
+
+<!-- ============== 07.5 — TESTIMONIALS ============== -->
+<section class="section" id="testimonials" aria-labelledby="testimonials-h">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">From the chair</span>
+      <h2 id="testimonials-h">Artists who've already <span class="serif-i" style="color:rgba(255,255,255,0.7)">moved over.</span></h2>
+      <p>Words from the studios using DREMONPRO in beta.</p>
+    </div>
+
+    <div class="testimonials">
+      <article class="testimonial featured">
+        <blockquote>I scan twelve clients a week now. Used to be sketches getting kicked back for placement. Now they sign off in AR before they sit down.</blockquote>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Ren K.</span>
+          <span class="testimonial-loc">Studio Voltaic, Lisbon</span>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <blockquote>The 10-second body capture closed it for me. Clients cancel less when they've already seen it on themselves.</blockquote>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Mara V.</span>
+          <span class="testimonial-loc">Linha Negra, Barcelona</span>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <blockquote>The AI variations save me an hour per booking. I still draw, the AI just removes the staring-at-blank-canvas part.</blockquote>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Theo S.</span>
+          <span class="testimonial-loc">Hauptstadt Ink, Berlin</span>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <blockquote>First tool I've ever paid for that paid for itself in week one. Stencil export alone is worth it.</blockquote>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Inés A.</span>
+          <span class="testimonial-loc">Roja Linea, Mexico City</span>
+        </div>
+      </article>
+
+      <article class="testimonial">
+        <blockquote>Touring artist. Remote consults used to be Zoom plus Procreate hell. Now they scan, I design, AR check, done.</blockquote>
+        <div class="testimonial-meta">
+          <span class="testimonial-name">Kieran M.</span>
+          <span class="testimonial-loc">East Wall Studio, London</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 07.6 — USE CASES ============== -->
+<section class="section" id="usecases" aria-labelledby="usecases-h">
+  <div class="container">
+    <div class="section-head">
+      <span class="kicker">Use cases</span>
+      <h2 id="usecases-h">How artists are using <span class="serif-i" style="color:rgba(255,255,255,0.7)">DREMONPRO.</span></h2>
+      <p>Four ways the studio software earns its place every day.</p>
+    </div>
+
+    <div class="usecases-grid">
+      <article class="usecase">
+        <div class="usecase-num">01</div>
+        <div class="usecase-body">
+          <h3>Walk-in to wallet in 20 minutes.</h3>
+          <p>Studio scans the client at the door, pulls a flash variation off the AI, AR-places it on real skin, takes the deposit before the coffee gets cold.</p>
+          <div class="usecase-tags">
+            <span class="usecase-tag">Walk-in</span>
+            <span class="usecase-tag">Conversion</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="usecase">
+        <div class="usecase-num">02</div>
+        <div class="usecase-body">
+          <h3>Touring &amp; guest-spot consults.</h3>
+          <p>Remote clients scan from home with the free companion app. Design and AR-check placement before they fly in. No wasted chair time on day one.</p>
+          <div class="usecase-tags">
+            <span class="usecase-tag">Touring</span>
+            <span class="usecase-tag">Remote</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="usecase">
+        <div class="usecase-num">03</div>
+        <div class="usecase-body">
+          <h3>Cover-up planning, automated.</h3>
+          <p>The 3D scan auto-traces existing tattoos. AI generates designs that fit the geometry that's already on the body, not a flat reference photo.</p>
+          <div class="usecase-tags">
+            <span class="usecase-tag">Cover-ups</span>
+            <span class="usecase-tag">Reworks</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="usecase">
+        <div class="usecase-num">04</div>
+        <div class="usecase-body">
+          <h3>Sleeve mapping across sessions.</h3>
+          <p>Long-form sleeves planned across the whole arm in 3D. Sequence sessions so the linework, fills and details flow as one piece, not five.</p>
+          <div class="usecase-tags">
+            <span class="usecase-tag">Multi-session</span>
+            <span class="usecase-tag">Composition</span>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
