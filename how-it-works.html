@@ -29,13 +29,13 @@
     padding: 32px;
     transition: border-color 0.25s var(--ease);
   }
-  .step:hover { border-color: rgba(255,126,0,0.32); }
+  .step:hover { border-color: rgba(255,255,255,0.32); }
   .step-num {
     width: 56px; height: 56px;
     border-radius: 50%;
-    border: 1px solid var(--orange);
-    background: rgba(255,126,0,0.06);
-    color: var(--orange);
+    border: 1px solid var(--t-lead);
+    background: rgba(255,255,255,0.06);
+    color: var(--t-lead);
     display: grid; place-items: center;
     font-weight: 700; font-size: 18px;
     font-variant-numeric: tabular-nums;
@@ -44,7 +44,7 @@
   .step p { color: var(--t-body); margin: 0 0 16px; line-height: 1.65; }
   .step ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
   .step ul li { display: flex; gap: 10px; color: var(--t-body); font-size: var(--fs-small); line-height: 1.5; }
-  .step ul li::before { content: ""; flex: none; width: 5px; height: 5px; border-radius: 50%; background: var(--orange); margin-top: 8px; }
+  .step ul li::before { content: ""; flex: none; width: 5px; height: 5px; border-radius: 50%; background: var(--t-lead); margin-top: 8px; }
   .steps { display: grid; gap: 18px; max-width: 920px; margin: 0 auto; }
 </style>
 </head>
@@ -129,7 +129,7 @@
     <div class="page-header" style="margin-top: 80px;">
       <h2 style="font-size: var(--fs-h2); margin: 0 0 14px; color: var(--t-heading); font-weight: 700; letter-spacing: -0.03em;">Ready when you are.</h2>
       <p style="margin-bottom: 24px;">Founding artists get a lifetime discount, first access, and a permanent name in the Hall of Founders.</p>
-      <a href="waitlist.html" class="btn btn-orange btn-lg">Join the waitlist</a>
+      <a href="waitlist.html" class="btn btn-primary btn-lg">Join the waitlist</a>
     </div>
   </div>
 </main>

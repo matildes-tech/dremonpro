@@ -30,7 +30,7 @@
     font-weight: 600;
     color: var(--t-lead);
   }
-  .trial-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 10px rgba(255,126,0,0.6); }
+  .trial-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--t-lead); box-shadow: 0 0 10px rgba(255,255,255,0.6); }
 
   .plans { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 1080px; margin: 0 auto; }
   @media (min-width: 720px) { .plans { grid-template-columns: repeat(2, 1fr); } }
@@ -41,8 +41,8 @@
     background: #000; padding: 26px;
     transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
   }
-  .plan:hover { transform: translateY(-3px); border-color: rgba(255,126,0,0.35); box-shadow: 0 24px 60px -30px rgba(255,126,0,0.18); }
-  .plan.featured { border-color: rgba(255,126,0,0.5); box-shadow: 0 30px 100px -30px rgba(255,126,0,0.28); }
+  .plan:hover { transform: translateY(-3px); border-color: rgba(255,255,255,0.35); box-shadow: 0 24px 60px -30px rgba(255,255,255,0.18); }
+  .plan.featured { border-color: rgba(255,255,255,0.5); box-shadow: 0 30px 100px -30px rgba(255,255,255,0.28); }
   .plan-tag {
     display: inline-flex; align-self: flex-start;
     background: rgba(255,255,255,0.06);
@@ -53,7 +53,7 @@
     color: var(--t-lead);
     margin-bottom: 16px;
   }
-  .plan.featured .plan-tag { background: rgba(255,126,0,0.12); border-color: rgba(255,126,0,0.4); color: var(--orange); }
+  .plan.featured .plan-tag { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.4); color: var(--t-lead); }
   .plan h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.022em; margin: 0; color: var(--t-heading); }
   .plan-price { display: flex; flex-direction: column; margin: 6px 0 16px; }
   .plan-price .num { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; font-variant-numeric: tabular-nums; color: var(--t-heading); }

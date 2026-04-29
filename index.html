@@ -157,7 +157,6 @@
   --green: #00FFA3;
   --mauve: #B794F6;
   --rose: #FF6B9D;
-  --orange: #ff7e00;
   /* Procreate-style typography: Apple's SF Pro on Apple devices, Inter elsewhere */
   --font-sans:  -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Inter", system-ui, "Helvetica Neue", Arial, sans-serif;
   --font-serif: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", system-ui, sans-serif;
@@ -263,7 +262,7 @@ header.nav { z-index: 60; }
   display: inline-block;
   font-size: var(--fs-micro); font-weight: 600;
   letter-spacing: 0.26em; text-transform: uppercase;
-  color: var(--orange);
+  color: var(--t-lead);
   line-height: var(--lh-tight);
 }
 
@@ -340,7 +339,7 @@ header.nav { z-index: 60; }
 .nav-burger[aria-expanded="true"] .burger-line:nth-child(3) {
   transform: translateY(-6.5px) rotate(-45deg);
 }
-.nav-burger:hover { border-color: rgba(255,126,0,0.4); }
+.nav-burger:hover { border-color: rgba(255,255,255,0.4); }
 
 /* Dropdown panel revealed by burger */
 .nav-menu {
@@ -378,7 +377,7 @@ header.nav { z-index: 60; }
   border-radius: 10px;
   transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
 }
-.nav-menu a:hover { background: rgba(255,126,0,0.12); color: var(--orange); }
+.nav-menu a:hover { background: rgba(255,255,255,0.12); color: var(--t-lead); }
 @media (min-width: 768px) { .nav-menu { left: 40px; } }
 .logo-mark {
   width: 22px; height: 22px; border-radius: 50%;
@@ -418,8 +417,6 @@ header.nav { z-index: 60; }
 .hero::before { content: none; display: none; }
 .hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; position: relative; }
 @media (min-width: 980px) { .hero-grid { grid-template-columns: minmax(0, 540px) minmax(0, 1fr); gap: 56px; } }
-.hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; }
-.hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 12px var(--orange); }
 .hero-title {
   font-size: var(--fs-display);
   line-height: var(--lh-display);
@@ -430,14 +427,14 @@ header.nav { z-index: 60; }
 .hero-title .accent { color: var(--blue); }
 .hero-title .accent-2 { color: var(--green); }
 .hero-title .accent-3 { color: var(--mauve); }
-.hero-title .accent-4 { color: var(--orange); }
+.hero-title .accent-4 { color: var(--t-lead); }
 
 /* Focus ring — global a11y + brand orange */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 [role="button"]:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--t-lead);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -506,7 +503,7 @@ input:focus-visible,
   z-index: 3;
 }
 .hero-play:hover {
-  background: var(--orange);
+  background: var(--t-lead);
   transform: translate(-50%, -50%) scale(1.06);
 }
 .hero-play:active { transform: translate(-50%, -50%) scale(0.96); }
@@ -575,10 +572,10 @@ section.section { padding: 96px 0; position: relative; }
   /* mesh-gradient palette — purple / pink / sky-blue (default React Bits) */
   --gradient-one:   radial-gradient(at 80% 55%, #c084fc 0px, transparent 50%);
   --gradient-two:   radial-gradient(at 69% 34%, #f472b6 0px, transparent 50%);
-  --gradient-three: radial-gradient(at  8%  6%, #ff7e00 0px, transparent 50%);
+  --gradient-three: radial-gradient(at  8%  6%, rgba(255,255,255,0.92) 0px, transparent 50%);
   --gradient-four:  radial-gradient(at 41% 38%, #c084fc 0px, transparent 50%);
   --gradient-five:  radial-gradient(at 86% 85%, #f472b6 0px, transparent 50%);
-  --gradient-six:   radial-gradient(at 82% 18%, #ff7e00 0px, transparent 50%);
+  --gradient-six:   radial-gradient(at 82% 18%, rgba(255,255,255,0.92) 0px, transparent 50%);
   --gradient-seven: radial-gradient(at 51%  4%, #f472b6 0px, transparent 50%);
   --gradient-base:  linear-gradient(#c084fc 0 100%);
   /* warm gold glow (HSL 40 80 80) */
@@ -910,8 +907,8 @@ section.section { padding: 96px 0; position: relative; }
 .pricing-trial .dot {
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: var(--orange);
-  box-shadow: 0 0 10px rgba(255,126,0,0.6);
+  background: var(--t-lead);
+  box-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
 .pricing-trust {
   display: flex; flex-wrap: wrap; gap: 8px;
@@ -928,7 +925,7 @@ section.section { padding: 96px 0; position: relative; }
   font-weight: 500;
 }
 .toggle { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 40px; }
-.toggle-save { font-size: var(--fs-meta); color: var(--orange); font-weight: 500; }
+.toggle-save { font-size: var(--fs-meta); color: var(--t-lead); font-weight: 500; }
 .toggle-inner {
   display: inline-flex; align-items: center; gap: 4px;
   padding: 4px; border-radius: 100px; border: 1px solid var(--line-2);
@@ -963,16 +960,16 @@ section.section { padding: 96px 0; position: relative; }
 }
 .plan:hover {
   transform: translateY(-3px);
-  border-color: rgba(255,126,0,0.35);
-  box-shadow: 0 24px 60px -30px rgba(255,126,0,0.18);
+  border-color: rgba(255,255,255,0.35);
+  box-shadow: 0 24px 60px -30px rgba(255,255,255,0.18);
 }
 .plan:active {
   transform: translateY(-1px) scale(0.992);
   transition: transform 0.08s var(--ease);
 }
 .plan.featured {
-  border-color: rgba(255,126,0,0.5);
-  box-shadow: 0 30px 100px -30px rgba(255,126,0,0.28);
+  border-color: rgba(255,255,255,0.5);
+  box-shadow: 0 30px 100px -30px rgba(255,255,255,0.28);
 }
 .plan-tag {
   display: inline-flex; align-self: flex-start;
@@ -987,9 +984,9 @@ section.section { padding: 96px 0; position: relative; }
   line-height: 1.2;
 }
 .plan.featured .plan-tag {
-  background: rgba(255,126,0,0.12);
-  border-color: rgba(255,126,0,0.4);
-  color: var(--orange);
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.4);
+  color: var(--t-lead);
 }
 h3.plan-name {
   font-size: 22px; font-weight: 600; letter-spacing: -0.022em;
@@ -1067,7 +1064,7 @@ h3.plan-name {
   display: grid; place-items: center;
   transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.08s var(--ease);
 }
-.carousel-btn:hover:not(:disabled) { background: var(--orange); color: #000; border-color: var(--orange); }
+.carousel-btn:hover:not(:disabled) { background: var(--t-lead); color: #000; border-color: var(--t-lead); }
 .carousel-btn:active:not(:disabled) { transform: scale(0.94); }
 .carousel-btn:disabled { opacity: 0.32; cursor: not-allowed; }
 .carousel-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
@@ -1085,7 +1082,7 @@ h3.plan-name {
   border: 0; padding: 0; cursor: pointer;
   transition: background-color 0.2s var(--ease), width 0.25s var(--ease);
 }
-.carousel-dot.is-active { background: var(--orange); width: 18px; border-radius: 100px; }
+.carousel-dot.is-active { background: var(--t-lead); width: 18px; border-radius: 100px; }
 
 /* ============== TESTIMONIALS (Section 07.5) — animated auto-rotating ============== */
 .testi-grid {
@@ -1104,15 +1101,15 @@ h3.plan-name {
 .testi-badge {
   display: inline-flex; align-items: center; gap: 8px;
   align-self: flex-start;
-  background: rgba(255,126,0,0.12);
-  border: 1px solid rgba(255,126,0,0.28);
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.28);
   border-radius: 100px;
   padding: 6px 14px;
   font-size: var(--fs-meta);
   font-weight: 500;
-  color: var(--orange);
+  color: var(--t-lead);
 }
-.testi-badge svg { width: 14px; height: 14px; fill: var(--orange); }
+.testi-badge svg { width: 14px; height: 14px; fill: var(--t-lead); }
 .testi-left h2 {
   font-size: var(--fs-h2);
   line-height: var(--lh-h2);
@@ -1139,7 +1136,7 @@ h3.plan-name {
   border: 0; padding: 0; cursor: pointer;
   transition: background-color 0.3s var(--ease), width 0.3s var(--ease);
 }
-.testi-dot.is-active { background: var(--orange); width: 40px; }
+.testi-dot.is-active { background: var(--t-lead); width: 40px; }
 
 .testi-stage {
   position: relative;
@@ -1151,7 +1148,7 @@ h3.plan-name {
   content: ""; position: absolute;
   width: 96px; height: 96px;
   border-radius: var(--radius-lg);
-  background: rgba(255,126,0,0.05);
+  background: rgba(255,255,255,0.05);
   pointer-events: none;
   z-index: 0;
 }
@@ -1199,7 +1196,7 @@ h3.plan-name {
   left: -10px;
   font-family: 'Times New Roman', Times, serif;
   font-size: 96px;
-  color: var(--orange);
+  color: var(--t-lead);
   opacity: 0.18;
   line-height: 1;
   pointer-events: none;
@@ -1244,7 +1241,7 @@ h3.plan-name {
   margin: 14px auto;
   transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), opacity 0.2s var(--ease), transform 0.08s var(--ease);
 }
-.usecase-arrow:hover:not(:disabled) { background: var(--orange); color: #000; border-color: var(--orange); }
+.usecase-arrow:hover:not(:disabled) { background: var(--t-lead); color: #000; border-color: var(--t-lead); }
 .usecase-arrow:disabled { opacity: 0.32; cursor: not-allowed; }
 .usecase-arrow:active:not(:disabled) { transform: scale(0.94); }
 .usecase-arrow svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
@@ -1260,19 +1257,19 @@ h3.plan-name {
   align-items: start;
   transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
 }
-.usecase:hover { border-color: rgba(255,126,0,0.32); }
+.usecase:hover { border-color: rgba(255,255,255,0.32); }
 .usecase-num {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 52px; height: 52px;
   border-radius: 50%;
-  border: 1px solid var(--orange);
-  color: var(--orange);
+  border: 1px solid var(--t-lead);
+  color: var(--t-lead);
   font-weight: 600;
   font-size: 16px;
   font-variant-numeric: tabular-nums;
-  background: rgba(255, 126, 0, 0.05);
+  background: rgba(255,255,255,0.05);
   letter-spacing: 0.04em;
 }
 .usecase-body { min-width: 0; }
@@ -1672,7 +1669,7 @@ h2.section-title .serif {
 }
 .video-modal-close svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 2; fill: none; }
 .video-modal-close:hover { background: #fff; color: #000; border-color: #fff; }
-.video-modal-close:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+.video-modal-close:focus-visible { outline: 2px solid var(--t-lead); outline-offset: 3px; }
 body.video-modal-open { overflow: hidden; }
 @keyframes vm-fade { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .video-modal { animation: none; } }
@@ -1716,7 +1713,6 @@ body.video-modal-open { overflow: hidden; }
 <section class="hero">
   <div class="container hero-grid">
     <div>
-      <span class="hero-eyebrow"><span class="dot"></span><span class="kicker">AI tattoo studio software · Beta open</span></span>
       <h1 class="hero-title">
         Where ink becomes <span class="serif-i accent-4">intelligence.</span>
       </h1>
@@ -1731,7 +1727,6 @@ body.video-modal-open { overflow: hidden; }
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 L17 7 M7 7 h10 v10"/></svg>
         </a>
       </div>
-      <p class="hero-meta">Free during beta · Founding artist seats · Works on iPad Pro &amp; iPhone with LiDAR</p>
     </div>
 
     <div class="hero-visual" aria-label="DREMONPRO product demo">

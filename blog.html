@@ -37,7 +37,7 @@
     gap: 16px;
     transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
   }
-  .post:hover { border-color: rgba(255,126,0,0.32); transform: translateY(-2px); }
+  .post:hover { border-color: rgba(255,255,255,0.32); transform: translateY(-2px); }
   .post-meta {
     display: flex; gap: 12px;
     font-size: var(--fs-micro);
@@ -46,7 +46,7 @@
     color: var(--t-meta);
     font-weight: 600;
   }
-  .post-meta .cat { color: var(--orange); }
+  .post-meta .cat { color: var(--t-lead); }
   .post h2 {
     font-size: clamp(20px, 1.8vw, 24px);
     font-weight: 600;
@@ -60,7 +60,7 @@
     margin-top: auto;
     font-size: var(--fs-meta);
     font-weight: 600;
-    color: var(--orange);
+    color: var(--t-lead);
     display: inline-flex; align-items: center; gap: 6px;
     letter-spacing: 0.04em;
   }
@@ -68,8 +68,8 @@
   .post:hover .post-link svg { transform: translateX(3px); }
   .featured-post {
     grid-column: 1 / -1;
-    background: linear-gradient(135deg, rgba(255,126,0,0.06), rgba(0,0,0,0));
-    border-color: rgba(255,126,0,0.32);
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(0,0,0,0));
+    border-color: rgba(255,255,255,0.32);
   }
   .featured-post h2 { font-size: clamp(24px, 3vw, 36px); }
   .empty-state {
@@ -164,7 +164,7 @@
     <p class="empty-state">More long-form pieces ship at beta launch. Join the waitlist to read them first.</p>
 
     <div class="page-header" style="margin-top: 56px;">
-      <a href="waitlist.html" class="btn btn-orange btn-lg">Join the waitlist</a>
+      <a href="waitlist.html" class="btn btn-primary btn-lg">Join the waitlist</a>
     </div>
   </div>
 </main>
