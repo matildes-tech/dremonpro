@@ -1339,6 +1339,66 @@ h3.plan-name {
 .countdown .btn-primary:hover { background: #f4f4f5; box-shadow: 0 8px 24px rgba(255,255,255,0.18); }
 .countdown .waitlist-form input[type="email"] { background: rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.16); color: #f4f4f5; }
 .countdown .waitlist-form input[type="email"]::placeholder { color: rgba(244,244,245,0.42); }
+
+/* Launch-state heading + tagline + replacement copy (countdown -> launched) */
+.countdown-headline {
+  font-family: var(--font-sans);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display, 0.94);
+  letter-spacing: -0.045em;
+  font-weight: 700;
+  color: var(--t-heading);
+  margin: 0 0 28px;
+  text-align: center;
+  display: grid;
+  grid-template-areas: "stack";
+  text-wrap: balance;
+}
+.countdown-headline .headline-pre,
+.countdown-headline .headline-now {
+  grid-area: stack;
+  transition: opacity 600ms var(--ease);
+}
+.countdown-headline .headline-now { opacity: 0; }
+.countdown.is-launched .headline-pre { opacity: 0; }
+.countdown.is-launched .headline-now { opacity: 1; }
+
+.countdown-stage {
+  display: grid;
+  grid-template-areas: "stack";
+  justify-items: center;
+  align-items: center;
+}
+.countdown-stage > .flip-timer,
+.countdown-stage > .countdown-launched-line {
+  grid-area: stack;
+  transition: opacity 400ms var(--ease);
+}
+.countdown-stage > .countdown-launched-line {
+  opacity: 0;
+  pointer-events: none;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 64px);
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--t-heading);
+}
+.countdown.is-launched .countdown-stage > .flip-timer { opacity: 0; pointer-events: none; }
+.countdown.is-launched .countdown-stage > .countdown-launched-line { opacity: 1; pointer-events: auto; }
+
+.countdown-tagline {
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.3vw, 18px);
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.012em;
+  text-align: center;
+  margin: 28px auto 0;
+  max-width: 920px;
+  line-height: 1.5;
+}
 .section-header {
   text-align: center;
   max-width: 1040px;
@@ -2337,47 +2397,53 @@ body.video-modal-open { overflow: hidden; }
 <section class="countdown" id="waitlist" aria-labelledby="waitlist-title">
   <div class="container">
     <div class="section-header reveal">
-      <h2 class="section-title" id="waitlist-title">The studio of the future opens <span class="serif">June 17.</span></h2>
-      <p class="section-sub">Join the waitlist to claim a founding-artist seat. Lifetime discount. First access. Permanent name in the Hall of Founders.</p>
+      <h2 class="countdown-headline" id="waitlist-title">
+        <span class="headline-pre">History starts in</span>
+        <span class="headline-now" aria-hidden="true">History starts now.</span>
+      </h2>
     </div>
     <div class="countdown-box reveal">
-      <div class="flip-timer" role="timer" aria-live="polite" aria-atomic="true">
-        <div class="flip-group">
-          <div class="flip-cards">
-            <div class="flip-card"><span id="t-days-1">0</span></div>
-            <div class="flip-card"><span id="t-days-2">0</span></div>
+      <div class="countdown-stage">
+        <div class="flip-timer" role="timer" aria-live="polite" aria-atomic="true">
+          <div class="flip-group">
+            <div class="flip-cards">
+              <div class="flip-card"><span id="t-days-1">0</span></div>
+              <div class="flip-card"><span id="t-days-2">0</span></div>
+            </div>
+            <div class="flip-label">DAYS</div>
           </div>
-          <div class="flip-label">DAYS</div>
-        </div>
-        <div class="flip-sep" aria-hidden="true">:</div>
-        <div class="flip-group">
-          <div class="flip-cards">
-            <div class="flip-card"><span id="t-hours-1">0</span></div>
-            <div class="flip-card"><span id="t-hours-2">0</span></div>
+          <div class="flip-sep" aria-hidden="true">:</div>
+          <div class="flip-group">
+            <div class="flip-cards">
+              <div class="flip-card"><span id="t-hours-1">0</span></div>
+              <div class="flip-card"><span id="t-hours-2">0</span></div>
+            </div>
+            <div class="flip-label">HOURS</div>
           </div>
-          <div class="flip-label">HOURS</div>
-        </div>
-        <div class="flip-sep" aria-hidden="true">:</div>
-        <div class="flip-group">
-          <div class="flip-cards">
-            <div class="flip-card"><span id="t-mins-1">0</span></div>
-            <div class="flip-card"><span id="t-mins-2">0</span></div>
+          <div class="flip-sep" aria-hidden="true">:</div>
+          <div class="flip-group">
+            <div class="flip-cards">
+              <div class="flip-card"><span id="t-mins-1">0</span></div>
+              <div class="flip-card"><span id="t-mins-2">0</span></div>
+            </div>
+            <div class="flip-label">MINUTES</div>
           </div>
-          <div class="flip-label">MINUTES</div>
-        </div>
-        <div class="flip-sep" aria-hidden="true">:</div>
-        <div class="flip-group">
-          <div class="flip-cards">
-            <div class="flip-card"><span id="t-secs-1">0</span></div>
-            <div class="flip-card"><span id="t-secs-2">0</span></div>
+          <div class="flip-sep" aria-hidden="true">:</div>
+          <div class="flip-group">
+            <div class="flip-cards">
+              <div class="flip-card"><span id="t-secs-1">0</span></div>
+              <div class="flip-card"><span id="t-secs-2">0</span></div>
+            </div>
+            <div class="flip-label">SECONDS</div>
           </div>
-          <div class="flip-label">SECONDS</div>
         </div>
+        <p class="countdown-launched-line" aria-hidden="true">You found us.</p>
       </div>
+      <p class="countdown-tagline">We have been waiting 80 billion light-years for this.</p>
       <p class="queue-line">You'd be <strong id="queue-pos">#14,732</strong> in line.</p>
       <form class="waitlist-form" id="waitlistForm" aria-label="Join the DREMONPRO waitlist" novalidate>
         <input type="email" name="email" placeholder="artist@studio.com" aria-label="Email address" required>
-        <button type="submit" class="btn btn-primary">Claim your spot
+        <button type="submit" class="btn btn-primary">Bond with us.
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </button>
       </form>
@@ -2525,6 +2591,20 @@ body.video-modal-open { overflow: hidden; }
       setDigit(prefix + '-1', s[0]);
       setDigit(prefix + '-2', s[1]);
     }
+    var section = document.getElementById('waitlist');
+    var prelaunched = section && section.classList.contains('is-launched');
+    var intervalId = null;
+    function markLaunched(){
+      if (!section || section.classList.contains('is-launched')) return;
+      section.classList.add('is-launched');
+      var pre = section.querySelector('.headline-pre');
+      var now = section.querySelector('.headline-now');
+      if (pre) pre.setAttribute('aria-hidden', 'true');
+      if (now) now.removeAttribute('aria-hidden');
+      var line = section.querySelector('.countdown-launched-line');
+      if (line) line.removeAttribute('aria-hidden');
+      if (intervalId) { clearInterval(intervalId); intervalId = null; }
+    }
     function tick(){
       var diff = Math.max(0, LAUNCH - Date.now());
       var d = Math.floor(diff / 86400000);
@@ -2535,9 +2615,17 @@ body.video-modal-open { overflow: hidden; }
       setUnit('t-hours', h);
       setUnit('t-mins', m);
       setUnit('t-secs', s);
+      if (diff <= 0) markLaunched();
     }
     if (document.getElementById('t-days-1')) {
-      tick(); setInterval(tick, 1000);
+      // If already past launch on first render, jump straight to launched state
+      if (Date.now() >= LAUNCH) {
+        markLaunched();
+        tick();
+      } else {
+        tick();
+        intervalId = setInterval(tick, 1000);
+      }
     }
 
     var queueEl = document.getElementById('queue-pos');
