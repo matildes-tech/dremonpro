@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>About us · DREMONPRO</title>
+<meta name="description" content="Who we are, what we do, and how we came up with DREMONPRO. Built by artists for the next generation of tattoo studios." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://dremonpro.com/about.html" />
+<meta property="og:title" content="About DREMONPRO · Built by artists, for artists" />
+<meta property="og:description" content="Who we are, what we do, and how we came up with DREMONPRO." />
+<meta property="og:url" content="https://dremonpro.com/about.html" />
+<meta property="og:type" content="article" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%234F9EFF' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%2300FFA3'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .about-section {
+    max-width: 760px;
+    margin: 0 auto 64px;
+  }
+  .about-section .kicker { margin-bottom: 12px; }
+  .about-section h2 {
+    font-size: clamp(28px, 3.4vw, 42px);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--t-heading);
+    margin: 0 0 22px;
+  }
+  .about-section h2 .serif-i { color: rgba(255,255,255,0.7); }
+  .about-section p {
+    font-size: var(--fs-lead);
+    color: var(--t-lead);
+    line-height: 1.7;
+    margin: 0 0 18px;
+  }
+  .about-section p strong { color: var(--t-heading); font-weight: 600; }
+  .about-section blockquote {
+    margin: 28px 0;
+    padding: 22px 26px;
+    border-left: 3px solid var(--orange);
+    background: rgba(255,126,0,0.05);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    font-style: normal;
+    color: var(--t-heading);
+    font-size: clamp(18px, 1.8vw, 22px);
+    line-height: 1.45;
+    font-weight: 500;
+  }
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    max-width: 1080px;
+    margin: 56px auto 0;
+  }
+  @media (min-width: 720px) { .pillar-grid { grid-template-columns: repeat(3, 1fr); } }
+  .pillar {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: #000;
+    padding: 28px;
+    transition: border-color 0.25s var(--ease);
+  }
+  .pillar:hover { border-color: rgba(255,126,0,0.32); }
+  .pillar h3 {
+    font-size: var(--fs-h3);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    margin: 0 0 12px;
+    color: var(--t-heading);
+  }
+  .pillar p { font-size: var(--fs-small); color: var(--t-body); line-height: 1.6; margin: 0; }
+  .pillar-num {
+    display: inline-block;
+    font-size: var(--fs-micro); font-weight: 600;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <button type="button" class="nav-burger nav-pill" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+    </button>
+    <a href="/" class="logo nav-pill" aria-label="DREMONPRO home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      DREMONPRO
+    </a>
+    <div class="nav-right">
+      <a href="waitlist.html" class="btn btn-primary btn-sm">Join the waitlist</a>
+    </div>
+  </div>
+  <nav class="nav-menu" id="navMenu" aria-label="Primary" hidden>
+    <a href="how-it-works.html">How it works</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html" aria-current="page">About us</a>
+    <a href="login.html">Login / Sign up</a>
+    <a href="waitlist.html">Join the waitlist</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="container">
+    <a href="/" class="back-home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 L9 12 L15 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to home</a>
+
+    <div class="page-header">
+      <span class="kicker">About us</span>
+      <h1>Built by artists, for the next generation of <span class="accent">studios.</span></h1>
+      <p>DREMONPRO is the studio software we wish we had when we were learning. We made it for everyone who has spent a Saturday redrawing the same forearm sleeve six times.</p>
+    </div>
+
+    <section class="about-section" id="who">
+      <span class="kicker">Who we are</span>
+      <h2>A small team of artists, engineers and one ex-roadie.</h2>
+      <p>We're a hybrid of working tattoo artists and 3D / AR engineers. Half of the team has been in studios for over a decade. The other half came from games, computer vision and on-device machine learning. We share a couch and an unhealthy amount of opinions about brushes.</p>
+      <p>What we don't do: hire from outside the craft. Every product decision passes through someone who has tattooed someone else this month.</p>
+      <blockquote>"If a working artist can't get from idea to skin in this app on a Tuesday afternoon, we haven't shipped it yet."</blockquote>
+    </section>
+
+    <section class="about-section" id="what">
+      <span class="kicker">What we do</span>
+      <h2>One workflow that <span class="serif-i">replaces six.</span></h2>
+      <p>Most studios run on a stack: Procreate for design, an iPad for sketching, a phone for client comms, sharpies for stencil tweaks, paper for transfer, a printer in a back room, a DM thread for revisions. DREMONPRO collapses this into one app.</p>
+      <p><strong>Sketch fast.</strong> A canvas tuned for tattoo work, with style-aware AI variations that act like a faster sketchbook, not an ink-generating bot. Your hand still owns every line.</p>
+      <p><strong>Capture in 3D.</strong> Proprietary body scanning that uses the LiDAR sensor on iPad Pro and iPhone 15+. Full body mesh in under ten seconds. No markers, no calibration, no rig. Works on every skin tone and body type.</p>
+      <p><strong>Place in AR.</strong> Project the design onto the actual 3D body of your client and let them sign off the placement before the needle ever touches skin. True-scale stencil export rolls out of the same screen.</p>
+    </section>
+
+    <section class="about-section" id="story">
+      <span class="kicker">How we came up with this idea</span>
+      <h2>It started with a forearm sleeve that wouldn't <span class="serif-i">sit right.</span></h2>
+      <p>One of the founders was working a six-session sleeve in 2024. The client kept asking, mid-session, "is this where we agreed?" Every reference photo was flat. Every Procreate mockup was flat. The actual arm wasn't.</p>
+      <p>We tried every existing tool. Photoshop on a phone. AR filters built for Snapchat. 3D scanners marketed for orthotics. Nothing was built for tattoo. Nothing handled the curvature of a deltoid or the geometry of an existing tattoo you're working around.</p>
+      <p>So we did the obvious thing nobody had done: <strong>built one.</strong> Three months of prototyping with a half-broken iPad Pro and a willing client. A year of model training on consented studio scans. A second year working with a small group of pro artists in Lisbon, Berlin and Mexico City who were willing to break the build daily.</p>
+      <p>The private beta opens June 17, 2026. If you've ever redrawn the same arm six times, this is for you.</p>
+    </section>
+
+    <div class="pillar-grid">
+      <article class="pillar">
+        <span class="pillar-num">Principle 01</span>
+        <h3>The artist's hand still wins.</h3>
+        <p>AI is a tool, not a co-author. Every line on skin came from a human. We won't ship anything that crosses that line.</p>
+      </article>
+      <article class="pillar">
+        <span class="pillar-num">Principle 02</span>
+        <h3>Privacy is the floor, not a feature.</h3>
+        <p>Designs and body scans are encrypted on-device by default. No artwork is ever used to train models. Cloud sync is opt-in and fully deletable.</p>
+      </article>
+      <article class="pillar">
+        <span class="pillar-num">Principle 03</span>
+        <h3>Built on hardware artists already own.</h3>
+        <p>If we needed a $4,000 scanner to make this work, we wouldn't have shipped. Studios bought iPads. We built around iPads.</p>
+      </article>
+    </div>
+
+    <div class="page-header" style="margin-top: 80px;">
+      <h2 style="font-size: var(--fs-h2); margin: 0 0 14px; color: var(--t-heading); font-weight: 700; letter-spacing: -0.03em;">Want in?</h2>
+      <p style="margin-bottom: 24px;">Founding artists get a lifetime discount, first access, and a permanent name in the Hall of Founders.</p>
+      <a href="waitlist.html" class="btn btn-orange btn-lg">Join the waitlist</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© 2026 DREMONPRO. All rights reserved.</span>
+    <nav class="footer-nav">
+      <a href="/">Home</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="subscription.html">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

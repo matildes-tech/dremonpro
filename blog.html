@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>Blog · DREMONPRO</title>
+<meta name="description" content="DREMONPRO journal. Studio workflows, AI in the chair, and the craft of tattoo, written by artists for artists." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://dremonpro.com/blog.html" />
+<meta property="og:title" content="DREMONPRO Blog · Studio workflows, AI in the chair, the craft" />
+<meta property="og:description" content="Studio workflows, AI in the chair, and the craft of tattoo, written by artists for artists." />
+<meta property="og:url" content="https://dremonpro.com/blog.html" />
+<meta property="og:type" content="article" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%234F9EFF' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%2300FFA3'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .post-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  @media (min-width: 720px) { .post-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 1100px) { .post-grid { grid-template-columns: repeat(3, 1fr); } }
+  .post {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: #000;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: border-color 0.25s var(--ease), transform 0.25s var(--ease);
+  }
+  .post:hover { border-color: rgba(255,126,0,0.32); transform: translateY(-2px); }
+  .post-meta {
+    display: flex; gap: 12px;
+    font-size: var(--fs-micro);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--t-meta);
+    font-weight: 600;
+  }
+  .post-meta .cat { color: var(--orange); }
+  .post h2 {
+    font-size: clamp(20px, 1.8vw, 24px);
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    line-height: 1.25;
+    color: var(--t-heading);
+    margin: 0;
+  }
+  .post p { color: var(--t-body); margin: 0; line-height: 1.6; font-size: var(--fs-small); }
+  .post-link {
+    margin-top: auto;
+    font-size: var(--fs-meta);
+    font-weight: 600;
+    color: var(--orange);
+    display: inline-flex; align-items: center; gap: 6px;
+    letter-spacing: 0.04em;
+  }
+  .post-link svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; transition: transform 0.2s var(--ease); }
+  .post:hover .post-link svg { transform: translateX(3px); }
+  .featured-post {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, rgba(255,126,0,0.06), rgba(0,0,0,0));
+    border-color: rgba(255,126,0,0.32);
+  }
+  .featured-post h2 { font-size: clamp(24px, 3vw, 36px); }
+  .empty-state {
+    text-align: center;
+    padding: 48px 24px;
+    border: 1px dashed var(--line-2);
+    border-radius: var(--radius-lg);
+    margin-top: 56px;
+    color: var(--t-meta);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <button type="button" class="nav-burger nav-pill" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+    </button>
+    <a href="/" class="logo nav-pill" aria-label="DREMONPRO home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      DREMONPRO
+    </a>
+    <div class="nav-right">
+      <a href="waitlist.html" class="btn btn-primary btn-sm">Join the waitlist</a>
+    </div>
+  </div>
+  <nav class="nav-menu" id="navMenu" aria-label="Primary" hidden>
+    <a href="how-it-works.html">How it works</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="blog.html" aria-current="page">Blog</a>
+    <a href="about.html">About us</a>
+    <a href="login.html">Login / Sign up</a>
+    <a href="waitlist.html">Join the waitlist</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="container">
+    <a href="/" class="back-home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 L9 12 L15 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to home</a>
+
+    <div class="page-header">
+      <span class="kicker">The journal</span>
+      <h1>Notes from the <span class="accent">chair.</span></h1>
+      <p>Studio workflows, AI in the chair, and the craft of tattoo. Written by artists, for artists.</p>
+    </div>
+
+    <div class="post-grid">
+      <article class="post featured-post">
+        <div class="post-meta"><span class="cat">Manifesto</span><span>5 min read</span></div>
+        <h2>Why we built DREMONPRO: tattooing is a 3D craft running on 2D tools.</h2>
+        <p>For decades, artists have planned three-dimensional work on flat paper. Procreate, sharpies, stencil paper, transfer film. Every booking starts the same way: hours of guesswork. We thought a lot about why this hadn't changed yet, and what it would take to fix it.</p>
+        <span class="post-link">Read the full piece <svg viewBox="0 0 24 24"><path d="M5 12 H19 M12 5 L19 12 L12 19" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </article>
+
+      <article class="post">
+        <div class="post-meta"><span class="cat">Workflow</span><span>3 min read</span></div>
+        <h2>From walk-in to deposit in twenty minutes.</h2>
+        <p>How a Lisbon studio runs same-day bookings: scan at the door, AI-generate a flash variation, AR-place, sign-off, deposit. The whole pipeline before the client finishes their coffee.</p>
+        <span class="post-link">Read more <svg viewBox="0 0 24 24"><path d="M5 12 H19 M12 5 L19 12 L12 19" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </article>
+
+      <article class="post">
+        <div class="post-meta"><span class="cat">Tools</span><span>4 min read</span></div>
+        <h2>The AI doesn't draw your tattoos. It removes the staring.</h2>
+        <p>What a style-aware variation engine actually does. Why it's not a generative ink-bot. And why the artist's hand still owns every line.</p>
+        <span class="post-link">Read more <svg viewBox="0 0 24 24"><path d="M5 12 H19 M12 5 L19 12 L12 19" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </article>
+
+      <article class="post">
+        <div class="post-meta"><span class="cat">Hardware</span><span>2 min read</span></div>
+        <h2>The iPad you already own is a body scanner.</h2>
+        <p>iPad Pro M2 + iPhone 15+ ship with LiDAR. Pixel Pro has depth sensors. We built around hardware that's already in your studio. No external rig, no calibration day.</p>
+        <span class="post-link">Read more <svg viewBox="0 0 24 24"><path d="M5 12 H19 M12 5 L19 12 L12 19" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </article>
+
+      <article class="post">
+        <div class="post-meta"><span class="cat">Privacy</span><span>3 min read</span></div>
+        <h2>Your linework is not training data.</h2>
+        <p>Body scans and designs are encrypted on-device by default. Cloud sync is opt-in. No artwork ever joins a model. The promise we don't break.</p>
+        <span class="post-link">Read more <svg viewBox="0 0 24 24"><path d="M5 12 H19 M12 5 L19 12 L12 19" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </article>
+
+      <article class="post">
+        <div class="post-meta"><span class="cat">Beta</span><span>1 min read</span></div>
+        <h2>What ships on June 17.</h2>
+        <p>The private beta drops in June. Here's what's in build one, what comes in the first updates, and what founding artists get on day zero.</p>
+        <span class="post-link">Read more <svg viewBox="0 0 24 24"><path d="M5 12 H19 M12 5 L19 12 L12 19" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </article>
+    </div>
+
+    <p class="empty-state">More long-form pieces ship at beta launch. Join the waitlist to read them first.</p>
+
+    <div class="page-header" style="margin-top: 56px;">
+      <a href="waitlist.html" class="btn btn-orange btn-lg">Join the waitlist</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© 2026 DREMONPRO. All rights reserved.</span>
+    <nav class="footer-nav">
+      <a href="/">Home</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

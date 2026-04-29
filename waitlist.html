@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>Join the waitlist · DREMONPRO</title>
+<meta name="description" content="Claim your founding-artist seat. Lifetime discount, first access, permanent name in the Hall of Founders." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://dremonpro.com/waitlist.html" />
+<meta property="og:title" content="Join the DREMONPRO waitlist · Founding artist seats" />
+<meta property="og:description" content="Lifetime discount, first access, permanent name in the Hall of Founders." />
+<meta property="og:url" content="https://dremonpro.com/waitlist.html" />
+<meta property="og:type" content="article" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%234F9EFF' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%2300FFA3'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .wl-wrap { max-width: 540px; margin: 0 auto; }
+  .wl-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: #000;
+    padding: clamp(28px, 4vw, 40px);
+  }
+  .wl-stat {
+    display: flex; align-items: baseline; gap: 10px;
+    font-size: var(--fs-meta);
+    color: var(--t-meta);
+    margin: 0 0 22px;
+  }
+  .wl-stat strong {
+    color: var(--orange);
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    font-size: 17px;
+    letter-spacing: -0.01em;
+  }
+  .wl-form { display: flex; flex-direction: column; gap: 14px; }
+  .wl-form .btn { width: 100%; padding: 14px; background: var(--orange); color: #000; }
+  .wl-form .btn:hover { background: #ff8a1a; box-shadow: 0 8px 24px rgba(255,126,0,0.35); }
+
+  .wl-perks {
+    list-style: none; padding: 0; margin: 28px 0 0;
+    display: flex; flex-direction: column; gap: 12px;
+    border-top: 1px solid var(--line);
+    padding-top: 24px;
+  }
+  .wl-perks li {
+    display: flex; gap: 12px; align-items: flex-start;
+    font-size: var(--fs-small);
+    color: var(--t-body);
+    line-height: 1.5;
+  }
+  .wl-perks li svg {
+    flex: none; width: 16px; height: 16px;
+    stroke: var(--orange); fill: none; stroke-width: 2.4;
+    margin-top: 2px;
+  }
+  .wl-perks li strong { color: var(--t-heading); font-weight: 600; }
+  .wl-msg {
+    font-size: var(--fs-meta);
+    color: var(--t-meta);
+    margin: 0;
+  }
+  .wl-msg.error { color: #FF6B6B; }
+  .wl-msg.ok { color: var(--green); }
+  .wl-fine {
+    text-align: center;
+    font-size: var(--fs-micro);
+    color: var(--t-meta);
+    margin-top: 22px;
+    line-height: 1.6;
+    letter-spacing: 0.04em;
+  }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <button type="button" class="nav-burger nav-pill" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+    </button>
+    <a href="/" class="logo nav-pill" aria-label="DREMONPRO home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      DREMONPRO
+    </a>
+    <div class="nav-right">
+      <a href="login.html" class="btn btn-ghost btn-sm">Log in</a>
+    </div>
+  </div>
+  <nav class="nav-menu" id="navMenu" aria-label="Primary" hidden>
+    <a href="how-it-works.html">How it works</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About us</a>
+    <a href="login.html">Login / Sign up</a>
+    <a href="waitlist.html" aria-current="page">Join the waitlist</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="container">
+    <a href="/" class="back-home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 L9 12 L15 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to home</a>
+
+    <div class="page-header">
+      <span class="kicker">Beta · opens June 17</span>
+      <h1>Claim your <span class="accent">founding-artist</span> seat.</h1>
+      <p>The studio of the future opens to the first 1,000 artists. Lifetime discount, first access, and a permanent name in the Hall of Founders.</p>
+    </div>
+
+    <div class="wl-wrap">
+      <div class="wl-card">
+        <p class="wl-stat">You'd be <strong id="wl-pos">#14,732</strong> in line.</p>
+        <form class="wl-form" id="wlForm" novalidate>
+          <div class="form-row">
+            <label for="wl-email">Email</label>
+            <input type="email" id="wl-email" name="email" required autocomplete="email" placeholder="artist@studio.com" />
+          </div>
+          <div class="form-row">
+            <label for="wl-role">I am a</label>
+            <select id="wl-role" name="role" required style="padding:14px 18px;background:rgba(255,255,255,0.04);border:1px solid var(--line-2);border-radius:14px;color:var(--text);font-size:15px;outline:none;appearance:none;">
+              <option value="">Choose one</option>
+              <option value="independent">Independent artist</option>
+              <option value="studio-owner">Studio owner</option>
+              <option value="touring">Touring / guest-spot artist</option>
+              <option value="apprentice">Apprentice</option>
+              <option value="client">Client / agency</option>
+            </select>
+          </div>
+          <p class="wl-msg" id="wl-msg" role="status" aria-live="polite"></p>
+          <button type="submit" class="btn btn-lg">Claim your spot</button>
+        </form>
+
+        <ul class="wl-perks">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12 L10 17 L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Lifetime discount</strong> off the professional tier, locked the day you join.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12 L10 17 L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>First access</strong> to the private beta on June 17. Free during beta.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12 L10 17 L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Permanent name</strong> in the Hall of Founders, shipped with v1.</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12 L10 17 L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span><strong>Refer 3 → jump 100 spots.</strong> A unique link arrives in your inbox.</span>
+          </li>
+        </ul>
+
+        <p class="wl-fine">One email per month until launch. No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© 2026 DREMONPRO. All rights reserved.</span>
+    <nav class="footer-nav">
+      <a href="/">Home</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="subscription.html">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  // Soft-incrementing queue position (visual flair)
+  var pos = document.getElementById('wl-pos');
+  if (pos && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var n = 14732;
+    setInterval(function () {
+      n += Math.floor(Math.random() * 3);
+      pos.textContent = '#' + n.toLocaleString('en-US');
+    }, 8000);
+  }
+
+  // Form: client-side validation only. Real signup ships at beta.
+  var form = document.getElementById('wlForm');
+  var msg = document.getElementById('wl-msg');
+  var email = document.getElementById('wl-email');
+  var role = document.getElementById('wl-role');
+  var btn = form.querySelector('button[type=submit]');
+  if (!form) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = email.value.trim();
+    if (!v || !/.+@.+\..+/.test(v)) {
+      msg.textContent = 'Please enter a valid email so we can hold your seat.';
+      msg.className = 'wl-msg error';
+      email.focus();
+      return;
+    }
+    if (!role.value) {
+      msg.textContent = 'Tell us how you tattoo so we can prioritise your seat.';
+      msg.className = 'wl-msg error';
+      role.focus();
+      return;
+    }
+    btn.textContent = '\u2713 You\u2019re in';
+    btn.disabled = true;
+    msg.textContent = 'Welcome, founding artist. Check your inbox for your share link.';
+    msg.className = 'wl-msg ok';
+    email.disabled = true;
+    role.disabled = true;
+  });
+})();
+</script>
+</body>
+</html>

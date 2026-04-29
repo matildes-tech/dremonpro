@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>How it works · DREMONPRO</title>
+<meta name="description" content="From scan to skin in three steps. How DREMONPRO turns a body scan, an AI sketch and an AR preview into a confirmed booking." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://dremonpro.com/how-it-works.html" />
+<meta property="og:title" content="How DREMONPRO works · 3 steps from scan to skin" />
+<meta property="og:description" content="From scan to skin in three steps. How DREMONPRO turns a body scan, an AI sketch and an AR preview into a confirmed booking." />
+<meta property="og:url" content="https://dremonpro.com/how-it-works.html" />
+<meta property="og:type" content="article" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%234F9EFF' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%2300FFA3'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: #000;
+    padding: 32px;
+    transition: border-color 0.25s var(--ease);
+  }
+  .step:hover { border-color: rgba(255,126,0,0.32); }
+  .step-num {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    border: 1px solid var(--orange);
+    background: rgba(255,126,0,0.06);
+    color: var(--orange);
+    display: grid; place-items: center;
+    font-weight: 700; font-size: 18px;
+    font-variant-numeric: tabular-nums;
+  }
+  .step h2 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 600; letter-spacing: -0.022em; margin: 0 0 12px; }
+  .step p { color: var(--t-body); margin: 0 0 16px; line-height: 1.65; }
+  .step ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+  .step ul li { display: flex; gap: 10px; color: var(--t-body); font-size: var(--fs-small); line-height: 1.5; }
+  .step ul li::before { content: ""; flex: none; width: 5px; height: 5px; border-radius: 50%; background: var(--orange); margin-top: 8px; }
+  .steps { display: grid; gap: 18px; max-width: 920px; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <button type="button" class="nav-burger nav-pill" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+    </button>
+    <a href="/" class="logo nav-pill" aria-label="DREMONPRO home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      DREMONPRO
+    </a>
+    <div class="nav-right">
+      <a href="waitlist.html" class="btn btn-primary btn-sm">Join the waitlist</a>
+    </div>
+  </div>
+  <nav class="nav-menu" id="navMenu" aria-label="Primary" hidden>
+    <a href="how-it-works.html" aria-current="page">How it works</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About us</a>
+    <a href="login.html">Login / Sign up</a>
+    <a href="waitlist.html">Join the waitlist</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="container">
+    <a href="/" class="back-home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 L9 12 L15 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to home</a>
+    <div class="page-header">
+      <span class="kicker">How it works</span>
+      <h1>From scan to <span class="accent">skin</span> in three steps.</h1>
+      <p>The studio software that turns a body scan, an AI sketch and an AR preview into a confirmed booking. No new hardware. No new workflow to learn.</p>
+    </div>
+
+    <div class="steps">
+      <article class="step">
+        <div class="step-num">01</div>
+        <div>
+          <h2>Scan</h2>
+          <p>Capture the client's body in 3D in under ten seconds. The iPad or iPhone you already own becomes a millimetre-accurate scanner. No markers. No calibration. No external rig.</p>
+          <ul>
+            <li>Full body mesh in &lt; 10 seconds</li>
+            <li>Works on any skin tone or body type</li>
+            <li>On-device, encrypted by default</li>
+            <li>Client can scan from home via the free companion app</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-num">02</div>
+        <div>
+          <h2>Design</h2>
+          <p>Sketch fast in a canvas built for tattoo artists. Run AI variations on style, scale and position without leaving the app. The tool removes the staring-at-blank-canvas part. You still draw.</p>
+          <ul>
+            <li>Pressure-true brush engine</li>
+            <li>Style-aware AI variations (fine-line, blackwork, dotwork, traditional)</li>
+            <li>Vector + raster on one canvas</li>
+            <li>Smart line-cleanup, one-tap symmetry across limbs</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="step">
+        <div class="step-num">03</div>
+        <div>
+          <h2>Place</h2>
+          <p>Project the design onto the client's actual 3D body in AR. Re-mesh to the curve of the limb. Approve the placement before the needle touches skin. Export a true-scale stencil ready to print.</p>
+          <ul>
+            <li>Live AR preview on the client</li>
+            <li>Curve-aware re-meshing</li>
+            <li>True-scale stencil export, ready to print</li>
+            <li>Client signs off remotely or in-studio</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="page-header" style="margin-top: 80px;">
+      <h2 style="font-size: var(--fs-h2); margin: 0 0 14px; color: var(--t-heading); font-weight: 700; letter-spacing: -0.03em;">Ready when you are.</h2>
+      <p style="margin-bottom: 24px;">Founding artists get a lifetime discount, first access, and a permanent name in the Hall of Founders.</p>
+      <a href="waitlist.html" class="btn btn-orange btn-lg">Join the waitlist</a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© 2026 DREMONPRO. All rights reserved.</span>
+    <nav class="footer-nav">
+      <a href="/">Home</a>
+      <a href="about.html">About</a>
+      <a href="subscription.html">Pricing</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

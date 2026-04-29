@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#000000" />
+<title>Login or Sign up · DREMONPRO</title>
+<meta name="description" content="Log in to your DREMONPRO studio account or create a new one." />
+<meta name="robots" content="noindex, follow" />
+<link rel="canonical" href="https://dremonpro.com/login.html" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%234F9EFF' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%2300FFA3'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+<style>
+  .auth-wrap {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+  .auth-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: #000;
+    padding: clamp(28px, 4vw, 40px);
+  }
+  .auth-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--line);
+    border-radius: 100px;
+    padding: 4px;
+    margin-bottom: 28px;
+  }
+  .auth-tab {
+    padding: 10px 16px;
+    border-radius: 100px;
+    font-size: var(--fs-meta);
+    font-weight: 500;
+    color: var(--t-meta);
+    text-align: center;
+    transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
+    cursor: pointer;
+  }
+  .auth-tab[aria-selected="true"] {
+    background: #fff;
+    color: #000;
+  }
+  .auth-card h1 {
+    font-size: clamp(24px, 2.6vw, 30px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin: 0 0 8px;
+    color: var(--t-heading);
+  }
+  .auth-card .sub {
+    font-size: var(--fs-small);
+    color: var(--t-body);
+    margin: 0 0 24px;
+    line-height: 1.5;
+  }
+  .auth-form { display: flex; flex-direction: column; gap: 14px; }
+  .auth-form .btn { width: 100%; }
+  .auth-form .btn-primary { background: var(--orange); color: #000; padding: 14px; }
+  .auth-form .btn-primary:hover { background: #ff8a1a; box-shadow: 0 8px 24px rgba(255,126,0,0.35); }
+  .auth-row-helper {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: var(--fs-meta);
+    color: var(--t-meta);
+    margin-top: -4px;
+  }
+  .auth-row-helper a:hover { color: var(--orange); }
+  .auth-checkbox {
+    display: flex; align-items: center; gap: 10px;
+    font-size: var(--fs-meta);
+    color: var(--t-body);
+    user-select: none;
+    cursor: pointer;
+  }
+  .auth-checkbox input { width: 16px; height: 16px; accent-color: var(--orange); cursor: pointer; }
+  .sso-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .sso-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 12px;
+    border-radius: 14px;
+    border: 1px solid var(--line-2);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    font-size: var(--fs-meta);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease);
+  }
+  .sso-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,126,0,0.32); }
+  .sso-btn svg { width: 16px; height: 16px; }
+  .auth-foot {
+    text-align: center;
+    margin-top: 22px;
+    font-size: var(--fs-meta);
+    color: var(--t-meta);
+  }
+  .auth-foot a { color: var(--orange); font-weight: 500; }
+  .auth-msg {
+    font-size: var(--fs-meta);
+    margin: 0;
+    padding: 0;
+    color: var(--t-meta);
+  }
+  .auth-msg.error { color: #FF6B6B; }
+  .auth-msg.ok { color: var(--green); }
+  .panel { display: none; }
+  .panel.is-active { display: block; }
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <button type="button" class="nav-burger nav-pill" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+      <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+    </button>
+    <a href="/" class="logo nav-pill" aria-label="DREMONPRO home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      DREMONPRO
+    </a>
+    <div class="nav-right">
+      <a href="waitlist.html" class="btn btn-primary btn-sm">Join the waitlist</a>
+    </div>
+  </div>
+  <nav class="nav-menu" id="navMenu" aria-label="Primary" hidden>
+    <a href="how-it-works.html">How it works</a>
+    <a href="subscription.html">Subscription</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About us</a>
+    <a href="login.html" aria-current="page">Login / Sign up</a>
+    <a href="waitlist.html">Join the waitlist</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="container">
+    <a href="/" class="back-home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 L9 12 L15 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to home</a>
+
+    <div class="auth-wrap">
+      <div class="auth-card">
+        <div class="auth-tabs" role="tablist" aria-label="Login or Sign up">
+          <button class="auth-tab" id="tab-login" role="tab" aria-selected="true" aria-controls="panel-login" data-panel="login">Log in</button>
+          <button class="auth-tab" id="tab-signup" role="tab" aria-selected="false" aria-controls="panel-signup" data-panel="signup">Sign up</button>
+        </div>
+
+        <!-- LOGIN PANEL -->
+        <section class="panel is-active" id="panel-login" role="tabpanel" aria-labelledby="tab-login">
+          <h1>Welcome back.</h1>
+          <p class="sub">Sign in to your DREMONPRO studio account.</p>
+
+          <div class="sso-grid">
+            <button type="button" class="sso-btn" data-sso="apple" aria-label="Continue with Apple">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.4 2c0 1.4-.5 2.7-1.4 3.7-1 1.1-2.6 1.9-3.9 1.8-.2-1.4.5-2.8 1.4-3.7C13.5 2.7 15.1 1.9 16.4 2zm4.5 16.6c-.7 1.5-1 2.2-1.9 3.6-1.2 1.9-2.9 4.3-5 4.3-1.9 0-2.4-1.2-5-1.2s-3.2 1.2-5 1.2c-2.1 0-3.7-2.2-4.9-4.1-3.4-5.3-3.7-11.5-1.6-14.8 1.5-2.4 3.8-3.8 6-3.8 2.2 0 3.6 1.2 5.5 1.2 1.8 0 2.9-1.2 5.5-1.2 2 0 4 1.1 5.5 3-4.8 2.6-4 9.5.9 11.8z"/></svg>
+              Apple
+            </button>
+            <button type="button" class="sso-btn" data-sso="google" aria-label="Continue with Google">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-.7-.1-1.4-.2-2H12v3.8h5.6a4.8 4.8 0 0 1-2.1 3.1v2.6h3.4c2-1.8 3.1-4.5 3.1-7.5z" fill="#4285F4"/><path d="M12 22c2.8 0 5.2-1 7-2.5l-3.4-2.6a6 6 0 0 1-9-3.1H3v2.7A10 10 0 0 0 12 22z" fill="#34A853"/><path d="M6.6 13.8a6 6 0 0 1 0-3.6V7.5H3a10 10 0 0 0 0 9z" fill="#FBBC05"/><path d="M12 6c1.5 0 2.9.5 4 1.5l3-3A10 10 0 0 0 3 7.5l3.6 2.7c.9-2.5 3.2-4.2 5.4-4.2z" fill="#EA4335"/></svg>
+              Google
+            </button>
+          </div>
+          <div class="form-divider">or with email</div>
+
+          <form class="auth-form" id="loginForm" novalidate autocomplete="on">
+            <div class="form-row">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" name="email" required autocomplete="email" placeholder="artist@studio.com" />
+            </div>
+            <div class="form-row">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" name="password" required autocomplete="current-password" placeholder="••••••••" minlength="8" />
+            </div>
+            <div class="auth-row-helper">
+              <label class="auth-checkbox"><input type="checkbox" name="remember" /> Stay signed in</label>
+              <a href="#forgot">Forgot password?</a>
+            </div>
+            <p class="auth-msg" id="login-msg" role="status" aria-live="polite"></p>
+            <button type="submit" class="btn btn-primary btn-lg">Log in</button>
+          </form>
+
+          <p class="auth-foot">No account yet? <a href="#" data-switch="signup">Create one</a></p>
+        </section>
+
+        <!-- SIGNUP PANEL -->
+        <section class="panel" id="panel-signup" role="tabpanel" aria-labelledby="tab-signup" hidden>
+          <h1>Create your studio.</h1>
+          <p class="sub">Free 7-day trial. No credit card. Cancel anytime.</p>
+
+          <div class="sso-grid">
+            <button type="button" class="sso-btn" data-sso="apple" aria-label="Sign up with Apple">
+              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.4 2c0 1.4-.5 2.7-1.4 3.7-1 1.1-2.6 1.9-3.9 1.8-.2-1.4.5-2.8 1.4-3.7C13.5 2.7 15.1 1.9 16.4 2zm4.5 16.6c-.7 1.5-1 2.2-1.9 3.6-1.2 1.9-2.9 4.3-5 4.3-1.9 0-2.4-1.2-5-1.2s-3.2 1.2-5 1.2c-2.1 0-3.7-2.2-4.9-4.1-3.4-5.3-3.7-11.5-1.6-14.8 1.5-2.4 3.8-3.8 6-3.8 2.2 0 3.6 1.2 5.5 1.2 1.8 0 2.9-1.2 5.5-1.2 2 0 4 1.1 5.5 3-4.8 2.6-4 9.5.9 11.8z"/></svg>
+              Apple
+            </button>
+            <button type="button" class="sso-btn" data-sso="google" aria-label="Sign up with Google">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-.7-.1-1.4-.2-2H12v3.8h5.6a4.8 4.8 0 0 1-2.1 3.1v2.6h3.4c2-1.8 3.1-4.5 3.1-7.5z" fill="#4285F4"/><path d="M12 22c2.8 0 5.2-1 7-2.5l-3.4-2.6a6 6 0 0 1-9-3.1H3v2.7A10 10 0 0 0 12 22z" fill="#34A853"/><path d="M6.6 13.8a6 6 0 0 1 0-3.6V7.5H3a10 10 0 0 0 0 9z" fill="#FBBC05"/><path d="M12 6c1.5 0 2.9.5 4 1.5l3-3A10 10 0 0 0 3 7.5l3.6 2.7c.9-2.5 3.2-4.2 5.4-4.2z" fill="#EA4335"/></svg>
+              Google
+            </button>
+          </div>
+          <div class="form-divider">or with email</div>
+
+          <form class="auth-form" id="signupForm" novalidate autocomplete="on">
+            <div class="form-row">
+              <label for="signup-name">Studio or artist name</label>
+              <input type="text" id="signup-name" name="name" required autocomplete="name" placeholder="Studio Voltaic" />
+            </div>
+            <div class="form-row">
+              <label for="signup-email">Email</label>
+              <input type="email" id="signup-email" name="email" required autocomplete="email" placeholder="artist@studio.com" />
+            </div>
+            <div class="form-row">
+              <label for="signup-password">Password</label>
+              <input type="password" id="signup-password" name="password" required autocomplete="new-password" placeholder="At least 8 characters" minlength="8" />
+            </div>
+            <label class="auth-checkbox">
+              <input type="checkbox" name="terms" required />
+              I agree to the <a href="terms.html" style="color: var(--orange);">Terms</a> &amp; <a href="privacy.html" style="color: var(--orange);">Privacy Policy</a>
+            </label>
+            <p class="auth-msg" id="signup-msg" role="status" aria-live="polite"></p>
+            <button type="submit" class="btn btn-primary btn-lg">Create account</button>
+          </form>
+
+          <p class="auth-foot">Already have an account? <a href="#" data-switch="login">Log in</a></p>
+        </section>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© 2026 DREMONPRO. All rights reserved.</span>
+    <nav class="footer-nav">
+      <a href="/">Home</a>
+      <a href="how-it-works.html">How it works</a>
+      <a href="about.html">About</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+<script>
+(function () {
+  // Tab switcher
+  var tabs = document.querySelectorAll('.auth-tab');
+  var panels = {
+    login: document.getElementById('panel-login'),
+    signup: document.getElementById('panel-signup')
+  };
+  function activate(name) {
+    tabs.forEach(function (t) {
+      var on = t.dataset.panel === name;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    Object.keys(panels).forEach(function (k) {
+      var on = k === name;
+      panels[k].classList.toggle('is-active', on);
+      if (on) panels[k].removeAttribute('hidden');
+      else panels[k].setAttribute('hidden', '');
+    });
+  }
+  tabs.forEach(function (t) { t.addEventListener('click', function () { activate(t.dataset.panel); }); });
+  document.querySelectorAll('[data-switch]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); activate(a.dataset.switch); });
+  });
+
+  // Pre-launch placeholder behaviour: forms show a friendly notice (auth backend lands at beta).
+  function bindForm(formId, msgId, label) {
+    var form = document.getElementById(formId);
+    var msg = document.getElementById(msgId);
+    if (!form || !msg) return;
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var email = form.querySelector('input[type=email]');
+      if (email && !/.+@.+\..+/.test(email.value.trim())) {
+        msg.textContent = 'Please enter a valid email.';
+        msg.className = 'auth-msg error';
+        email.focus();
+        return;
+      }
+      msg.textContent = label + ' is coming with the private beta on June 17. We\u2019ll add you to the waitlist.';
+      msg.className = 'auth-msg ok';
+    });
+  }
+  bindForm('loginForm', 'login-msg', 'Login');
+  bindForm('signupForm', 'signup-msg', 'Sign up');
+
+  // SSO buttons placeholder behaviour
+  document.querySelectorAll('[data-sso]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var msg = document.querySelector('.panel.is-active .auth-msg');
+      if (!msg) return;
+      msg.textContent = b.dataset.sso.charAt(0).toUpperCase() + b.dataset.sso.slice(1) + ' SSO opens at beta. Join the waitlist for early access.';
+      msg.className = 'auth-msg ok';
+    });
+  });
+})();
+</script>
+</body>
+</html>
