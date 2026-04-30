@@ -1,4 +1,4 @@
-# DREMONPRO — robots.txt
+# VENOMPRO — robots.txt
 # AI crawlers welcomed for AIO / GEO discoverability.
 
 User-agent: *
@@ -43,4 +43,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://dremonpro.com/sitemap.xml
+Sitemap: https://venompro.com/sitemap.xml

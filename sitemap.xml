@@ -3,58 +3,58 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://dremonpro.com/</loc>
+    <loc>https://venompro.com/</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://dremonpro.com/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://dremonpro.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://venompro.com/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://venompro.com/" />
   </url>
 
   <url>
-    <loc>https://dremonpro.com/how-it-works.html</loc>
+    <loc>https://venompro.com/how-it-works.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://dremonpro.com/subscription.html</loc>
+    <loc>https://venompro.com/subscription.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://dremonpro.com/blog.html</loc>
+    <loc>https://venompro.com/blog.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://dremonpro.com/about.html</loc>
+    <loc>https://venompro.com/about.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://dremonpro.com/waitlist.html</loc>
+    <loc>https://venompro.com/waitlist.html</loc>
     <lastmod>2026-04-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://dremonpro.com/privacy.html</loc>
+    <loc>https://venompro.com/privacy.html</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://dremonpro.com/terms.html</loc>
+    <loc>https://venompro.com/terms.html</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

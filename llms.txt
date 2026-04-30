@@ -1,8 +1,8 @@
-# DREMONPRO
+# VENOMPRO
 
 > AI-powered studio software for tattoo artists. Sketch fast, capture any body in 3D, and place your work on real skin in AR — before the needle touches it.
 
-DREMONPRO is a design + scanning + AR-placement platform built for the next generation of tattoo artists. The software combines AI sketching, proprietary 3D body capture (using LiDAR / depth sensors on iPhone, iPad Pro and Pixel Pro), smart-learning stencils, and on-skin AR projection so the design and placement are approved before any ink touches skin.
+VENOMPRO is a design + scanning + AR-placement platform built for the next generation of tattoo artists. The software combines AI sketching, proprietary 3D body capture (using LiDAR / depth sensors on iPhone, iPad Pro and Pixel Pro), smart-learning stencils, and on-skin AR projection so the design and placement are approved before any ink touches skin.
 
 ## What it does
 
@@ -36,7 +36,7 @@ Pricing announced at beta launch. Founding artists receive a lifetime discount o
 
 ## Links
 
-- Home: https://dremonpro.com/
-- Privacy: https://dremonpro.com/privacy.html
-- Terms: https://dremonpro.com/terms.html
-- Sitemap: https://dremonpro.com/sitemap.xml
+- Home: https://venompro.com/
+- Privacy: https://venompro.com/privacy.html
+- Terms: https://venompro.com/terms.html
+- Sitemap: https://venompro.com/sitemap.xml

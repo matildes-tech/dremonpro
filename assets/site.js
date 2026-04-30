@@ -1,4 +1,4 @@
-/* DREMONPRO — shared subpage JS (burger menu toggle) */
+/* VENOMPRO — shared subpage JS (burger menu toggle) */
 (function () {
   var burger = document.getElementById('navBurger');
   var menu = document.getElementById('navMenu');

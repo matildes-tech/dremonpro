@@ -1,6 +1,6 @@
-# DREMONPRO
+# VENOMPRO
 
-Landing page for DREMONPRO — the first end-to-end design software built for professional tattoo artists.
+Landing page for VENOMPRO — the first end-to-end design software built for professional tattoo artists.
 
 Single-file static site: `index.html`.
 
