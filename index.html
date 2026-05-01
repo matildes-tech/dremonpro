@@ -6,7 +6,7 @@
 <meta name="theme-color" content="#050505" />
 
 <!-- Primary SEO -->
-<title>VENOMPRO: AI Tattoo Software · 3D Body Scan & AR Preview</title>
+<title>VENOMPRO — Unleash your Symbiote · AI Tattoo Studio</title>
 <meta name="description" content="AI tattoo studio software with 3D body scanning, smart stencils and AR preview. Place your art on real skin before the needle. Join the beta." />
 <meta name="keywords" content="tattoo software, AI tattoo, AI tattoo design, 3D body scan tattoo, tattoo stencil AI, tattoo design app, AR tattoo preview, tattoo studio software, ipad tattoo app, lidar body scan, venompro" />
 <meta name="author" content="VENOMPRO" />
@@ -21,8 +21,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="VENOMPRO" />
-<meta property="og:title" content="VENOMPRO: AI Tattoo Software · 3D Body Scan & AR Preview" />
-<meta property="og:description" content="AI tattoo studio software with 3D body scanning, smart stencils and AR preview. Place your art on real skin before the needle. Join the beta." />
+<meta property="og:title" content="VENOMPRO — Unleash your Symbiote · AI Tattoo Studio" />
+<meta property="og:description" content="The AI tattoo studio that bonds to your craft. Sketch designs, 3D-scan skin, and AR-preview placement before the needle. Join the beta." />
 <meta property="og:url" content="https://venompro.com/" />
 <meta property="og:locale" content="en_US" />
 
@@ -30,8 +30,8 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@venompro" />
 <meta name="twitter:creator" content="@venompro" />
-<meta name="twitter:title" content="VENOMPRO: AI Tattoo Software · 3D Body Scan & AR" />
-<meta name="twitter:description" content="AI tattoo studio software with 3D body scanning, smart stencils and AR preview. Place your art on real skin before the needle." />
+<meta name="twitter:title" content="VENOMPRO — Unleash your Symbiote · AI Tattoo Studio" />
+<meta name="twitter:description" content="AI tattoo studio that bonds to your craft — sketch, 3D-scan skin, AR-preview placement before the needle. Join the beta." />
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%234F9EFF' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%2300FFA3'/%3E%3C/svg%3E" />
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23050505'/%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%234F9EFF' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%2300FFA3'/%3E%3C/svg%3E" />
@@ -49,7 +49,7 @@
   "name": "VENOMPRO",
   "applicationCategory": "DesignApplication",
   "operatingSystem": "iPadOS, iOS, macOS, Windows, Android",
-  "description": "AI-powered tattoo studio software featuring 3D body scanning, AI sketching, smart stencils and AR placement on real skin before the needle touches it.",
+  "description": "The AI tattoo studio that bonds to your craft — sketch designs, 3D-scan skin, and AR-preview placement before the needle touches it.",
   "url": "https://venompro.com/",
   "offers": {
     "@type": "Offer",
@@ -284,12 +284,14 @@ header.nav { z-index: 60; }
   -webkit-backdrop-filter: none !important;
   border-bottom-color: transparent;
 }
-.nav-inner {
+.nav .nav-inner {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   height: 64px;
   align-items: center;
   gap: 16px;
+  max-width: none;
+  padding: 0 12px;
 }
 .nav-burger {
   justify-self: start;
@@ -307,13 +309,9 @@ header.nav { z-index: 60; }
   display: inline-flex; align-items: center; gap: 10px; color: #fff;
   text-decoration: none;
 }
-/* Footer logo keeps the original Inter brand-mark treatment */
+/* Footer logo matches the top bar treatment */
 .footer .logo {
-  font-family: var(--font-sans);
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: none;
+  font-size: 20px;
 }
 /* Black "pill" background only behind individual items (not the whole bar) */
 .nav-pill {
@@ -425,8 +423,190 @@ header.nav { z-index: 60; }
 .btn svg { width: 14px; height: 14px; }
 
 /* ============== HERO (Section 01) ============== */
-.hero { position: relative; padding: 128px 0 80px; overflow: hidden; }
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 96px 24px 64px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+}
 .hero::before { content: none; display: none; }
+.hero-symbiote {
+  position: absolute;
+  top: 50%;
+  left: -8%;
+  width: 95%;
+  max-width: 1100px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  opacity: 0.95;
+  filter: drop-shadow(0 30px 60px rgba(255,30,30,0.12));
+}
+@media (max-width: 720px) {
+  .hero-symbiote {
+    width: 140%;
+    left: -25%;
+    opacity: 0.45;
+  }
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.hero-headline {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: clamp(38px, 5.5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: #2cff05;
+  text-shadow: 0 0 40px rgba(44, 255, 5, 0.35);
+  margin: 0;
+}
+.hero-subline {
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.8vw, 19px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+}
+.hero-cta { padding: 14px 28px; }
+.hero-link {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2cff05;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.2s var(--ease);
+}
+.hero-link:hover { opacity: 0.8; text-decoration: underline; }
+
+/* Full-screen video section */
+.hero-video-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 560px;
+  overflow: hidden;
+  background: #000;
+}
+.hero-video-section .hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Custom play button on full-screen video */
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  font-size: 17px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgb(56,56,56) 0%, rgb(36,36,36) 66%, rgb(41,41,41) 100%);
+  color: rgb(218,218,218);
+  border: none;
+  padding: 2px;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+.play-button span {
+  border-radius: 10px;
+  padding: 0.8em 1.3em;
+  padding-right: 1.2em;
+  text-shadow: 0px 0px 20px #4b4b4b;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  transition: all 0.3s ease;
+  background-color: rgb(29,29,29);
+  background-image:
+    radial-gradient(at 95% 89%, rgb(15,15,15) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgb(17,17,17) 0px, transparent 50%),
+    radial-gradient(at 0% 0%, rgb(29,29,29) 0px, transparent 50%);
+}
+.play-button:hover span { background-color: rgb(26,25,25); }
+.play-button-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-conic-gradient(rgb(48,47,47) 0.0000001%, rgb(51,51,51) 0.000104%) 60% 60%/600% 600%;
+  filter: opacity(10%) contrast(105%);
+  -webkit-filter: opacity(10%) contrast(105%);
+}
+.play-button svg { width: 15px; height: 15px; }
+.play-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s ease, opacity 0.8s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+.play-button:hover::after {
+  width: 200%;
+  height: 200%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+}
+.play-button:active::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-click 0.5s ease-out forwards;
+  pointer-events: none;
+}
+.play-button:active {
+  transform: translate(-50%, -50%) scale(0.97);
+  filter: brightness(1.1);
+}
+.play-button:hover { box-shadow: 0 0 12px rgba(255,255,255,0.08); }
+@keyframes ripple-click {
+  to { transform: translate(-50%, -50%) scale(4); opacity: 0; }
+}
+
 .hero-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center; position: relative; }
 @media (min-width: 980px) { .hero-grid { grid-template-columns: minmax(0, 540px) minmax(0, 1fr); gap: 56px; } }
 .hero-title {
@@ -488,7 +668,7 @@ input:focus-visible,
   .hero-visual { order: -1; }
 }
 .hero-visual::after { content: none; display: none; }
-.hero-visual svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-visual > svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero-video {
   position: absolute;
   inset: 0;
@@ -519,7 +699,17 @@ input:focus-visible,
   transform: translate(-50%, -50%) scale(1.06);
 }
 .hero-play:active { transform: translate(-50%, -50%) scale(0.96); }
-.hero-play svg { width: 32px; height: 32px; fill: #000; margin-left: 4px; }
+.hero-play svg { width: 30px; height: 30px; fill: #000; margin-left: 3px; display: block; }
+.hero-countdown { margin: 0; }
+.hero-countdown .flip-timer { justify-content: center; margin-bottom: 0; gap: 6px; }
+.hero-countdown .flip-card {
+  width: clamp(40px, 4.8vw, 60px);
+  height: clamp(52px, 6.2vw, 76px);
+  border-radius: 10px;
+}
+.hero-countdown .flip-card span { font-size: clamp(24px, 3.2vw, 38px); }
+.hero-countdown .flip-sep { height: clamp(52px, 6.2vw, 76px); font-size: clamp(20px, 2.4vw, 30px); }
+.hero-countdown .flip-label { font-size: 9px; letter-spacing: 0.24em; color: rgba(255,255,255,0.85); text-shadow: 0 1px 4px rgba(0,0,0,0.7); }
 
 /* ============== TRUST STRIP (Section 02) ============== */
 .trust {
@@ -793,6 +983,90 @@ section.section { padding: 96px 0; position: relative; }
   box-shadow: 0 30px 100px -40px rgba(79,158,255,0.18);
 }
 .feature-visual svg { width: 100%; height: 100%; display: block; }
+
+/* ============== FEATURES — STICKY SCROLL ============== */
+.feat-sticky-outer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  padding-top: 8px;
+}
+.feat-panel {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 64px 0;
+  border-top: 1px solid var(--line);
+  opacity: 0.3;
+  transition: opacity 0.5s var(--ease);
+}
+.feat-panel:first-child { border-top: none; }
+.feat-panel.is-active { opacity: 1; }
+.feat-kicker {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: var(--fs-micro); font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 18px;
+}
+.feat-kicker-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--green); box-shadow: 0 0 8px var(--green);
+  flex-shrink: 0;
+}
+.feat-panel h3 {
+  font-size: var(--fs-h3-lg);
+  line-height: 1.1; letter-spacing: -0.028em; font-weight: 600;
+  color: var(--t-heading); margin: 0 0 16px;
+}
+.feat-panel h3 .serif-i { font-weight: 400; color: rgba(255,255,255,0.55); }
+.feat-panel p {
+  font-size: var(--fs-body-lg); color: var(--t-lead); margin: 0 0 22px;
+  max-width: 44ch; line-height: var(--lh-body);
+}
+.feat-panel ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.feat-panel li { position: relative; padding-left: 18px; font-size: var(--fs-body); color: var(--t-body); line-height: 1.5; }
+.feat-panel li::before {
+  content: ""; position: absolute; left: 0; top: 11px;
+  width: 8px; height: 1px; background: var(--green);
+}
+.feat-sticky-right {
+  position: sticky;
+  top: 20vh;
+  align-self: flex-start;
+}
+.feat-graphic {
+  position: relative; width: 100%;
+  aspect-ratio: 1/1; max-height: 60vh;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: #0B0B10; overflow: hidden;
+}
+.feat-stage {
+  position: absolute; inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s var(--ease);
+  will-change: opacity; pointer-events: none;
+}
+.feat-stage svg { width: 100%; height: 100%; display: block; }
+.feat-progress {
+  display: flex; gap: 10px; margin-top: 20px; justify-content: center;
+}
+.feat-progress-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--line-2);
+  transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+.feat-progress-dot.is-active {
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+  transform: scale(1.5);
+}
+@media (max-width: 879px) {
+  .feat-sticky-outer { grid-template-columns: 1fr; gap: 0; }
+  .feat-sticky-right { position: static; order: -1; margin-bottom: 40px; }
+  .feat-graphic { max-height: none; }
+  .feat-panel { min-height: auto; opacity: 1; padding: 48px 0; }
+  .feat-progress { display: none; }
+}
 
 /* ============== HOW IT WORKS (Section 05) ============== */
 /* No background tint — uniform body background across all sections. */
@@ -1703,10 +1977,20 @@ h2.section-title .serif {
 .footer-social svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 
 /* reveal-on-scroll */
-[data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity 0.9s var(--ease), transform 0.9s var(--ease); }
-[data-reveal].is-in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1; transform: none; transition: none; }
+[data-reveal] { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] { opacity: 0; transform: translateY(40px); transition: opacity 700ms cubic-bezier(.2,.8,.2,1), transform 700ms cubic-bezier(.2,.8,.2,1); }
+  [data-reveal].is-in { opacity: 1; transform: none; }
+}
+
+/* symbiote breathing + scroll progress */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes symbiote-breathe { 0%, 100% { scale: 1; } 50% { scale: 1.02; } }
+  .hero-symbiote { animation: symbiote-breathe 6s ease-in-out infinite; }
+}
+.scroll-progress {
+  position: fixed; right: 0; top: 0; width: 2px; height: 0%;
+  background: #2cff05; z-index: 9999; pointer-events: none;
 }
 
 /* ============== VIDEO MODAL (fullscreen lightbox with audio) ============== */
@@ -1749,6 +2033,9 @@ body.video-modal-open { overflow: hidden; }
 </head>
 <body>
 
+<!-- Scroll progress bar -->
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
 <!-- Cursor effects (ported from V1) -->
 <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
 <div class="ghost-cursor" id="ghostCursor" aria-hidden="true"></div>
@@ -1783,44 +2070,80 @@ body.video-modal-open { overflow: hidden; }
 
 <!-- ============== 01 — HERO ============== -->
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1 class="hero-title">
-        Where ink becomes <span class="serif-i accent-4">intelligence.</span>
-      </h1>
-      <p class="hero-sub">
-        AI-powered studio software for tattoo artists. Sketch fast, capture any
-        body in 3D, and place your work on real skin in AR before the needle
-        touches it.
-      </p>
-      <div class="hero-ctas">
-        <a href="#waitlist" class="btn btn-primary btn-lg">
-          Join the waitlist
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 L17 7 M7 7 h10 v10"/></svg>
-        </a>
+  <picture>
+    <source srcset="images/symbiote.avif" type="image/avif">
+    <source srcset="images/symbiote.webp" type="image/webp">
+    <img src="images/symbiote-compressed.png" alt="" class="hero-symbiote" aria-hidden="true"
+         width="2400" height="1058" fetchpriority="high" decoding="async">
+  </picture>
+  <div class="hero-inner">
+    <h1 class="hero-headline">Unleash your<br>Symbiote in</h1>
+    <p class="hero-subline">The AI tattoo studio that bonds to your craft — sketch, scan, AR preview.</p>
+    <div class="hero-countdown" aria-label="Countdown to launch">
+      <div class="flip-timer" role="timer" aria-live="polite" aria-atomic="true">
+        <div class="flip-group">
+          <div class="flip-cards">
+            <div class="flip-card"><span data-t="t-days-1">0</span></div>
+            <div class="flip-card"><span data-t="t-days-2">0</span></div>
+          </div>
+          <div class="flip-label">DAYS</div>
+        </div>
+        <div class="flip-sep" aria-hidden="true">:</div>
+        <div class="flip-group">
+          <div class="flip-cards">
+            <div class="flip-card"><span data-t="t-hours-1">0</span></div>
+            <div class="flip-card"><span data-t="t-hours-2">0</span></div>
+          </div>
+          <div class="flip-label">HOURS</div>
+        </div>
+        <div class="flip-sep" aria-hidden="true">:</div>
+        <div class="flip-group">
+          <div class="flip-cards">
+            <div class="flip-card"><span data-t="t-mins-1">0</span></div>
+            <div class="flip-card"><span data-t="t-mins-2">0</span></div>
+          </div>
+          <div class="flip-label">MINUTES</div>
+        </div>
+        <div class="flip-sep" aria-hidden="true">:</div>
+        <div class="flip-group">
+          <div class="flip-cards">
+            <div class="flip-card"><span data-t="t-secs-1">0</span></div>
+            <div class="flip-card"><span data-t="t-secs-2">0</span></div>
+          </div>
+          <div class="flip-label">SECONDS</div>
+        </div>
       </div>
     </div>
-
-    <div class="hero-visual" aria-label="VENOMPRO product demo">
-      <video
-        class="hero-video"
-        autoplay muted loop playsinline
-        preload="metadata"
-        aria-label="VENOMPRO 36-second product demo">
-        <source src="videos/venompro-hero.mp4" type="video/mp4" />
-      </video>
-
-      <button type="button" class="hero-play" aria-label="Play VENOMPRO product demo">
-        <svg viewBox="0 0 64 64" aria-hidden="true"><polygon points="22,16 50,32 22,48"/></svg>
-      </button>
+    <div class="hero-actions">
+      <a href="#waitlist" class="btn btn-primary btn-lg hero-cta">Taste our Venom</a>
+      <a href="#waitlist" class="hero-link">Join the waitlist</a>
     </div>
   </div>
+</section>
+
+<!-- ============== 01b — VIDEO (full screen) ============== -->
+<section class="hero-video-section" aria-label="VENOMPRO product demo">
+  <video
+    class="hero-video"
+    autoplay muted loop playsinline
+    preload="metadata"
+    aria-label="VENOMPRO 36-second product demo">
+    <source src="videos/dremonpro-hero.mp4" type="video/mp4" />
+  </video>
+  <button class="play-button" aria-label="Play VENOMPRO product demo">
+    <div class="play-button-overlay"></div>
+    <span>Play
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 53 58" height="58" width="53" aria-hidden="true">
+        <path stroke-width="9" stroke="currentColor" d="M44.25 36.3612L17.25 51.9497C11.5833 55.2213 4.5 51.1318 4.50001 44.5885L4.50001 13.4115C4.50001 6.86824 11.5833 2.77868 17.25 6.05033L44.25 21.6388C49.9167 24.9104 49.9167 33.0896 44.25 36.3612Z"></path>
+      </svg>
+    </span>
+  </button>
 </section>
 
 <!-- ============== 02 — PROBLEM ============== -->
 <section class="section" aria-label="The problem">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="kicker">The state of the craft</span>
       <h2>The tools haven't kept up <span class="serif-i" style="color:rgba(255,255,255,0.65)">with the art.</span></h2>
       <p>Tattooing is a body-aware, three-dimensional craft. The software artists were forced to use was never built for it.</p>
@@ -1848,13 +2171,13 @@ body.video-modal-open { overflow: hidden; }
 <!-- ============== 04 — FEATURE MODULES ============== -->
 <section class="section" id="features">
   <div class="container">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="kicker">Four capabilities · one workflow</span>
       <h2>Built for the way artists <span class="serif-i" style="color:rgba(255,255,255,0.65)">actually work.</span></h2>
     </div>
 
     <!-- 04a — Quick design creation -->
-    <article class="feature-row">
+    <article class="feature-row" data-reveal>
       <div class="feature-copy">
         <div class="feature-num">04a</div>
         <h3>Sketch a tattoo <span class="serif-i">in minutes, not hours.</span></h3>
@@ -1880,7 +2203,7 @@ body.video-modal-open { overflow: hidden; }
     </article>
 
     <!-- 04b — 3D body scanning -->
-    <article class="feature-row flip">
+    <article class="feature-row flip" data-reveal>
       <div class="feature-copy">
         <div class="feature-num">04b</div>
         <h3>Scan any body in <span class="serif-i">ten seconds.</span></h3>
@@ -1920,7 +2243,7 @@ body.video-modal-open { overflow: hidden; }
     </article>
 
     <!-- 04c — Image editing -->
-    <article class="feature-row">
+    <article class="feature-row" data-reveal>
       <div class="feature-copy">
         <div class="feature-num">04c</div>
         <h3>An image editor <span class="serif-i">made for ink.</span></h3>
@@ -1955,7 +2278,7 @@ body.video-modal-open { overflow: hidden; }
     </article>
 
     <!-- 04d — Design placement on skin (KILLER) -->
-    <article class="feature-row flip">
+    <article class="feature-row flip" data-reveal>
       <div class="feature-copy">
         <div class="feature-num">04d</div>
         <h3>Place the design <span class="serif-i">on real skin.</span></h3>
@@ -2025,7 +2348,7 @@ body.video-modal-open { overflow: hidden; }
 <!-- ============== 05 — HOW IT WORKS ============== -->
 <section class="section how" id="how">
   <div class="container">
-    <div class="section-head center">
+    <div class="section-head center" data-reveal>
       <span class="kicker">How it works</span>
       <h2>Three steps. One <span class="serif-i" style="color:rgba(255,255,255,0.7)">session.</span></h2>
     </div>
@@ -2075,7 +2398,7 @@ body.video-modal-open { overflow: hidden; }
 <!-- ============== 07 — PRICING ============== -->
 <section class="section" id="pricing">
   <div class="container">
-    <div class="section-head center">
+    <div class="section-head center" data-reveal>
       <span class="pricing-trial"><span class="dot"></span>7-day trial · no credit card</span>
       <h2>Premium pricing built to convert visitors into <span class="serif-i" style="color:rgba(255,255,255,0.7)">loyal users.</span></h2>
       <p>A polished, high-end pricing experience that shows value fast, reduces friction, and makes upgrading feel like the natural next step.</p>
@@ -2209,7 +2532,7 @@ body.video-modal-open { overflow: hidden; }
 <!-- ============== 07.5 — TESTIMONIALS (animated, auto-rotating) ============== -->
 <section class="section" id="testimonials" aria-labelledby="testimonials-h">
   <div class="container">
-    <div class="testi-grid">
+    <div class="testi-grid" data-reveal>
       <div class="testi-left">
         <span class="testi-badge">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 L14.6 8.6 L21.6 9.2 L16.3 13.8 L18 20.6 L12 17 L6 20.6 L7.7 13.8 L2.4 9.2 L9.4 8.6 Z"/></svg>
@@ -2283,7 +2606,7 @@ body.video-modal-open { overflow: hidden; }
 <!-- ============== 07.6 — USE CASES ============== -->
 <section class="section" id="usecases" aria-labelledby="usecases-h">
   <div class="container">
-    <div class="section-head center">
+    <div class="section-head center" data-reveal>
       <span class="kicker">Use cases</span>
       <h2 id="usecases-h">How artists are using <span class="serif-i" style="color:rgba(255,255,255,0.7)">VENOMPRO.</span></h2>
       <p>Four ways the studio software earns its place every day.</p>
@@ -2354,7 +2677,7 @@ body.video-modal-open { overflow: hidden; }
 <!-- ============== 08 — FAQ ============== -->
 <section class="section" id="faq">
   <div class="container" style="max-width:1040px;">
-    <div class="section-head">
+    <div class="section-head" data-reveal>
       <span class="kicker">Questions</span>
       <h2>Everything else, <span class="serif-i" style="color:rgba(255,255,255,0.7)">answered.</span></h2>
     </div>
@@ -2455,7 +2778,7 @@ body.video-modal-open { overflow: hidden; }
       <p class="queue-line">You'd be <strong id="queue-pos">#14,732</strong> in line.</p>
       <form class="waitlist-form" id="waitlistForm" aria-label="Join the VENOMPRO waitlist" novalidate>
         <input type="email" name="email" placeholder="artist@studio.com" aria-label="Email address" required>
-        <button type="submit" class="btn btn-primary">Bond with us.
+        <button type="submit" class="btn btn-primary">Join the waitlist
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </button>
       </form>
@@ -2557,18 +2880,58 @@ body.video-modal-open { overflow: hidden; }
     });
   })();
 
-  // Reveal on scroll
+  // ===== MOTION SYSTEM (prefers-reduced-motion: no-preference) =====
   (function () {
-    if (!('IntersectionObserver' in window)) {
-      document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('is-in'); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    var noMotion = !window.matchMedia('(prefers-reduced-motion: no-preference)').matches;
+
+    // --- Reveal on scroll with sibling stagger ---
+    var allReveal = document.querySelectorAll('[data-reveal]');
+    if (noMotion) {
+      allReveal.forEach(function (el) { el.classList.add('is-in'); });
+    } else {
+      // Assign stagger delays by sibling index within same parent
+      var parents = new Set();
+      allReveal.forEach(function (el) { parents.add(el.parentElement); });
+      parents.forEach(function (p) {
+        var siblings = p.querySelectorAll('[data-reveal]');
+        siblings.forEach(function (el, i) { el.style.transitionDelay = (i * 60) + 'ms'; });
       });
-    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
-    document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+          });
+        }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+        allReveal.forEach(function (el) { io.observe(el); });
+      } else {
+        allReveal.forEach(function (el) { el.classList.add('is-in'); });
+      }
+    }
+
+    if (noMotion) return;
+
+    // --- Symbiote parallax (rAF-throttled) ---
+    var symbiote = document.querySelector('.hero-symbiote');
+    if (symbiote) {
+      var rafPending = false;
+      function applyParallax() {
+        var t = Math.max(-1, Math.min(1, (window.scrollY / window.innerHeight) * 2 - 1));
+        symbiote.style.transform = 'translateY(-50%) translateX(' + (t * 80) + 'px) rotate(' + (t * 3) + 'deg)';
+        rafPending = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!rafPending) { rafPending = true; requestAnimationFrame(applyParallax); }
+      }, { passive: true });
+    }
+
+    // --- Scroll progress bar ---
+    var bar = document.getElementById('scrollProgress');
+    if (bar) {
+      var d = document.documentElement;
+      window.addEventListener('scroll', function () {
+        bar.style.height = (d.scrollTop / (d.scrollHeight - d.clientHeight) * 100) + '%';
+      }, { passive: true });
+    }
   })();
 
   // FAQ accordion
@@ -2587,16 +2950,17 @@ body.video-modal-open { overflow: hidden; }
     var LAUNCH = new Date('2026-06-17T10:00:00Z').getTime();
     function pad2(n){ n = Math.max(0, Math.min(99, n|0)); return (n<10?'0':'')+n; }
     function setDigit(id, newChar){
-      var el = document.getElementById(id);
-      if (!el) return;
-      if (el.textContent === newChar) return;
-      var card = el.parentElement; // .flip-card
-      el.textContent = newChar;
-      if (!card) return;
-      card.classList.remove('is-flipping');
-      // force reflow to restart animation
-      void card.offsetWidth;
-      card.classList.add('is-flipping');
+      var els = document.querySelectorAll('#' + id + ', [data-t="' + id + '"]');
+      els.forEach(function (el) {
+        if (el.textContent === newChar) return;
+        var card = el.parentElement; // .flip-card
+        el.textContent = newChar;
+        if (!card) return;
+        card.classList.remove('is-flipping');
+        // force reflow to restart animation
+        void card.offsetWidth;
+        card.classList.add('is-flipping');
+      });
     }
     function setUnit(prefix, n){
       var s = pad2(n);
@@ -2629,7 +2993,7 @@ body.video-modal-open { overflow: hidden; }
       setUnit('t-secs', s);
       if (diff <= 0) markLaunched();
     }
-    if (document.getElementById('t-days-1')) {
+    if (document.getElementById('t-days-1') || document.querySelector('[data-t="t-days-1"]')) {
       // If already past launch on first render, jump straight to launched state
       if (Date.now() >= LAUNCH) {
         markLaunched();
@@ -3274,7 +3638,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18" stroke-linecap="round"/></svg>
   </button>
   <video class="video-modal-player" id="videoModalPlayer" controls playsinline preload="metadata">
-    <source src="videos/venompro-hero.mp4" type="video/mp4" />
+    <source src="videos/dremonpro-hero.mp4" type="video/mp4" />
   </video>
 </div>
 
