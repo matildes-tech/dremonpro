@@ -121,11 +121,6 @@
       "@type": "Question",
       "name": "Is my artwork private?",
       "acceptedAnswer": { "@type": "Answer", "text": "Always. Designs and body scans are encrypted end-to-end and stored on-device by default. No artwork is ever used to train models. Cloud sync is opt-in and fully deletable." }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there really a free tier?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. The free tier is forever, no credit card required. You can sketch, generate AI variations, and run one body scan per month. Upgrade only when you're ready to ship to clients." }
     }
   ]
 }
@@ -1301,6 +1296,71 @@ h3.plan-name {
 .plan-foot { font-size: var(--fs-micro); color: var(--t-meta); margin: 14px 0 0; text-align: center; font-style: italic; line-height: 1.4; }
 .pricing-fine { margin-top: 32px; text-align: center; font-size: var(--fs-small); color: var(--t-meta); line-height: 1.5; }
 
+/* ============== FOUNDING ARTIST CARD ============== */
+.founding-wrap { display: flex; justify-content: center; margin-top: 48px; }
+.founding-card {
+  position: relative;
+  max-width: 480px; width: 100%;
+  border: 1px solid rgba(163, 230, 53, 0.4);
+  border-radius: var(--radius-lg);
+  background: rgba(163, 230, 53, 0.04);
+  box-shadow: 0 0 80px -20px rgba(163, 230, 53, 0.22);
+  padding: 42px 38px 38px;
+  display: flex; flex-direction: column; gap: 28px;
+  text-align: center;
+}
+.founding-tag {
+  display: inline-flex; align-self: center;
+  background: rgba(163, 230, 53, 0.12);
+  border: 1px solid rgba(163, 230, 53, 0.4);
+  border-radius: 100px;
+  padding: 5px 14px;
+  font-size: var(--fs-micro);
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #a3e635;
+}
+.founding-name {
+  font-size: clamp(22px, 2.2vw, 28px);
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  color: var(--t-heading);
+  margin: 0;
+  line-height: 1.2;
+}
+.founding-perks {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.founding-perks li {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  font-size: var(--fs-body); color: var(--t-lead); font-weight: 500;
+}
+.founding-perks li::before {
+  content: "";
+  flex: none;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #a3e635;
+  box-shadow: 0 0 8px rgba(163, 230, 53, 0.7);
+}
+.founding-cta {
+  background: #a3e635;
+  color: #000;
+  font-weight: 700;
+  border-color: #a3e635;
+  align-self: center;
+  padding-left: 36px;
+  padding-right: 36px;
+  transition: background-color 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+.founding-cta:hover {
+  background: #bef264;
+  border-color: #bef264;
+  box-shadow: 0 8px 30px -8px rgba(163, 230, 53, 0.5);
+}
+
 /* Press feedback for any button */
 .btn:active { transform: scale(0.97); transition: transform 0.08s var(--ease); }
 
@@ -2168,180 +2228,243 @@ body.video-modal-open { overflow: hidden; }
   </div>
 </section>
 
-<!-- ============== 04 — FEATURE MODULES ============== -->
+<!-- ============== 04 — FEATURES (STICKY SCROLL) ============== -->
 <section class="section" id="features">
   <div class="container">
     <div class="section-head" data-reveal>
-      <span class="kicker">Four capabilities · one workflow</span>
+      <span class="kicker">Three capabilities · one workflow</span>
       <h2>Built for the way artists <span class="serif-i" style="color:rgba(255,255,255,0.65)">actually work.</span></h2>
     </div>
 
-    <!-- 04a — Quick design creation -->
-    <article class="feature-row" data-reveal>
-      <div class="feature-copy">
-        <div class="feature-num">04a</div>
-        <h3>Sketch a tattoo <span class="serif-i">in minutes, not hours.</span></h3>
-        <p>A canvas tuned for the way artists actually draw — fine-line, blackwork, dotwork, traditional. Generate variations, refine, lock in.</p>
-        <ul>
-          <li>Style-aware AI variations</li>
-          <li>Pressure-true brush engine</li>
-          <li>Reference-board built in</li>
-        </ul>
-      </div>
-      <div class="feature-visual">
-        <svg viewBox="0 0 480 360" aria-hidden="true">
-          <g fill="none" stroke="rgba(255,255,255,0.85)" stroke-linecap="round">
-            <path d="M60 280 C 130 90, 280 90, 360 240 C 400 320, 440 280, 440 240" stroke-width="1.5"/>
-            <path d="M70 290 C 140 120, 270 120, 350 260" stroke-width="1.1" opacity=".55"/>
-            <path d="M82 296 C 150 150, 260 150, 340 270" stroke-width=".9" opacity=".3"/>
-          </g>
-          <g fill="rgba(255,255,255,.5)" font-family="ui-monospace, monospace" font-size="10" letter-spacing=".18em">
-            <text x="40" y="330">VARIATIONS · 12</text>
-          </g>
-        </svg>
-      </div>
-    </article>
+    <div class="feat-sticky-outer">
+      <!-- Left: scrolling text panels -->
+      <div class="feat-panels">
 
-    <!-- 04b — 3D body scanning -->
-    <article class="feature-row flip" data-reveal>
-      <div class="feature-copy">
-        <div class="feature-num">04b</div>
-        <h3>Scan any body in <span class="serif-i">ten seconds.</span></h3>
-        <p>Proprietary 3D body capture turns an iPad or iPhone with LiDAR into a millimetre-accurate scanner. No markers, no calibration.</p>
-        <ul>
-          <li>Full body mesh in &lt;10 seconds</li>
-          <li>Works on any skin tone or body type</li>
-          <li>On-device, encrypted</li>
-        </ul>
-      </div>
-      <div class="feature-visual">
-        <svg viewBox="0 0 480 360" aria-hidden="true">
-          <g fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1">
-            <ellipse cx="240" cy="86" rx="40" ry="48"/>
-            <path d="M170 156 C 150 220 156 300 172 336 L 308 336 C 324 300 330 220 310 156 C 290 132 190 132 170 156 Z"/>
-            <path d="M 162 174 L 318 174" stroke-dasharray="2 5"/>
-            <path d="M 162 192 L 318 192" stroke-dasharray="2 5"/>
-            <path d="M 162 210 L 318 210" stroke-dasharray="2 5"/>
-            <path d="M 162 228 L 318 228" stroke-dasharray="2 5"/>
-            <path d="M 162 246 L 318 246" stroke-dasharray="2 5"/>
-            <path d="M 162 264 L 318 264" stroke-dasharray="2 5"/>
-            <path d="M 162 282 L 318 282" stroke-dasharray="2 5"/>
-            <path d="M 162 300 L 318 300" stroke-dasharray="2 5"/>
-          </g>
-          <g fill="#fff">
-            <circle cx="240" cy="100" r="1.4"/>
-            <circle cx="200" cy="200" r="1.2"/>
-            <circle cx="280" cy="200" r="1.2"/>
-            <circle cx="190" cy="290" r="1.2"/>
-            <circle cx="290" cy="290" r="1.2"/>
-          </g>
-          <g fill="rgba(255,255,255,.5)" font-family="ui-monospace, monospace" font-size="10" letter-spacing=".18em">
-            <text x="40" y="330">MESH · 182,493 PTS</text>
-          </g>
-        </svg>
-      </div>
-    </article>
+        <!-- Panel 1: 3D Mesh Scan -->
+        <div class="feat-panel is-active" data-stage="0">
+          <span class="feat-kicker"><span class="feat-kicker-dot"></span>Stage 01 · Capture</span>
+          <h3>Scan any body <span class="serif-i">in ten seconds.</span></h3>
+          <p>Proprietary LiDAR capture turns an iPad or iPhone into a millimetre-accurate 3D scanner. No markers, no calibration.</p>
+          <ul>
+            <li>Full body mesh in &lt;10 seconds</li>
+            <li>Works on any skin tone or body type</li>
+            <li>On-device, encrypted</li>
+          </ul>
+        </div>
 
-    <!-- 04c — Image editing -->
-    <article class="feature-row" data-reveal>
-      <div class="feature-copy">
-        <div class="feature-num">04c</div>
-        <h3>An image editor <span class="serif-i">made for ink.</span></h3>
-        <p>Re-vector, clean, recolour, and re-mesh designs without leaving the studio. Built around how tattoo art is actually finished.</p>
-        <ul>
-          <li>Smart line-cleanup</li>
-          <li>One-tap symmetry across limbs</li>
-          <li>Vector + raster, in one canvas</li>
-        </ul>
-      </div>
-      <div class="feature-visual">
-        <svg viewBox="0 0 480 360" aria-hidden="true">
-          <g fill="none" stroke="rgba(255,255,255,0.18)">
-            <path d="M 50 50 L 50 310"/><path d="M 88 50 L 88 310"/><path d="M 126 50 L 126 310"/>
-            <path d="M 164 50 L 164 310"/><path d="M 202 50 L 202 310"/><path d="M 240 50 L 240 310"/>
-            <path d="M 278 50 L 278 310"/><path d="M 316 50 L 316 310"/><path d="M 354 50 L 354 310"/>
-            <path d="M 50 60 L 430 60"/><path d="M 50 98 L 430 98"/><path d="M 50 136 L 430 136"/>
-            <path d="M 50 174 L 430 174"/><path d="M 50 212 L 430 212"/><path d="M 50 250 L 430 250"/>
-            <path d="M 50 288 L 430 288"/>
-          </g>
-          <path d="M80 230 Q 180 80 260 200 T 420 160" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
-          <g fill="#fff">
-            <rect x="74" y="224" width="6" height="6" rx="1"/>
-            <rect x="254" y="194" width="6" height="6" rx="1"/>
-            <rect x="414" y="154" width="6" height="6" rx="1"/>
-          </g>
-          <g fill="rgba(255,255,255,.5)" font-family="ui-monospace, monospace" font-size="10" letter-spacing=".18em">
-            <text x="40" y="330">VECTOR · 3 ANCHORS</text>
-          </g>
-        </svg>
-      </div>
-    </article>
+        <!-- Panel 2: AI Sketch -->
+        <div class="feat-panel" data-stage="1">
+          <span class="feat-kicker"><span class="feat-kicker-dot"></span>Stage 02 · Design</span>
+          <h3>Sketch a tattoo <span class="serif-i">in minutes, not hours.</span></h3>
+          <p>A canvas tuned for fine-line, blackwork, dotwork, traditional. Style-aware AI generates variations you actually want to use.</p>
+          <ul>
+            <li>Style-aware AI variations</li>
+            <li>Pressure-true brush engine</li>
+            <li>Reference-board built in</li>
+          </ul>
+        </div>
 
-    <!-- 04d — Design placement on skin (KILLER) -->
-    <article class="feature-row flip" data-reveal>
-      <div class="feature-copy">
-        <div class="feature-num">04d</div>
-        <h3>Place the design <span class="serif-i">on real skin.</span></h3>
-        <p>The killer step. Project your art onto the actual 3D body of your client. Re-mesh to true geometry. Approve the placement before the needle touches skin.</p>
-        <ul>
-          <li>Live AR preview on the client</li>
-          <li>True-scale stencil export</li>
-          <li>Curve-aware re-meshing</li>
-        </ul>
-        <span class="feature-pill"><span class="pulse"></span>Killer feature</span>
-      </div>
-      <div class="feature-visual killer">
-        <svg viewBox="0 0 480 360" aria-hidden="true">
-          <defs>
-            <linearGradient id="bg-place" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#fff" stop-opacity=".26"/>
-              <stop offset="1" stop-color="#fff" stop-opacity=".04"/>
-            </linearGradient>
-            <linearGradient id="ink-place" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0" stop-color="#4F9EFF"/>
-              <stop offset="0.5" stop-color="#fff"/>
-              <stop offset="1" stop-color="#B794F6"/>
-            </linearGradient>
-          </defs>
-          <g stroke="rgba(255,255,255,0.55)" stroke-width="1.1" fill="url(#bg-place)" stroke-linejoin="round">
-            <path d="
-              M 90 80
-              C 140 96 200 130 270 180
-              C 340 230 400 290 430 340
-              L 360 340
-              C 330 300 280 250 230 210
-              C 180 170 130 140 80 120
-              Z"/>
-          </g>
-          <g fill="none" stroke="rgba(255,255,255,0.18)">
-            <path d="M 92 100 Q 200 160 330 250"/>
-            <path d="M 110 114 Q 216 174 342 262"/>
-            <path d="M 128 128 Q 232 188 354 274"/>
-            <path d="M 146 142 Q 248 202 366 286"/>
-            <path d="M 164 156 Q 264 216 378 298"/>
-          </g>
-          <g fill="none" stroke="url(#ink-place)" stroke-width="1.6" stroke-linecap="round">
-            <path d="M 200 170 Q 240 130 290 170 Q 330 210 305 250 Q 270 290 230 270 Q 195 245 210 215 Z"/>
-            <path d="M 218 180 Q 245 158 275 180 Q 300 205 280 230 Q 258 252 235 235 Z" opacity=".7"/>
-            <circle cx="263" cy="206" r="2.4" fill="#fff" stroke="none"/>
-          </g>
-          <g fill="#fff">
-            <circle cx="200" cy="170" r="2"/>
-            <circle cx="290" cy="170" r="2"/>
-            <circle cx="305" cy="250" r="2"/>
-            <circle cx="230" cy="270" r="2"/>
-          </g>
-          <g fill="rgba(255,255,255,.6)" font-family="ui-monospace, monospace" font-size="10" letter-spacing=".18em">
-            <text x="40" y="50">PLACE · FOREARM L</text>
-            <text x="440" y="50" text-anchor="end">FIT 99.4%</text>
-          </g>
-          <circle cx="263" cy="206" r="6" fill="none" stroke="#fff" stroke-width=".8">
-            <animate attributeName="r" values="6;22" dur="2.4s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.9;0" dur="2.4s" repeatCount="indefinite"/>
-          </circle>
-        </svg>
-      </div>
-    </article>
+        <!-- Panel 3: AR Placement -->
+        <div class="feat-panel" data-stage="2">
+          <span class="feat-kicker"><span class="feat-kicker-dot"></span>Stage 03 · Place</span>
+          <h3>Place the design <span class="serif-i">on real skin.</span></h3>
+          <p>Project your art onto the actual 3D body. Re-mesh to true geometry. Approve placement before the needle touches skin.</p>
+          <ul>
+            <li>Live AR preview on the client</li>
+            <li>True-scale stencil export</li>
+            <li>Curve-aware re-meshing</li>
+          </ul>
+        </div>
+
+      </div><!-- /feat-panels -->
+
+      <!-- Right: sticky graphic -->
+      <div class="feat-sticky-right">
+        <div class="feat-graphic" aria-hidden="true">
+
+          <!-- Stage 0: 3D Body Mesh Scan -->
+          <div class="feat-stage" data-stage="0" style="opacity:1">
+            <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sg0-glow" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#00FFA3" stop-opacity="0"/>
+                  <stop offset="0.4" stop-color="#00FFA3" stop-opacity="0.25"/>
+                  <stop offset="0.6" stop-color="#00FFA3" stop-opacity="0.25"/>
+                  <stop offset="1" stop-color="#00FFA3" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <!-- Background grid -->
+              <g stroke="rgba(255,255,255,0.03)" stroke-width="1">
+                <path d="M40 80H440 M40 120H440 M40 160H440 M40 200H440 M40 240H440 M40 280H440 M40 320H440 M40 360H440 M40 400H440"/>
+                <path d="M80 40V440 M120 40V440 M160 40V440 M200 40V440 M240 40V440 M280 40V440 M320 40V440 M360 40V440 M400 40V440"/>
+              </g>
+              <!-- Horizontal scan pass lines (dashed) -->
+              <g stroke="rgba(255,255,255,0.13)" stroke-width="0.9" stroke-dasharray="3 6">
+                <path d="M149 170H331 M148 190H332 M148 210H332 M148 230H332 M149 250H331 M151 270H329 M153 290H327 M156 310H324 M160 330H320 M163 350H317 M167 370H313"/>
+              </g>
+              <!-- Diagonal mesh triangulation -->
+              <g stroke="rgba(255,255,255,0.06)" stroke-width="0.7">
+                <path d="M150 170L168 382 M175 168L190 382 M205 165L215 382 M235 163L242 382 M265 163L268 382 M295 165L290 382 M325 168L312 382"/>
+                <path d="M150 170L312 382 M190 170L330 320 M232 170L330 280 M330 170L168 382 M290 170L148 320 M248 170L148 280"/>
+              </g>
+              <!-- Head wireframe -->
+              <ellipse cx="240" cy="78" rx="48" ry="54" stroke="rgba(255,255,255,0.28)" stroke-width="1.1"/>
+              <g stroke="rgba(255,255,255,0.1)" stroke-width="0.7" stroke-dasharray="2 5">
+                <path d="M195 58H285 M193 78H287 M196 98H284 M206 118H274"/>
+              </g>
+              <!-- Body outline -->
+              <path d="M150 162C134 225 148 308 168 382L312 382C332 308 346 225 330 162C298 138 182 138 150 162Z" stroke="rgba(255,255,255,0.3)" stroke-width="1.2"/>
+              <!-- Neck -->
+              <path d="M222 132V150 M258 132V150 M222 150Q240 155 258 150" stroke="rgba(255,255,255,0.18)" stroke-width="0.9"/>
+              <!-- Vertex dots -->
+              <g fill="rgba(255,255,255,0.4)">
+                <circle cx="240" cy="78" r="1.4"/>
+                <circle cx="150" cy="162" r="1.4"/><circle cx="330" cy="162" r="1.4"/>
+                <circle cx="148" cy="230" r="1.2"/><circle cx="332" cy="230" r="1.2"/>
+                <circle cx="150" cy="298" r="1.2"/><circle cx="330" cy="298" r="1.2"/>
+                <circle cx="168" cy="382" r="1.4"/><circle cx="312" cy="382" r="1.4"/>
+                <circle cx="200" cy="230" r="1.1"/><circle cx="240" cy="230" r="1.1"/><circle cx="280" cy="230" r="1.1"/>
+                <circle cx="200" cy="298" r="1.1"/><circle cx="240" cy="298" r="1.1"/><circle cx="280" cy="298" r="1.1"/>
+              </g>
+              <!-- Animated scan band -->
+              <rect x="100" y="148" width="280" height="24" fill="url(#sg0-glow)" opacity="0.8">
+                <animate attributeName="y" values="148;358;148" dur="2.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1"/>
+              </rect>
+              <!-- Scan line -->
+              <line x1="100" y1="160" x2="380" y2="160" stroke="#00FFA3" stroke-width="1.4" opacity="0.9">
+                <animate attributeName="y1" values="160;370;160" dur="2.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1"/>
+                <animate attributeName="y2" values="160;370;160" dur="2.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1"/>
+              </line>
+              <!-- Scan edge dot -->
+              <circle cx="380" cy="160" r="3" fill="#00FFA3">
+                <animate attributeName="cy" values="160;370;160" dur="2.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1;0.42 0 0.58 1"/>
+              </circle>
+              <!-- Status labels -->
+              <text x="48" y="422" fill="#00FFA3" font-family="ui-monospace,monospace" font-size="10" letter-spacing="0.18em" opacity="0.9">SCANNING</text>
+              <text x="48" y="440" fill="rgba(255,255,255,0.38)" font-family="ui-monospace,monospace" font-size="10" letter-spacing="0.15em">MESH · 182,493 PTS</text>
+              <rect x="48" y="448" width="240" height="1.5" rx="0.75" fill="rgba(255,255,255,0.1)"/>
+              <rect x="48" y="448" width="148" height="1.5" rx="0.75" fill="#00FFA3" opacity="0.75"/>
+              <text x="432" y="440" fill="rgba(255,255,255,0.4)" font-family="ui-monospace,monospace" font-size="10" letter-spacing="0.1em" text-anchor="end">62%</text>
+            </svg>
+          </div>
+
+          <!-- Stage 1: AI Sketch -->
+          <div class="feat-stage" data-stage="1">
+            <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Faint canvas grid -->
+              <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+                <path d="M40 80H440 M40 120H440 M40 160H440 M40 200H440 M40 240H440 M40 280H440 M40 320H440 M40 360H440 M40 400H440"/>
+                <path d="M80 40V440 M120 40V440 M160 40V440 M200 40V440 M240 40V440 M280 40V440 M320 40V440 M360 40V440 M400 40V440"/>
+              </g>
+              <!-- Tattoo variation 2 (faintest) -->
+              <g stroke="rgba(255,255,255,0.14)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M96 368C120 308 172 276 202 246C242 212 272 207 292 182C315 152 352 117 362 102"/>
+                <path d="M362 102L374 86L386 99L372 113Z" stroke-width="1.1" opacity="0.8"/>
+              </g>
+              <!-- Tattoo variation 1 (medium) -->
+              <g stroke="rgba(255,255,255,0.32)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M110 374C134 313 186 282 216 252C256 218 286 213 306 187C329 157 366 122 376 107"/>
+                <path d="M376 107L388 91L400 104L386 117Z" stroke-width="1.2" opacity="0.85"/>
+              </g>
+              <!-- Main tattoo design -->
+              <g stroke="rgba(255,255,255,0.92)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M103 371C128 308 180 278 210 248C250 214 280 210 300 183C325 153 362 118 372 103"/>
+                <path d="M372 103L385 87L397 100L384 113Z"/>
+                <circle cx="381" cy="96" r="2.2" fill="rgba(255,255,255,0.92)" stroke="none"/>
+                <path d="M385 87L384 78L380 71 M384 78L388 72" stroke-width="1.2"/>
+                <path d="M210 248C202 242 198 233 206 227" stroke-width="1.1" opacity="0.85"/>
+                <path d="M300 183C292 177 290 168 298 163" stroke-width="1.1" opacity="0.85"/>
+                <path d="M103 371L93 388" stroke-width="1.5" opacity="0.65"/>
+              </g>
+              <!-- Design anchor squares -->
+              <rect x="207" y="245" width="6" height="6" rx="1" fill="rgba(255,255,255,0.75)"/>
+              <rect x="297" y="180" width="6" height="6" rx="1" fill="rgba(255,255,255,0.75)"/>
+              <!-- AI cursor pulsing ring -->
+              <circle cx="385" cy="87" r="9" fill="none" stroke="#00FFA3" stroke-width="1.2" opacity="0.85">
+                <animate attributeName="r" values="9;20;9" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.85;0.08;0.85" dur="2s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="385" cy="87" r="2.8" fill="#00FFA3"/>
+              <!-- Labels -->
+              <text x="48" y="422" fill="#00FFA3" font-family="ui-monospace,monospace" font-size="10" letter-spacing="0.18em" opacity="0.9">VARIATIONS · 12</text>
+              <text x="48" y="440" fill="rgba(255,255,255,0.38)" font-family="ui-monospace,monospace" font-size="10" letter-spacing="0.15em">STYLE · BLACKWORK</text>
+              <rect x="48" y="448" width="18" height="2" rx="1" fill="#00FFA3" opacity="0.85"/>
+              <rect x="70" y="448" width="18" height="2" rx="1" fill="rgba(255,255,255,0.2)"/>
+              <rect x="92" y="448" width="18" height="2" rx="1" fill="rgba(255,255,255,0.2)"/>
+            </svg>
+          </div>
+
+          <!-- Stage 2: AR Placement -->
+          <div class="feat-stage" data-stage="2">
+            <svg viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="sg2-arm" x1="0" x2="1" y1="1" y2="0">
+                  <stop offset="0" stop-color="#fff" stop-opacity="0.15"/>
+                  <stop offset="1" stop-color="#fff" stop-opacity="0.05"/>
+                </linearGradient>
+                <linearGradient id="sg2-ink" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0" stop-color="#4F9EFF"/>
+                  <stop offset="0.5" stop-color="#ffffff"/>
+                  <stop offset="1" stop-color="#B794F6"/>
+                </linearGradient>
+              </defs>
+              <!-- Arm silhouette (forearm, diagonal) -->
+              <path d="M58 402C88 402 118 382 198 302C278 222 358 142 418 82L388 52C338 112 268 192 198 262C128 332 88 362 68 372Z" fill="url(#sg2-arm)" stroke="rgba(255,255,255,0.38)" stroke-width="1.3" stroke-linejoin="round"/>
+              <!-- Arm surface curvature lines -->
+              <g stroke="rgba(255,255,255,0.09)" stroke-width="0.8">
+                <path d="M88 388C118 388 148 368 228 288C308 208 368 148 418 82"/>
+                <path d="M100 378C130 378 160 358 240 278"/>
+                <path d="M112 368C142 368 172 348 252 268"/>
+                <path d="M76 394C106 394 136 374 216 294"/>
+              </g>
+              <!-- Tattoo projected on arm (gradient ink) -->
+              <g stroke="url(#sg2-ink)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M152 338C170 312 198 288 218 268C248 242 268 238 284 218C302 195 318 172 328 152"/>
+                <path d="M328 152L340 138L352 150L340 163Z"/>
+                <circle cx="338" cy="144" r="2.4" fill="#fff" stroke="none"/>
+                <path d="M340 138L339 129L335 122 M339 129L343 122" stroke-width="1.3" stroke="url(#sg2-ink)"/>
+                <path d="M218 268C210 262 206 252 214 246" stroke-width="1.2" opacity="0.85"/>
+                <path d="M284 218C276 212 273 202 281 197" stroke-width="1.2" opacity="0.85"/>
+                <path d="M152 338L142 356" stroke-width="1.6" opacity="0.7"/>
+              </g>
+              <!-- Tattoo anchor points -->
+              <g fill="rgba(255,255,255,0.8)">
+                <circle cx="218" cy="268" r="2.2"/>
+                <circle cx="284" cy="218" r="2.2"/>
+                <circle cx="328" cy="152" r="2.2"/>
+              </g>
+              <!-- AR corner brackets (neon green) -->
+              <g stroke="#00FFA3" stroke-width="2.2" stroke-linecap="round">
+                <path d="M110 170H130 M110 170V190"/>
+                <path d="M372 120H352 M372 120V140"/>
+                <path d="M110 370H130 M110 370V350"/>
+                <path d="M372 320H352 M372 320V300"/>
+              </g>
+              <!-- AR crosshair -->
+              <g stroke="#00FFA3" stroke-width="1" opacity="0.45">
+                <path d="M232 250H254 M243 239V261"/>
+              </g>
+              <!-- Pulsing placement ring -->
+              <circle cx="244" cy="244" r="8" fill="none" stroke="#00FFA3" stroke-width="1">
+                <animate attributeName="r" values="8;30" dur="2.4s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.75;0" dur="2.4s" repeatCount="indefinite"/>
+              </circle>
+              <!-- Labels -->
+              <text x="48" y="422" fill="#00FFA3" font-family="ui-monospace,monospace" font-size="10" letter-spacing="0.18em" opacity="0.9">PLACE · FOREARM L</text>
+              <text x="432" y="422" fill="#00FFA3" font-family="ui-monospace,monospace" font-size="10" letter-spacing="0.12em" text-anchor="end">FIT 99.4%</text>
+              <text x="48" y="440" fill="rgba(255,255,255,0.38)" font-family="ui-monospace,monospace" font-size="10" letter-spacing="0.15em">TRUE-SCALE STENCIL READY</text>
+            </svg>
+          </div>
+
+        </div><!-- /feat-graphic -->
+        <div class="feat-progress" aria-hidden="true">
+          <div class="feat-progress-dot is-active"></div>
+          <div class="feat-progress-dot"></div>
+          <div class="feat-progress-dot"></div>
+        </div>
+      </div><!-- /feat-sticky-right -->
+
+    </div><!-- /feat-sticky-outer -->
   </div>
 </section>
 
@@ -2399,133 +2522,23 @@ body.video-modal-open { overflow: hidden; }
 <section class="section" id="pricing">
   <div class="container">
     <div class="section-head center" data-reveal>
-      <span class="pricing-trial"><span class="dot"></span>7-day trial · no credit card</span>
-      <h2>Premium pricing built to convert visitors into <span class="serif-i" style="color:rgba(255,255,255,0.7)">loyal users.</span></h2>
-      <p>A polished, high-end pricing experience that shows value fast, reduces friction, and makes upgrading feel like the natural next step.</p>
-      <div class="pricing-trust">
-        <span class="pricing-trust-pill">Fast setup</span>
-        <span class="pricing-trust-pill">Cancel anytime</span>
-        <span class="pricing-trust-pill">Built for creators, pros &amp; teams</span>
-        <span class="pricing-trust-pill">4.9/5 average rating</span>
-      </div>
+      <span class="kicker">Early Access</span>
+      <h2>Lock in your rate before <span class="serif-i" style="color:rgba(255,255,255,0.7)">launch.</span></h2>
+      <p>Spots are limited. Founding Artists get lifetime pricing — permanently.</p>
     </div>
 
-    <div class="toggle">
-      <div class="toggle-inner" role="tablist" aria-label="Billing period">
-        <button id="bill-m" role="tab" aria-selected="true">Monthly</button>
-        <button id="bill-a" role="tab" aria-selected="false">Yearly</button>
-      </div>
-      <span class="toggle-save">Save up to 20% with yearly billing</span>
+    <div class="founding-wrap" data-reveal>
+      <article class="founding-card">
+        <span class="founding-tag">Founding Artist</span>
+        <h3 class="founding-name">One offer. First 1000 only.</h3>
+        <ul class="founding-perks">
+          <li>Lifetime 50% off</li>
+          <li>First 1000 only</li>
+          <li>Permanent name in Hall of Founders</li>
+        </ul>
+        <a href="#waitlist" class="btn founding-cta">Reserve your seat</a>
+      </article>
     </div>
-
-    <div class="plans-carousel" role="region" aria-roledescription="carousel" aria-label="Subscription plans">
-    <div class="plans">
-
-      <article class="plan">
-        <span class="plan-tag">Start here</span>
-        <h3 class="plan-name">Free Trial</h3>
-        <div class="plan-price">
-          <span class="num" data-monthly="€0" data-annual="€0">€0</span>
-          <span class="per">free for 7 days</span>
-        </div>
-        <p class="plan-blurb">See the core experience in 7 days with enough access to understand the product.</p>
-        <ul class="plan-features">
-          <li>7 days access</li>
-          <li>1 demo flow</li>
-          <li>1-3 scans</li>
-          <li>Basic preview</li>
-          <li>Limited AI actions</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-ghost">Start free trial</a>
-        <p class="plan-foot">Designed to create upgrade intent, not full usage.</p>
-      </article>
-
-      <article class="plan">
-        <span class="plan-tag">For beginners</span>
-        <h3 class="plan-name">Starter</h3>
-        <div class="plan-price">
-          <span class="num" data-monthly="€29" data-annual="€23">€29</span>
-          <span class="per" data-monthly="/ month" data-annual="/ month · billed yearly">/ month</span>
-        </div>
-        <p class="plan-blurb">For users who want to get serious without a big commitment.</p>
-        <ul class="plan-features">
-          <li>10-15 uses / month</li>
-          <li>Basic exports</li>
-          <li>Limited AI credits</li>
-          <li>Single user</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-ghost">Start Starter</a>
-        <p class="plan-foot">A clean first paid step.</p>
-      </article>
-
-      <article class="plan featured">
-        <span class="plan-tag">Most popular</span>
-        <h3 class="plan-name">Pro</h3>
-        <div class="plan-price">
-          <span class="num" data-monthly="€89" data-annual="€71">€89</span>
-          <span class="per" data-monthly="/ month" data-annual="/ month · billed yearly">/ month</span>
-        </div>
-        <p class="plan-blurb">The best value for everyday professional use.</p>
-        <ul class="plan-features">
-          <li>50-100 uses / month</li>
-          <li>Full core features</li>
-          <li>More AI credits</li>
-          <li>Client projects</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-primary">Choose Pro</a>
-        <p class="plan-foot">The plan you want to sell the most.</p>
-      </article>
-
-      <article class="plan">
-        <span class="plan-tag">For power users</span>
-        <h3 class="plan-name">Elite</h3>
-        <div class="plan-price">
-          <span class="num" data-monthly="€159" data-annual="€127">€159</span>
-          <span class="per" data-monthly="/ month" data-annual="/ month · billed yearly">/ month</span>
-        </div>
-        <p class="plan-blurb">For users who want advanced tools and fewer limits.</p>
-        <ul class="plan-features">
-          <li>Unlimited / high limits</li>
-          <li>Advanced AI tools</li>
-          <li>Priority support</li>
-          <li>Automation + scheduling</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-ghost">Go Elite</a>
-        <p class="plan-foot">Premium experience for demanding users.</p>
-      </article>
-
-      <article class="plan">
-        <span class="plan-tag">Teams</span>
-        <h3 class="plan-name">Studio</h3>
-        <div class="plan-price">
-          <span class="num" data-monthly="€299+" data-annual="€239+">€299+</span>
-          <span class="per">/ seat / month</span>
-        </div>
-        <p class="plan-blurb">For teams, agencies, and white-label workflows.</p>
-        <ul class="plan-features">
-          <li>Multi-seat</li>
-          <li>Shared assets</li>
-          <li>White label</li>
-          <li>CRM / notes / team workflows</li>
-        </ul>
-        <a href="#waitlist" class="btn btn-ghost">Contact sales</a>
-        <p class="plan-foot">Built for B2B, collaboration, and scaling.</p>
-      </article>
-
-    </div>
-
-    <div class="carousel-dots" id="plansDots" role="tablist" aria-label="Select plan"></div>
-    <div class="carousel-controls">
-      <button type="button" class="carousel-btn" data-carousel-prev aria-label="Previous plan">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 L9 12 L15 18" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button type="button" class="carousel-btn" data-carousel-next aria-label="Next plan">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 L15 12 L9 18" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-    </div>
-    </div>
-
-    <p class="pricing-fine">All plans include encrypted, on-device scans. No artwork is ever used to train models.</p>
   </div>
 </section>
 
@@ -2716,13 +2729,6 @@ body.video-modal-open { overflow: hidden; }
           <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 5 V19 M5 12 H19"/></svg></span>
         </button>
         <div class="faq-a" id="a5"><div class="faq-a-inner"><p>Always. Designs and body scans are encrypted end-to-end and stored on-device by default. No artwork is ever used to train models. Cloud sync is opt-in and fully deletable.</p></div></div>
-      </div>
-      <div class="faq-item" aria-expanded="false">
-        <button class="faq-q" aria-controls="a6">
-          <span class="label">Is there really a free tier?</span>
-          <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 5 V19 M5 12 H19"/></svg></span>
-        </button>
-        <div class="faq-a" id="a6"><div class="faq-a-inner"><p>Yes. The free tier is forever, no credit card required. You can sketch, generate AI variations, and run one body scan per month. Upgrade only when you're ready to ship to clients.</p></div></div>
       </div>
     </div>
   </div>
@@ -3320,6 +3326,53 @@ body.video-modal-open { overflow: hidden; }
         // BorderGlow handles fade-out via :not(:hover) opacity transition
       });
     });
+  })();
+
+  // Features — sticky scroll stage crossfade
+  (function () {
+    var outer = document.querySelector('.feat-sticky-outer');
+    if (!outer) return;
+    var panels = Array.from(outer.querySelectorAll('.feat-panel'));
+    var stageEls = Array.from(outer.querySelectorAll('.feat-stage'));
+    var dots = Array.from(document.querySelectorAll('.feat-progress-dot'));
+    if (!panels.length || !stageEls.length) return;
+
+    var activeIdx = 0;
+    var ticking = false;
+
+    function findActive() {
+      var mid = window.innerHeight * 0.42;
+      var best = 0;
+      var bestDist = Infinity;
+      panels.forEach(function (p, i) {
+        var r = p.getBoundingClientRect();
+        var d = Math.abs((r.top + r.height * 0.5) - mid);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    }
+
+    function applyActive(i) {
+      if (i === activeIdx) return;
+      activeIdx = i;
+      panels.forEach(function (p, j) { p.classList.toggle('is-active', j === i); });
+      stageEls.forEach(function (s, j) { s.style.opacity = j === i ? '1' : '0'; });
+      dots.forEach(function (d, j) { d.classList.toggle('is-active', j === i); });
+    }
+
+    function update() {
+      applyActive(findActive());
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+
+    // Set initial state
+    panels[0].classList.add('is-active');
+    stageEls[0].style.opacity = '1';
+    if (dots[0]) dots[0].classList.add('is-active');
   })();
 </script>
 
