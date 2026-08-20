@@ -297,13 +297,59 @@
   bindForm('loginForm', 'login-msg', 'Login');
   bindForm('signupForm', 'signup-msg', 'Sign up');
 
-  // SSO buttons placeholder behaviour
+  // ── Real SSO ────────────────────────────────────────────────────────────
+  // Google runs through the studio app's server-initiated OAuth route (PKCE on
+  // that domain — avoids the cross-domain verifier trap a static gate would
+  // hit). Sign-up is the same flow: a first-time Google user is created and,
+  // with no invite, self-signs-up as an artist (backend ruling D3). The
+  // qualification question only changes WHERE a client is sent, not whether
+  // they can sign in.
+  var STUDIO_OAUTH = 'https://venom-dashboard-full.vercel.app/auth/google';
+  var APP_STORE_URL = 'https://apps.apple.com/app/venomscan'; // client product = the iPhone app
+
+  function goGoogle(next) {
+    window.location.href = STUDIO_OAUTH + '?next=' + encodeURIComponent(next || '/');
+  }
+
+  // Client qualification overlay (built once, shown on demand).
+  function showQualify() {
+    if (document.getElementById('qualify-ov')) { document.getElementById('qualify-ov').style.display = 'flex'; return; }
+    var ov = document.createElement('div');
+    ov.id = 'qualify-ov';
+    ov.style.cssText = 'position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(6px)';
+    ov.innerHTML =
+      '<div style="max-width:420px;width:90%;background:#12121a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:28px;color:#fff;font-family:inherit">' +
+        '<h2 style="margin:0 0 6px;font-size:20px">Who are you?</h2>' +
+        '<p style="margin:0 0 20px;color:rgba(255,255,255,.55);font-size:14px">This tailors your DremonPro experience.</p>' +
+        '<button id="q-artist" style="width:100%;padding:14px;border-radius:12px;border:0;background:#fff;color:#111;font-weight:600;font-size:15px;cursor:pointer;margin-bottom:10px">I’m a Tattoo Artist</button>' +
+        '<button id="q-client" style="width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;font-size:15px;cursor:pointer">I’m a Client (getting tattooed)</button>' +
+        '<div id="q-client-note" style="display:none;margin-top:16px;padding:14px;border-radius:12px;background:rgba(255,255,255,.05);font-size:13px;color:rgba(255,255,255,.75)">' +
+          'DremonPro for clients lives in the iPhone app — that’s where you scan and view your tattoos.' +
+          '<a href="' + APP_STORE_URL + '" style="display:block;margin-top:12px;padding:11px;border-radius:10px;background:#fff;color:#111;text-align:center;text-decoration:none;font-weight:600">Download the app</a>' +
+          '<button id="q-client-web" style="width:100%;margin-top:8px;padding:9px;border-radius:10px;border:0;background:transparent;color:rgba(255,255,255,.6);font-size:13px;cursor:pointer;text-decoration:underline">or continue signing up on the web</button>' +
+        '</div>' +
+        '<button id="q-cancel" style="width:100%;margin-top:14px;padding:8px;border:0;background:transparent;color:rgba(255,255,255,.4);font-size:13px;cursor:pointer">Cancel</button>' +
+      '</div>';
+    document.body.appendChild(ov);
+    ov.querySelector('#q-artist').addEventListener('click', function () { goGoogle('/'); });
+    ov.querySelector('#q-client').addEventListener('click', function () { ov.querySelector('#q-client-note').style.display = 'block'; });
+    ov.querySelector('#q-client-web').addEventListener('click', function () { goGoogle('/'); });
+    ov.querySelector('#q-cancel').addEventListener('click', function () { ov.style.display = 'none'; });
+    ov.addEventListener('click', function (e) { if (e.target === ov) ov.style.display = 'none'; });
+  }
+
   document.querySelectorAll('[data-sso]').forEach(function (b) {
     b.addEventListener('click', function () {
+      var provider = b.dataset.sso;
       var msg = document.querySelector('.panel.is-active .auth-msg');
-      if (!msg) return;
-      msg.textContent = b.dataset.sso.charAt(0).toUpperCase() + b.dataset.sso.slice(1) + ' SSO opens at beta. Join the waitlist for early access.';
-      msg.className = 'auth-msg ok';
+      if (provider === 'apple') {
+        if (msg) { msg.textContent = 'Apple sign-in is arriving shortly — use Google for now.'; msg.className = 'auth-msg'; }
+        return;
+      }
+      // Google. On the sign-up panel, ask the qualification question first; on
+      // login, go straight through (existing users skip it).
+      var onSignup = panels.signup && panels.signup.classList.contains('is-active');
+      if (onSignup) showQualify(); else goGoogle('/');
     });
   });
 })();
