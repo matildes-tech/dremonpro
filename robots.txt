@@ -1,0 +1,28 @@
+# DREMONPRO — robots.txt
+# https://www.dremonpro.com/robots.txt
+#
+# PRE-LAUNCH: this site is intentionally kept OUT of search results.
+#
+# Crawling is allowed on purpose. Every response carries an
+# `X-Robots-Tag: noindex, nofollow` header (see vercel.json), which is
+# what actually keeps these pages out of the index — and lets search
+# engines re-read the site and DROP anything already indexed.
+#
+# Do NOT switch this to `Disallow: /`: that blocks re-crawling, so any
+# pages already in the index would get stuck there instead of removed.
+#
+# TO GO LIVE IN SEARCH: delete the X-Robots-Tag header from vercel.json,
+# then add the Sitemap line below.
+
+User-agent: *
+Allow: /
+
+# Slow aggressive SEO scrapers
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# No sitemap published while the site is unlisted.
+# Sitemap: https://www.dremonpro.com/sitemap.xml

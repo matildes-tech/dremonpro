@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Writing AI Prompts for Professional Tattoo Concepts — DREMONPRO</title>
+<meta name="description" content="Style anchors, composition constraints, negative prompts — the prompt architecture that turns generic AI output into a working starting point." />
+<meta property="og:title" content="How to Write AI Prompts That Generate Professional Tattoo Concepts" />
+<meta property="og:description" content="The prompt architecture that turns generic AI output into a working starting point." />
+<meta property="og:type" content="article" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#top">Skip to content</a>
+
+<!-- NAV -->
+<nav class="navbar">
+  <button class="nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span>
+  </button>
+  <a class="nav-brand is-static" href="/" aria-label="DREMONPRO home"><img src="/images/logo-wordmark.png" alt="DREMONPRO" /></a>
+  <a class="nav-cta" href="/#waitlist">Download the App</a>
+</nav>
+
+<!-- FULLSCREEN MENU -->
+<div class="nav-menu" id="navMenu" aria-hidden="true">
+  <nav class="nav-menu-list" aria-label="Main menu">
+    <a class="nav-menu-link" href="/features/">Features</a>
+    <a class="nav-menu-link" href="/how-it-works/">How it works</a>
+    <a class="nav-menu-link" href="/use-cases/">Use cases</a>
+    <a class="nav-menu-link" href="/pricing/">Pricing</a>
+    <a class="nav-menu-link" href="/about/">About</a>
+    <a class="nav-menu-link" href="/blog/" aria-current="page">Blog</a>
+    <a class="nav-menu-link" href="/login.html">Sign in</a>
+    <a class="nav-menu-link" href="/contact/">Contact</a>
+  </nav>
+  <a class="nav-menu-cta" href="/#waitlist">Download the App</a>
+</div>
+
+<main id="top">
+<article class="art-shell wrap">
+  <div class="art-wrap">
+    <a class="art-back" href="/blog/">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      All articles
+    </a>
+
+    <header data-reveal>
+      <span class="art-cat">AI Tattoo Tools</span>
+      <h1 class="art-title">Writing prompts for professional tattoo concepts</h1>
+      <p class="art-deck">Style anchors, composition constraints, negative prompts — the prompt architecture that turns generic AI output into a working starting point you can actually edit.</p>
+      <div class="art-byline">
+        <span><strong>By</strong> DREMONPRO Editorial</span>
+        <span class="sep">·</span><span>April 22, 2026</span>
+        <span class="sep">·</span><span>7 min read</span>
+      </div>
+    </header>
+
+    <div class="art-cover"></div>
+
+    <div class="art-share" aria-label="Share this article">
+      <span class="art-share-label">Share</span>
+      <a href="#" class="art-share-btn" aria-label="Share on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.37-1.85c3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zm1.78 13.02H3.56V9h3.56v11.45z"/></svg></a>
+      <a href="#" class="art-share-btn" aria-label="Share on X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21.5l-7.5 8.57L23 22h-6.55l-5.13-6.37L5.5 22H2.244l8.07-9.21L1.5 2h6.7l4.66 5.93L18.244 2zm-1.146 18.06h1.81L7.05 3.84H5.11l11.988 16.22z"/></svg></a>
+      <a href="mailto:?body=Writing%20AI%20prompts%20for%20tattoo%20concepts%20on%20the%20DREMONPRO%20blog" class="art-share-btn" aria-label="Share by email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+    </div>
+
+    <nav class="legal-toc" aria-label="Table of contents">
+      <a href="#sec-1">Prompts are briefs</a>
+      <a href="#sec-2">Style anchors</a>
+      <a href="#sec-3">Composition constraints</a>
+      <a href="#sec-4">Negative prompts</a>
+      <a href="#sec-5">From output to stencil</a>
+    </nav>
+
+    <div class="legal-body article-body">
+      <p class="in-short"><span class="in-short-label">In short</span> A vague prompt produces a generic image. A structured prompt — style anchor, subject, composition constraints, and exclusions — produces a usable concept. Treat the prompt like a brief you'd hand an apprentice, not a wish.</p>
+
+      <h2 id="sec-1">A prompt is a brief, written for a machine</h2>
+      <p>The single biggest gain in output quality comes from treating prompting as briefing. "Wolf tattoo" gives you the average of everything the model has seen. A real brief — style, subject, mood, composition, what to avoid — narrows that average toward something you can actually use. The structure below is just a brief with the parts named.</p>
+
+      <h2 id="sec-2">Style anchors</h2>
+      <p>Lead with the visual language, not the subject. Name the tradition — blackwork, neo-traditional, fine line, ornamental, traditional Japanese — and the line quality you want: bold outlines, delicate single-weight, heavy black fill. The style anchor does more to shape the result than any other part of the prompt, because it tells the model which corner of its training to draw from.</p>
+
+      <h2 id="sec-3">Composition constraints</h2>
+      <p>Then constrain the layout: orientation (vertical for a forearm, circular for a shoulder cap), focal point, symmetry, and how much the design should fill versus leave open. Specifying placement-aware framing up front saves a round of rejected variants. The more the prompt knows about where the piece will live, the closer the first draft lands.</p>
+
+      <div class="pull-quote">
+        <p>The model can't read your mind, but it reads constraints perfectly. Every limit you add is a decision you don't have to fix later.</p>
+      </div>
+
+      <h2 id="sec-4">Negative prompts</h2>
+      <p>Say what you don't want. Excluding colour when you need linework, excluding background and shading when you need a clean stencil, excluding photorealism when you want flat graphic art — these exclusions remove the most common failure modes before they appear. Negative prompts are where a generic generator becomes a stencil-shaped one.</p>
+
+      <h2 id="sec-5">From output to working stencil</h2>
+      <p>A good prompt gets you a strong concept; it does not get you a tattoo. The output still needs line extraction, clean-up, scaling, and your editing judgement before it's transfer-ready. Tools built for production close that gap — converting the concept to consistent 600-DPI linework and projecting it onto body geometry — so the prompt is the start of the workflow, not the end of it.</p>
+      <p>The private beta opens June 17, 2026. <a href="/waitlist/">327 founding seats remain.</a></p>
+
+      <div class="takeaways">
+        <div class="takeaways-label">Key takeaways</div>
+        <ul>
+          <li><strong>Lead with a style anchor;</strong> it shapes the result more than the subject.</li>
+          <li><strong>Constrain composition and placement</strong> in the prompt to save rejected variants.</li>
+          <li><strong>Use negative prompts</strong> to strip colour, shading, and background toward clean linework.</li>
+        </ul>
+      </div>
+
+      <div class="art-author">
+        <div class="art-author-avatar" aria-hidden="true">D</div>
+        <div>
+          <p class="art-author-name">DREMONPRO Editorial</p>
+          <p class="art-author-desc">Field notes from the team building studio software for tattoo artists. Built for the body. Made at the bench.</p>
+        </div>
+      </div>
+    </div>
+
+    <section class="art-related">
+      <h2>Related reading</h2>
+      <div class="art-related-grid">
+        <a href="/blog/what-is-ai-tattoo-design-software-2026/" class="art-related-card"><span class="art-related-cat">AI Tattoo Tools</span><span class="art-related-title">AI tattoo generation: what it actually is</span></a>
+        <a href="/blog/generative-ai-vs-hand-drawn-tattoo-artists-guide/" class="art-related-card"><span class="art-related-cat">Tattoo Design</span><span class="art-related-title">The geometry of great tattoo composition</span></a>
+        <a href="/blog/best-ipad-apps-tattoo-artists-2026/" class="art-related-card"><span class="art-related-cat">Technology</span><span class="art-related-title">The digital studio setup guide for 2026</span></a>
+      </div>
+    </section>
+  </div>
+</article>
+</main>
+
+<!-- FOOTER -->
+<footer class="section-mini-footer wrap">
+  <div class="foot-grid">
+    <div>
+      <a class="foot-logo" href="/" aria-label="DREMONPRO"><img src="/images/logo-wordmark.png" alt="DREMONPRO" /></a>
+      <p class="type-body" style="margin-top:14px;font-size:14px;">Studio software for tattoo artists. Built for the body. Made at the bench.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Product</h5>
+      <a href="/features/">Features</a><a href="/how-it-works/">How it works</a><a href="/use-cases/">Use cases</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <a href="/about/">About</a><a href="/contact/">Contact</a><a href="/legal/">Legal</a><a href="/login.html">Sign in / Sign up</a><a href="/#waitlist">Get the app</a>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <a href="mailto:hello@dremonpro.com">hello@dremonpro.com</a>
+      <a href="mailto:support@dremonpro.com">support@dremonpro.com</a>
+      <span class="foot-loc">Berlin · Lisbon · Tokyo</span>
+    </div>
+  </div>
+  <div class="foot-social">
+    <a href="#">Instagram (@dremonpro_app)</a>
+    <a href="#">YouTube (@dremonpro)</a>
+    <a href="#">X / Twitter (@dremonpro)</a>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 DREMONPRO. All rights reserved. · <a href="/terms/">Terms</a> · <a href="/privacy/">Privacy</a></span>
+    <span>hello@dremonpro.com</span>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use privacy-friendly analytics (no third-party cookies). Read our <a href="/privacy/">privacy policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="oauth-btn" id="cookieDecline">Decline</button>
+    <button class="button" id="cookieAccept">Accept</button>
+  </div>
+</div>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>

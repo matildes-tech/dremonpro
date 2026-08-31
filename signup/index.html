@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Create your studio account — DREMONPRO</title>
+<meta name="description" content="Create your DREMONPRO studio account. No password — we email you a one-time sign-in link." />
+<meta property="og:title" content="Create your studio account — DREMONPRO" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#top">Skip to content</a>
+
+<!-- NAV -->
+<nav class="navbar">
+  <button class="nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span>
+  </button>
+  <a class="nav-brand is-static" href="/" aria-label="DREMONPRO home"><img src="/images/logo-wordmark.png" alt="DREMONPRO" /></a>
+  <a class="nav-cta" href="/#waitlist">Download the App</a>
+</nav>
+
+<!-- FULLSCREEN MENU -->
+<div class="nav-menu" id="navMenu" aria-hidden="true">
+  <nav class="nav-menu-list" aria-label="Main menu">
+    <a class="nav-menu-link" href="/features/">Features</a>
+    <a class="nav-menu-link" href="/how-it-works/">How it works</a>
+    <a class="nav-menu-link" href="/use-cases/">Use cases</a>
+    <a class="nav-menu-link" href="/pricing/">Pricing</a>
+    <a class="nav-menu-link" href="/about/">About</a>
+    <a class="nav-menu-link" href="/blog/">Blog</a>
+    <a class="nav-menu-link" href="/login.html">Sign in</a>
+    <a class="nav-menu-link" href="/contact/">Contact</a>
+  </nav>
+  <a class="nav-menu-cta" href="/#waitlist">Download the App</a>
+</div>
+
+<main id="top">
+<section class="auth-shell">
+  <div class="auth-wrap">
+    <p class="auth-eyebrow">Create account</p>
+    <h1>Make your studio account.</h1>
+    <p class="auth-switch">No password. We'll email you a one-time link to sign in. Takes ten seconds.</p>
+
+    <div class="auth-card">
+      <div class="sso-grid">
+        <button type="button" class="sso-btn" id="ssoApple" aria-label="Continue with Apple">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.4 2c0 1.4-.5 2.7-1.4 3.7-1 1.1-2.6 1.9-3.9 1.8-.2-1.4.5-2.8 1.4-3.7C13.5 2.7 15.1 1.9 16.4 2zm4.5 16.6c-.7 1.5-1 2.2-1.9 3.6-1.2 1.9-2.9 4.3-5 4.3-1.9 0-2.4-1.2-5-1.2s-3.2 1.2-5 1.2c-2.1 0-3.7-2.2-4.9-4.1-3.4-5.3-3.7-11.5-1.6-14.8 1.5-2.4 3.8-3.8 6-3.8 2.2 0 3.6 1.2 5.5 1.2 1.8 0 2.9-1.2 5.5-1.2 2 0 4 1.1 5.5 3-4.8 2.6-4 9.5.9 11.8z"/></svg>
+          Continue with Apple
+        </button>
+        <button type="button" class="sso-btn" id="ssoGoogle" aria-label="Continue with Google">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-.7-.1-1.4-.2-2H12v3.8h5.6a4.8 4.8 0 0 1-2.1 3.1v2.6h3.4c2-1.8 3.1-4.5 3.1-7.5z" fill="currentColor"/><path d="M12 22c2.8 0 5.2-1 7-2.5l-3.4-2.6a6 6 0 0 1-9-3.1H3v2.7A10 10 0 0 0 12 22z" fill="currentColor"/><path d="M6.6 13.8a6 6 0 0 1 0-3.6V7.5H3a10 10 0 0 0 0 9z" fill="currentColor"/><path d="M12 6c1.5 0 2.9.5 4 1.5l3-3A10 10 0 0 0 3 7.5l3.6 2.7c.9-2.5 3.2-4.2 5.4-4.2z" fill="currentColor"/></svg>
+          Continue with Google
+        </button>
+      </div>
+
+      <div class="form-divider">or</div>
+
+      <form class="auth-form" id="signupForm" action="#" method="post" novalidate>
+        <label for="signup-email">Studio email</label>
+        <input type="email" id="signup-email" name="email" required autocomplete="email" placeholder="artist@studio.com" />
+        <p class="auth-msg" id="signupMsg" role="status" aria-live="polite"></p>
+        <button type="submit" class="button">Send me the link</button>
+        <p class="auth-fine">By creating an account you agree to our <a href="/terms/">Terms</a> and <a href="/privacy/">Privacy Policy</a>. One email per studio.</p>
+      </form>
+
+      <p class="auth-foot">Already have an account? <a href="/login.html">Sign in</a></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="section-mini-footer wrap">
+  <div class="foot-grid">
+    <div>
+      <a class="foot-logo" href="/" aria-label="DREMONPRO"><img src="/images/logo-wordmark.png" alt="DREMONPRO" /></a>
+      <p class="type-body" style="margin-top:14px;font-size:14px;">Studio software for tattoo artists. Built for the body. Made at the bench.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Product</h5>
+      <a href="/features/">Features</a><a href="/how-it-works/">How it works</a><a href="/use-cases/">Use cases</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <a href="/about/">About</a><a href="/contact/">Contact</a><a href="/legal/">Legal</a><a href="/login.html">Sign in / Sign up</a><a href="/#waitlist">Get the app</a>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <a href="mailto:hello@dremonpro.com">hello@dremonpro.com</a>
+      <a href="mailto:support@dremonpro.com">support@dremonpro.com</a>
+      <span class="foot-loc">Berlin · Lisbon · Tokyo</span>
+    </div>
+  </div>
+  <div class="foot-social">
+    <a href="#">Instagram (@dremonpro_app)</a>
+    <a href="#">YouTube (@dremonpro)</a>
+    <a href="#">X / Twitter (@dremonpro)</a>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 DREMONPRO. All rights reserved. · <a href="/terms/">Terms</a> · <a href="/privacy/">Privacy</a></span>
+    <span>hello@dremonpro.com</span>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use privacy-friendly analytics (no third-party cookies). Read our <a href="/privacy/">privacy policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="oauth-btn" id="cookieDecline">Decline</button>
+    <button class="button" id="cookieAccept">Accept</button>
+  </div>
+</div>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>
