@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Features — DREMONPRO</title>
+<meta name="description" content="DREMONPRO's seven core technologies — 3D body scanning, touchless control, anatomy fitting, instant stencils, style learning, live collabs and smart print. Seven technologies, one session." />
+<meta property="og:title" content="Features — DREMONPRO" />
+<meta property="og:description" content="Seven technologies. One session." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+<a class="skip-link" href="#top">Skip to content</a>
+
+<!-- NAV -->
+<nav class="navbar">
+  <button class="nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span>
+  </button>
+  <a class="nav-brand is-static" href="/" aria-label="DREMONPRO home"><img src="/images/logo-wordmark.png" alt="DREMONPRO" /></a>
+  <a class="nav-cta" href="/#waitlist">Download the App</a>
+</nav>
+
+<!-- FULLSCREEN MENU -->
+<div class="nav-menu" id="navMenu" aria-hidden="true">
+  <nav class="nav-menu-list" aria-label="Main menu">
+    <a class="nav-menu-link" href="/features/" aria-current="page">Features</a>
+    <a class="nav-menu-link" href="/how-it-works/">How it works</a>
+    <a class="nav-menu-link" href="/use-cases/">Use cases</a>
+    <a class="nav-menu-link" href="/pricing/">Pricing</a>
+    <a class="nav-menu-link" href="/about/">About</a>
+    <a class="nav-menu-link" href="/blog/">Blog</a>
+    <a class="nav-menu-link" href="/login.html">Sign in</a>
+    <a class="nav-menu-link" href="/contact/">Contact</a>
+  </nav>
+  <a class="nav-menu-cta" href="/#waitlist">Download the App</a>
+</div>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="eyebrow left">Features</div>
+    <h1>Seven technologies.<br>One session.</h1>
+  </div>
+</section>
+
+<!-- FEATURE EXPLORER (hover list → modal) -->
+<section class="ft-explorer" data-reveal>
+  <div class="wrap">
+    <ul class="ft-list" id="ftList" role="list">
+      <li role="listitem"><button type="button" class="ft-row" data-feature="01" aria-haspopup="dialog"><span class="ft-name">3D Body Scan</span><span class="ft-idx">01</span></button></li>
+      <li role="listitem"><button type="button" class="ft-row" data-feature="02" aria-haspopup="dialog"><span class="ft-name">Touchless Control</span><span class="ft-idx">02</span></button></li>
+      <li role="listitem"><button type="button" class="ft-row" data-feature="03" aria-haspopup="dialog"><span class="ft-name">Anatomy Fitting</span><span class="ft-idx">03</span></button></li>
+      <li role="listitem"><button type="button" class="ft-row" data-feature="04" aria-haspopup="dialog"><span class="ft-name">Instant Stencil</span><span class="ft-idx">04</span></button></li>
+      <li role="listitem"><button type="button" class="ft-row" data-feature="05" aria-haspopup="dialog"><span class="ft-name">Style Learning</span><span class="ft-idx">05</span></button></li>
+      <li role="listitem"><button type="button" class="ft-row" data-feature="06" aria-haspopup="dialog"><span class="ft-name">Live Collabs</span><span class="ft-idx">06</span></button></li>
+      <li role="listitem"><button type="button" class="ft-row" data-feature="07" aria-haspopup="dialog"><span class="ft-name">Smart Print</span><span class="ft-idx">07</span></button></li>
+    </ul>
+    <p class="ft-hint">Tap a technology to read more</p>
+  </div>
+</section>
+
+<!-- Feature pop-up modal -->
+<div class="feat-modal" id="featModal" role="dialog" aria-modal="true" aria-labelledby="featModalTitle" hidden>
+  <div class="feat-modal-card" role="document">
+    <button type="button" class="feat-modal-close" aria-label="Close feature">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="feat-modal-body" id="featModalBody"></div>
+  </div>
+</div>
+
+<!-- Hidden feature content templates -->
+<template id="feat-01">
+  <span class="feat-modal-eyebrow">01 — 3D Body Scan</span>
+  <h2 id="featModalTitle">See the tattoo before it exists</h2>
+  <p class="lead">Scan the client's body in seconds using a phone or tablet and instantly generate a real 3D workspace for your design.</p>
+  <p>Instead of guessing how a tattoo will wrap around the body, DREMONPRO lets you preview the design directly on the client's anatomy before the stencil is even printed. Rotate the body, test placements, adjust proportions, and see exactly how the tattoo flows across muscles, curves, and movement.</p>
+  <p>Tattoo artists have spent decades working on flat screens for a surface that is never flat. DREMONPRO changes that completely.</p>
+  <ul class="feat-modal-list">
+    <li>No more surprises after placement.</li>
+    <li>No more distorted proportions.</li>
+    <li>No more guessing how the design will look once the body moves.</li>
+  </ul>
+  <p>This creates a faster workflow, more accurate placements, and dramatically better client communication during consultations.</p>
+  <div class="feat-modal-why">
+    <span class="feat-modal-why-label">Why it matters</span>
+    <p>Clients struggle to visualize tattoos from flat drawings. Artists constantly compensate for body shape manually.</p>
+    <p>DREMONPRO bridges that gap by turning the body itself into the workspace.</p>
+  </div>
+</template>
+
+<template id="feat-02">
+  <span class="feat-modal-eyebrow">02 — Touchless Control</span>
+  <h2 id="featModalTitle">Control the canvas without touching the screen</h2>
+  <p class="lead">Move, rotate, zoom, and control your workspace using simple hand gestures and voice commands.</p>
+  <p>Tattoo sessions are messy by nature. Artists constantly remove gloves, clean screens, or interrupt their workflow just to adjust a design.</p>
+  <p>DREMONPRO eliminates that friction completely.</p>
+  <p>With touch-free controls, artists can continue working naturally while interacting with the software in real time. Rotate the body, zoom into details, switch tools, or reposition designs without physically touching the device.</p>
+  <p>Built specifically for tattoo environments, the system keeps the workflow faster, cleaner, and uninterrupted.</p>
+  <div class="feat-modal-why">
+    <span class="feat-modal-why-label">Why it matters</span>
+    <p>Traditional creative software was never designed for tattoo sessions.</p>
+    <p>DREMONPRO adapts to the way tattoo artists actually work.</p>
+  </div>
+</template>
+
+<template id="feat-03">
+  <span class="feat-modal-eyebrow">03 — Anatomy Fitting</span>
+  <h2 id="featModalTitle">Designs that fit the body automatically</h2>
+  <p class="lead">Every body is different. DREMONPRO automatically adjusts the design to match the client's real anatomy and proportions.</p>
+  <p>Instead of manually resizing, stretching, and repositioning stencils for every client, artists can preview how the tattoo naturally flows on the body before printing.</p>
+  <p>The software understands body scale, curvature, and placement, helping designs feel intentional instead of simply "placed."</p>
+  <p>Large projects like sleeves, ribs, backs, and leg pieces become dramatically easier to plan with accuracy.</p>
+  <div class="feat-modal-why">
+    <span class="feat-modal-why-label">Why it matters</span>
+    <p>A tattoo can look perfect on a flat canvas and completely wrong on a real body.</p>
+    <p>DREMONPRO helps artists create tattoos that feel integrated with anatomy instead of fighting against it.</p>
+  </div>
+</template>
+
+<template id="feat-04">
+  <span class="feat-modal-eyebrow">04 — Instant Stencil</span>
+  <h2 id="featModalTitle">Turn designs into ready-to-print stencils in seconds</h2>
+  <p class="lead">Convert finished artwork into clean stencil-ready linework instantly.</p>
+  <p>DREMONPRO automatically generates the stencil at the exact scale and placement approved on the 3D body scan, reducing hours of manual adjustments and repeated printing tests.</p>
+  <p>Artists can focus on creating instead of spending unnecessary time preparing stencils by hand.</p>
+  <p>The result is faster preparation, more consistent placement, and a dramatically smoother workflow from concept to skin.</p>
+  <div class="feat-modal-why">
+    <span class="feat-modal-why-label">Why it matters</span>
+    <p>Stencil preparation is one of the most repetitive and time-consuming parts of tattooing.</p>
+    <p>DREMONPRO automates the process without removing artistic control.</p>
+  </div>
+</template>
+
+<template id="feat-05">
+  <span class="feat-modal-eyebrow">05 — Style Learning</span>
+  <h2 id="featModalTitle">AI that learns your style</h2>
+  <p class="lead">Train the AI using your own tattoos, stencil work, and line structures.</p>
+  <p>Instead of generating generic AI images, DREMONPRO studies the way you actually design. Over time, the system adapts to your visual language, helping generate concepts, compositions, and stencil foundations that genuinely resemble your artistic identity.</p>
+  <p>The goal is not to replace the artist. The goal is to accelerate creativity without losing originality.</p>
+  <p>Every artist develops a unique visual fingerprint. DREMONPRO is built to learn it.</p>
+  <div class="feat-modal-why">
+    <span class="feat-modal-why-label">Why it matters</span>
+    <p>Most AI tools generate work that looks generic and disconnected from the artist.</p>
+    <p>DREMONPRO helps artists stay original while dramatically speeding up ideation and workflow.</p>
+  </div>
+</template>
+
+<template id="feat-06">
+  <span class="feat-modal-eyebrow">06 — Live Collabs</span>
+  <h2 id="featModalTitle">Create together from anywhere</h2>
+  <p class="lead">Work on the same tattoo project with another artist in real time from anywhere in the world.</p>
+  <p>Draw together on the same canvas, exchange ideas instantly, and collaborate as if you were sitting in the same studio.</p>
+  <p>DREMONPRO opens the door for global collaborations, mentorships, guest projects, and creative partnerships without geographical limitations.</p>
+  <p>Tattooing has always been collaborative by nature. The software finally becomes collaborative too.</p>
+  <div class="feat-modal-why">
+    <span class="feat-modal-why-label">Why it matters</span>
+    <p>Artists constantly share screenshots, edits, and revisions across multiple apps.</p>
+    <p>DREMONPRO turns collaboration into a live creative experience.</p>
+  </div>
+</template>
+
+<template id="feat-07">
+  <span class="feat-modal-eyebrow">07 — Smart Print</span>
+  <h2 id="featModalTitle">Print large tattoos without manual setup</h2>
+  <p class="lead">Print tattoos at any scale instantly without resizing or manually splitting designs into pages.</p>
+  <p>DREMONPRO automatically divides large projects into perfectly aligned printable sheets, ready for stencil transfer immediately.</p>
+  <p>Back pieces, sleeves, and large-scale tattoos that normally require complicated preparation become fast, organized, and predictable.</p>
+  <ul class="feat-modal-list">
+    <li>No more wasted paper.</li>
+    <li>No more measuring by hand.</li>
+    <li>No more alignment frustration.</li>
+  </ul>
+  <div class="feat-modal-why">
+    <span class="feat-modal-why-label">Why it matters</span>
+    <p>Large stencil preparation can take hours before the tattoo even begins.</p>
+    <p>DREMONPRO reduces that process to seconds.</p>
+  </div>
+</template>
+
+<!-- FAQ -->
+<section class="section-faq" data-reveal>
+  <div class="wrap faq-wrap">
+    <div class="eyebrow left">FAQ</div>
+    <h2 class="section-title">Common questions about the features</h2>
+    <div class="faq-list">
+      <details class="faq-item" open><summary>Do I need new hardware to use DREMONPRO?</summary><p>No. DREMONPRO runs on the iPad Pro (M2 or newer) or iPhone 15 Pro or newer that you most likely already own. There are no calibration rigs, dongles, or external sensors to buy. On older devices without LiDAR, photogrammetry kicks in automatically using the camera and the workflow stays the same.</p></details>
+      <details class="faq-item"><summary>Which features work offline?</summary><p>3D body scanning, design, placement, stencil generation and printing all run on-device and work fully offline — critical for conventions, tours, and studios with patchy internet. Cloud sync, real-time collaboration and shared client databases require a connection.</p></details>
+      <details class="faq-item"><summary>How does the AI learn my personal style?</summary><p>You upload your own stencils, line work, and reference sketches. The model trains a per-artist fine-tune that generates variations in your hand — not generic AI output. Your training data is encrypted and never used to train shared models or any other artist's account.</p></details>
+      <details class="faq-item"><summary>Can I disable features I don't use?</summary><p>Yes. Every feature can be toggled off in the studio settings — voice commands, gesture controls, style learning, AR client preview — so your interface stays focused on the tools you actually use day-to-day.</p></details>
+      <details class="faq-item"><summary>Will all seven features be available at beta launch?</summary><p>All seven core technologies ship on June 17, 2026. Founding artists receive every feature update at no extra cost for the lifetime of their account.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section-cta" data-reveal>
+  <div class="wrap">
+    <div class="cta-card">
+      <div class="eyebrow">Get the app</div>
+      <h2>Try every feature.</h2>
+      <p>Scan on your phone, design on your iPad. Free while we’re in beta.</p>
+      <div class="store-badges"><a class="store-badge" href="/#waitlist" aria-label="DremonPro Mobile on the App Store"><svg viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg><span class="sb-text"><small>Download on the</small><strong>App Store</strong></span></a><span class="store-badge is-soon" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.5"/><line x1="12" y1="17.6" x2="12" y2="17.6" stroke-width="2.6" stroke-linecap="round"/></svg><span class="sb-text"><small>iPad Studio</small><strong>Coming soon</strong></span></span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="section-mini-footer wrap">
+  <div class="foot-grid">
+    <div>
+      <a class="foot-logo" href="/" aria-label="DREMONPRO"><img src="/images/logo-wordmark.png" alt="DREMONPRO" /></a>
+      <p class="type-body" style="margin-top:14px;font-size:14px;">Studio software for tattoo artists. Built for the body. Made at the bench.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Product</h5>
+      <a href="/features/">Features</a><a href="/how-it-works/">How it works</a><a href="/use-cases/">Use cases</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <a href="/about/">About</a><a href="/contact/">Contact</a><a href="/legal/">Legal</a><a href="/login.html">Sign in / Sign up</a><a href="/#waitlist">Get the app</a>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <a href="mailto:hello@dremonpro.com">hello@dremonpro.com</a>
+      <a href="mailto:support@dremonpro.com">support@dremonpro.com</a>
+      <span class="foot-loc">Berlin · Lisbon · Tokyo</span>
+    </div>
+  </div>
+  <div class="foot-social">
+    <a href="#">Instagram (@dremonpro_app)</a>
+    <a href="#">YouTube (@dremonpro)</a>
+    <a href="#">X / Twitter (@dremonpro)</a>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 DREMONPRO. All rights reserved. · <a href="/terms/">Terms</a> · <a href="/privacy/">Privacy</a></span>
+    <span>hello@dremonpro.com</span>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use privacy-friendly analytics (no third-party cookies). Read our <a href="/privacy/">privacy policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="oauth-btn" id="cookieDecline">Decline</button>
+    <button class="button" id="cookieAccept">Accept</button>
+  </div>
+</div>
+
+<script src="/assets/app.js"></script>
+</body>
+</html>

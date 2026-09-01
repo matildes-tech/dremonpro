@@ -1,358 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#000000" />
-<title>Login or Sign up · VENOMPRO</title>
-<meta name="description" content="Log in to your VENOMPRO studio account or create a new one." />
-<meta name="robots" content="noindex, follow" />
-<link rel="canonical" href="https://venompro.com/login.html" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='40' fill='none' stroke='%234F9EFF' stroke-width='6'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%2300FFA3'/%3E%3C/svg%3E" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sign in — DREMONPRO</title>
+<meta name="description" content="Sign in to DREMONPRO Studio. Passwordless sign-in with a one-time email link." />
+<meta property="og:title" content="Sign in — DREMONPRO" />
+<meta property="og:type" content="website" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Racing+Sans+One&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/site.css" />
-<style>
-  .auth-wrap {
-    max-width: 440px;
-    margin: 0 auto;
-  }
-  .auth-card {
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    background: #000;
-    padding: clamp(28px, 4vw, 40px);
-  }
-  .auth-tabs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--line);
-    border-radius: 100px;
-    padding: 4px;
-    margin-bottom: 28px;
-  }
-  .auth-tab {
-    padding: 10px 16px;
-    border-radius: 100px;
-    font-size: var(--fs-meta);
-    font-weight: 500;
-    color: var(--t-meta);
-    text-align: center;
-    transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
-    cursor: pointer;
-  }
-  .auth-tab[aria-selected="true"] {
-    background: #fff;
-    color: #000;
-  }
-  .auth-card h1 {
-    font-size: clamp(24px, 2.6vw, 30px);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-    margin: 0 0 8px;
-    color: var(--t-heading);
-  }
-  .auth-card .sub {
-    font-size: var(--fs-small);
-    color: var(--t-body);
-    margin: 0 0 24px;
-    line-height: 1.5;
-  }
-  .auth-form { display: flex; flex-direction: column; gap: 14px; }
-  .auth-form .btn { width: 100%; }
-  .auth-form .btn-primary { background: var(--t-lead); color: #000; padding: 14px; }
-  .auth-form .btn-primary:hover { background: rgba(255,255,255,0.86); box-shadow: 0 8px 24px rgba(255,255,255,0.35); }
-  .auth-row-helper {
-    display: flex; justify-content: space-between; align-items: center;
-    font-size: var(--fs-meta);
-    color: var(--t-meta);
-    margin-top: -4px;
-  }
-  .auth-row-helper a:hover { color: var(--t-lead); }
-  .auth-checkbox {
-    display: flex; align-items: center; gap: 10px;
-    font-size: var(--fs-meta);
-    color: var(--t-body);
-    user-select: none;
-    cursor: pointer;
-  }
-  .auth-checkbox input { width: 16px; height: 16px; accent-color: var(--t-lead); cursor: pointer; }
-  .sso-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 18px;
-  }
-  .sso-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 12px;
-    border-radius: 14px;
-    border: 1px solid var(--line-2);
-    background: rgba(255,255,255,0.04);
-    color: var(--text);
-    font-size: var(--fs-meta);
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease);
-  }
-  .sso-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.32); }
-  .sso-btn svg { width: 16px; height: 16px; }
-  .auth-foot {
-    text-align: center;
-    margin-top: 22px;
-    font-size: var(--fs-meta);
-    color: var(--t-meta);
-  }
-  .auth-foot a { color: var(--t-lead); font-weight: 500; }
-  .auth-msg {
-    font-size: var(--fs-meta);
-    margin: 0;
-    padding: 0;
-    color: var(--t-meta);
-  }
-  .auth-msg.error { color: #FF6B6B; }
-  .auth-msg.ok { color: var(--green); }
-  .panel { display: none; }
-  .panel.is-active { display: block; }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/style.css" />
 </head>
 <body>
+<a class="skip-link" href="#top">Skip to content</a>
 
-<header class="nav" id="nav">
-  <div class="container nav-inner">
-    <button type="button" class="nav-burger nav-pill" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
-      <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
-    </button>
-    <a href="/" class="logo nav-pill" aria-label="VENOMPRO home">
-      <span class="logo-mark" aria-hidden="true"></span>
-      VENOMPRO
-    </a>
-    <div class="nav-right">
-      <a href="waitlist.html" class="btn btn-primary btn-sm">Join the waitlist</a>
-    </div>
-  </div>
-  <nav class="nav-menu" id="navMenu" aria-label="Primary" hidden>
-    <a href="how-it-works.html">How it works</a>
-    <a href="subscription.html">Subscription</a>
-    <a href="blog.html">Blog</a>
-    <a href="about.html">About us</a>
-    <a href="login.html" aria-current="page">Login / Sign up</a>
-    <a href="waitlist.html">Join the waitlist</a>
+<!-- NAV -->
+<nav class="navbar">
+  <button class="nav-burger" id="navBurger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span>
+  </button>
+  <a class="nav-brand is-static" href="/" aria-label="DREMONPRO home"><img src="/images/logo-wordmark.png" alt="DREMONPRO" /></a>
+  <a class="nav-cta" href="/#waitlist">Download the App</a>
+</nav>
+
+<!-- FULLSCREEN MENU -->
+<div class="nav-menu" id="navMenu" aria-hidden="true">
+  <nav class="nav-menu-list" aria-label="Main menu">
+    <a class="nav-menu-link" href="/features/">Features</a>
+    <a class="nav-menu-link" href="/how-it-works/">How it works</a>
+    <a class="nav-menu-link" href="/use-cases/">Use cases</a>
+    <a class="nav-menu-link" href="/pricing/">Pricing</a>
+    <a class="nav-menu-link" href="/about/">About</a>
+    <a class="nav-menu-link" href="/blog/">Blog</a>
+    <a class="nav-menu-link" href="/login.html" aria-current="page">Sign in</a>
+    <a class="nav-menu-link" href="/contact/">Contact</a>
   </nav>
-</header>
+  <a class="nav-menu-cta" href="/#waitlist">Download the App</a>
+</div>
 
 <main id="top">
-  <div class="container">
-    <a href="/" class="back-home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18 L9 12 L15 6" stroke-linecap="round" stroke-linejoin="round"/></svg> Back to home</a>
+<section class="auth-shell">
+  <div class="auth-wrap">
+    <p class="auth-eyebrow">DREMONPRO Studio</p>
+    <h1>Sign in</h1>
+    <p class="auth-switch">New here? <a href="/signup/">Create an account</a></p>
 
-    <div class="auth-wrap">
-      <div class="auth-card">
-        <div class="auth-tabs" role="tablist" aria-label="Login or Sign up">
-          <button class="auth-tab" id="tab-login" role="tab" aria-selected="true" aria-controls="panel-login" data-panel="login">Log in</button>
-          <button class="auth-tab" id="tab-signup" role="tab" aria-selected="false" aria-controls="panel-signup" data-panel="signup">Sign up</button>
-        </div>
-
-        <!-- LOGIN PANEL -->
-        <section class="panel is-active" id="panel-login" role="tabpanel" aria-labelledby="tab-login">
-          <h1>Welcome back.</h1>
-          <p class="sub">Sign in to your VENOMPRO studio account.</p>
-
-          <div class="sso-grid">
-            <button type="button" class="sso-btn" data-sso="apple" aria-label="Continue with Apple">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.4 2c0 1.4-.5 2.7-1.4 3.7-1 1.1-2.6 1.9-3.9 1.8-.2-1.4.5-2.8 1.4-3.7C13.5 2.7 15.1 1.9 16.4 2zm4.5 16.6c-.7 1.5-1 2.2-1.9 3.6-1.2 1.9-2.9 4.3-5 4.3-1.9 0-2.4-1.2-5-1.2s-3.2 1.2-5 1.2c-2.1 0-3.7-2.2-4.9-4.1-3.4-5.3-3.7-11.5-1.6-14.8 1.5-2.4 3.8-3.8 6-3.8 2.2 0 3.6 1.2 5.5 1.2 1.8 0 2.9-1.2 5.5-1.2 2 0 4 1.1 5.5 3-4.8 2.6-4 9.5.9 11.8z"/></svg>
-              Apple
-            </button>
-            <button type="button" class="sso-btn" data-sso="google" aria-label="Continue with Google">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-.7-.1-1.4-.2-2H12v3.8h5.6a4.8 4.8 0 0 1-2.1 3.1v2.6h3.4c2-1.8 3.1-4.5 3.1-7.5z" fill="#4285F4"/><path d="M12 22c2.8 0 5.2-1 7-2.5l-3.4-2.6a6 6 0 0 1-9-3.1H3v2.7A10 10 0 0 0 12 22z" fill="#34A853"/><path d="M6.6 13.8a6 6 0 0 1 0-3.6V7.5H3a10 10 0 0 0 0 9z" fill="#FBBC05"/><path d="M12 6c1.5 0 2.9.5 4 1.5l3-3A10 10 0 0 0 3 7.5l3.6 2.7c.9-2.5 3.2-4.2 5.4-4.2z" fill="#EA4335"/></svg>
-              Google
-            </button>
-          </div>
-          <div class="form-divider">or with email</div>
-
-          <form class="auth-form" id="loginForm" novalidate autocomplete="on">
-            <div class="form-row">
-              <label for="login-email">Email</label>
-              <input type="email" id="login-email" name="email" required autocomplete="email" placeholder="artist@studio.com" />
-            </div>
-            <div class="form-row">
-              <label for="login-password">Password</label>
-              <input type="password" id="login-password" name="password" required autocomplete="current-password" placeholder="••••••••" minlength="8" />
-            </div>
-            <div class="auth-row-helper">
-              <label class="auth-checkbox"><input type="checkbox" name="remember" /> Stay signed in</label>
-              <a href="#forgot">Forgot password?</a>
-            </div>
-            <p class="auth-msg" id="login-msg" role="status" aria-live="polite"></p>
-            <button type="submit" class="btn btn-primary btn-lg">Log in</button>
-          </form>
-
-          <p class="auth-foot">No account yet? <a href="#" data-switch="signup">Create one</a></p>
-        </section>
-
-        <!-- SIGNUP PANEL -->
-        <section class="panel" id="panel-signup" role="tabpanel" aria-labelledby="tab-signup" hidden>
-          <h1>Create your studio.</h1>
-          <p class="sub">Free 7-day trial. No credit card. Cancel anytime.</p>
-
-          <div class="sso-grid">
-            <button type="button" class="sso-btn" data-sso="apple" aria-label="Sign up with Apple">
-              <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.4 2c0 1.4-.5 2.7-1.4 3.7-1 1.1-2.6 1.9-3.9 1.8-.2-1.4.5-2.8 1.4-3.7C13.5 2.7 15.1 1.9 16.4 2zm4.5 16.6c-.7 1.5-1 2.2-1.9 3.6-1.2 1.9-2.9 4.3-5 4.3-1.9 0-2.4-1.2-5-1.2s-3.2 1.2-5 1.2c-2.1 0-3.7-2.2-4.9-4.1-3.4-5.3-3.7-11.5-1.6-14.8 1.5-2.4 3.8-3.8 6-3.8 2.2 0 3.6 1.2 5.5 1.2 1.8 0 2.9-1.2 5.5-1.2 2 0 4 1.1 5.5 3-4.8 2.6-4 9.5.9 11.8z"/></svg>
-              Apple
-            </button>
-            <button type="button" class="sso-btn" data-sso="google" aria-label="Sign up with Google">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-.7-.1-1.4-.2-2H12v3.8h5.6a4.8 4.8 0 0 1-2.1 3.1v2.6h3.4c2-1.8 3.1-4.5 3.1-7.5z" fill="#4285F4"/><path d="M12 22c2.8 0 5.2-1 7-2.5l-3.4-2.6a6 6 0 0 1-9-3.1H3v2.7A10 10 0 0 0 12 22z" fill="#34A853"/><path d="M6.6 13.8a6 6 0 0 1 0-3.6V7.5H3a10 10 0 0 0 0 9z" fill="#FBBC05"/><path d="M12 6c1.5 0 2.9.5 4 1.5l3-3A10 10 0 0 0 3 7.5l3.6 2.7c.9-2.5 3.2-4.2 5.4-4.2z" fill="#EA4335"/></svg>
-              Google
-            </button>
-          </div>
-          <div class="form-divider">or with email</div>
-
-          <form class="auth-form" id="signupForm" novalidate autocomplete="on">
-            <div class="form-row">
-              <label for="signup-name">Studio or artist name</label>
-              <input type="text" id="signup-name" name="name" required autocomplete="name" placeholder="Studio Voltaic" />
-            </div>
-            <div class="form-row">
-              <label for="signup-email">Email</label>
-              <input type="email" id="signup-email" name="email" required autocomplete="email" placeholder="artist@studio.com" />
-            </div>
-            <div class="form-row">
-              <label for="signup-password">Password</label>
-              <input type="password" id="signup-password" name="password" required autocomplete="new-password" placeholder="At least 8 characters" minlength="8" />
-            </div>
-            <label class="auth-checkbox">
-              <input type="checkbox" name="terms" required />
-              I agree to the <a href="terms.html" style="color: var(--t-lead);">Terms</a> &amp; <a href="privacy.html" style="color: var(--t-lead);">Privacy Policy</a>
-            </label>
-            <p class="auth-msg" id="signup-msg" role="status" aria-live="polite"></p>
-            <button type="submit" class="btn btn-primary btn-lg">Create account</button>
-          </form>
-
-          <p class="auth-foot">Already have an account? <a href="#" data-switch="login">Log in</a></p>
-        </section>
+    <div class="auth-card">
+      <div class="sso-grid">
+        <button type="button" class="sso-btn" id="ssoApple" aria-label="Continue with Apple">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.4 2c0 1.4-.5 2.7-1.4 3.7-1 1.1-2.6 1.9-3.9 1.8-.2-1.4.5-2.8 1.4-3.7C13.5 2.7 15.1 1.9 16.4 2zm4.5 16.6c-.7 1.5-1 2.2-1.9 3.6-1.2 1.9-2.9 4.3-5 4.3-1.9 0-2.4-1.2-5-1.2s-3.2 1.2-5 1.2c-2.1 0-3.7-2.2-4.9-4.1-3.4-5.3-3.7-11.5-1.6-14.8 1.5-2.4 3.8-3.8 6-3.8 2.2 0 3.6 1.2 5.5 1.2 1.8 0 2.9-1.2 5.5-1.2 2 0 4 1.1 5.5 3-4.8 2.6-4 9.5.9 11.8z"/></svg>
+          Continue with Apple
+        </button>
+        <button type="button" class="sso-btn" id="ssoGoogle" aria-label="Continue with Google">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-.7-.1-1.4-.2-2H12v3.8h5.6a4.8 4.8 0 0 1-2.1 3.1v2.6h3.4c2-1.8 3.1-4.5 3.1-7.5z" fill="currentColor"/><path d="M12 22c2.8 0 5.2-1 7-2.5l-3.4-2.6a6 6 0 0 1-9-3.1H3v2.7A10 10 0 0 0 12 22z" fill="currentColor"/><path d="M6.6 13.8a6 6 0 0 1 0-3.6V7.5H3a10 10 0 0 0 0 9z" fill="currentColor"/><path d="M12 6c1.5 0 2.9.5 4 1.5l3-3A10 10 0 0 0 3 7.5l3.6 2.7c.9-2.5 3.2-4.2 5.4-4.2z" fill="currentColor"/></svg>
+          Continue with Google
+        </button>
       </div>
+
+      <div class="form-divider">or</div>
+
+      <form class="auth-form" id="loginForm" action="#" method="post" novalidate>
+        <label for="login-email">Studio email</label>
+        <input type="email" id="login-email" name="email" required autocomplete="email" placeholder="artist@studio.com" />
+        <p class="auth-msg" id="loginMsg" role="status" aria-live="polite"></p>
+        <button type="submit" class="button">Email me a sign-in link</button>
+        <p class="auth-fine">We'll send a one-time link. No password needed.</p>
+      </form>
+
+      <p class="auth-foot">Don't have an account? <a href="/signup/">Create one</a></p>
     </div>
   </div>
+</section>
 </main>
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <span>© 2026 VENOMPRO. All rights reserved.</span>
-    <nav class="footer-nav">
-      <a href="/">Home</a>
-      <a href="how-it-works.html">How it works</a>
-      <a href="about.html">About</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="terms.html">Terms</a>
-    </nav>
+<!-- FOOTER -->
+<footer class="section-mini-footer wrap">
+  <div class="foot-grid">
+    <div>
+      <a class="foot-logo" href="/" aria-label="DREMONPRO"><img src="/images/logo-wordmark.png" alt="DREMONPRO" /></a>
+      <p class="type-body" style="margin-top:14px;font-size:14px;">Studio software for tattoo artists. Built for the body. Made at the bench.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Product</h5>
+      <a href="/features/">Features</a><a href="/how-it-works/">How it works</a><a href="/use-cases/">Use cases</a><a href="/pricing/">Pricing</a><a href="/blog/">Blog</a>
+    </div>
+    <div class="foot-col">
+      <h5>Company</h5>
+      <a href="/about/">About</a><a href="/contact/">Contact</a><a href="/legal/">Legal</a><a href="/login.html">Sign in / Sign up</a><a href="/#waitlist">Get the app</a>
+    </div>
+    <div class="foot-col">
+      <h5>Contact</h5>
+      <a href="mailto:hello@dremonpro.com">hello@dremonpro.com</a>
+      <a href="mailto:support@dremonpro.com">support@dremonpro.com</a>
+      <span class="foot-loc">Berlin · Lisbon · Tokyo</span>
+    </div>
+  </div>
+  <div class="foot-social">
+    <a href="#">Instagram (@dremonpro_app)</a>
+    <a href="#">YouTube (@dremonpro)</a>
+    <a href="#">X / Twitter (@dremonpro)</a>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 DREMONPRO. All rights reserved. · <a href="/terms/">Terms</a> · <a href="/privacy/">Privacy</a></span>
+    <span>hello@dremonpro.com</span>
   </div>
 </footer>
 
-<script src="assets/site.js"></script>
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <p>We use privacy-friendly analytics (no third-party cookies). Read our <a href="/privacy/">privacy policy</a>.</p>
+  <div class="cookie-actions">
+    <button class="oauth-btn" id="cookieDecline">Decline</button>
+    <button class="button" id="cookieAccept">Accept</button>
+  </div>
+</div>
+
+<script src="/assets/app.js"></script>
 <script>
+/* DremonPro gate — real authentication, grafted onto the restored Jul-22 design.
+ *
+ * Google runs through the studio app's server-initiated OAuth route: PKCE lives
+ * on that origin, which avoids the cross-domain verifier trap a static site hits
+ * if it starts the flow itself. Sign-up is the same flow — a first-time Google
+ * user is created and, with no invite, self-signs-up (backend ruling D3). The
+ * qualification only decides WHERE a client is sent, never whether they get in.
+ *
+ * The email form posts to the same app's magic-link route, so a person with no
+ * password (every invited account starts that way) still has a way in.
+ */
 (function () {
-  // Tab switcher
-  var tabs = document.querySelectorAll('.auth-tab');
-  var panels = {
-    login: document.getElementById('panel-login'),
-    signup: document.getElementById('panel-signup')
-  };
-  function activate(name) {
-    tabs.forEach(function (t) {
-      var on = t.dataset.panel === name;
-      t.setAttribute('aria-selected', on ? 'true' : 'false');
-    });
-    Object.keys(panels).forEach(function (k) {
-      var on = k === name;
-      panels[k].classList.toggle('is-active', on);
-      if (on) panels[k].removeAttribute('hidden');
-      else panels[k].setAttribute('hidden', '');
-    });
+  var APP = 'https://venom-dashboard-full.vercel.app';
+  var APP_STORE = 'https://apps.apple.com/app/venomscan';
+  var isSignup = /\/signup\/?$/.test(location.pathname);
+
+  function go(as) {
+    var u = APP + '/auth/google?next=%2F' + (as ? '&as=' + encodeURIComponent(as) : '');
+    window.location.href = u;
   }
-  tabs.forEach(function (t) { t.addEventListener('click', function () { activate(t.dataset.panel); }); });
-  document.querySelectorAll('[data-switch]').forEach(function (a) {
-    a.addEventListener('click', function (e) { e.preventDefault(); activate(a.dataset.switch); });
-  });
-
-  // Pre-launch placeholder behaviour: forms show a friendly notice (auth backend lands at beta).
-  function bindForm(formId, msgId, label) {
-    var form = document.getElementById(formId);
-    var msg = document.getElementById(msgId);
-    if (!form || !msg) return;
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      var email = form.querySelector('input[type=email]');
-      if (email && !/.+@.+\..+/.test(email.value.trim())) {
-        msg.textContent = 'Please enter a valid email.';
-        msg.className = 'auth-msg error';
-        email.focus();
-        return;
-      }
-      msg.textContent = label + ' is coming with the private beta on June 17. We\u2019ll add you to the waitlist.';
-      msg.className = 'auth-msg ok';
-    });
-  }
-  bindForm('loginForm', 'login-msg', 'Login');
-  bindForm('signupForm', 'signup-msg', 'Sign up');
-
-  // ── Real SSO ────────────────────────────────────────────────────────────
-  // Google runs through the studio app's server-initiated OAuth route (PKCE on
-  // that domain — avoids the cross-domain verifier trap a static gate would
-  // hit). Sign-up is the same flow: a first-time Google user is created and,
-  // with no invite, self-signs-up as an artist (backend ruling D3). The
-  // qualification question only changes WHERE a client is sent, not whether
-  // they can sign in.
-  var STUDIO_OAUTH = 'https://venom-dashboard-full.vercel.app/auth/google';
-  var APP_STORE_URL = 'https://apps.apple.com/app/venomscan'; // client product = the iPhone app
-
-  function goGoogle(next) {
-    window.location.href = STUDIO_OAUTH + '?next=' + encodeURIComponent(next || '/');
+  function say(id, text, ok) {
+    var m = document.getElementById(id);
+    if (!m) return;
+    m.textContent = text;
+    m.className = 'auth-msg' + (ok ? ' ok' : '');
   }
 
-  // Client qualification overlay (built once, shown on demand).
-  function showQualify() {
-    if (document.getElementById('qualify-ov')) { document.getElementById('qualify-ov').style.display = 'flex'; return; }
+  /* Client qualification — only on sign-up. Artists work on the web; clients
+     live in the iPhone app, but web sign-up stays allowed (owner ruling). */
+  function qualify() {
+    if (document.getElementById('dp-qualify')) {
+      document.getElementById('dp-qualify').style.display = 'flex'; return;
+    }
     var ov = document.createElement('div');
-    ov.id = 'qualify-ov';
-    ov.style.cssText = 'position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.6);backdrop-filter:blur(6px)';
+    ov.id = 'dp-qualify';
+    ov.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.66);backdrop-filter:blur(6px);padding:20px';
     ov.innerHTML =
-      '<div style="max-width:420px;width:90%;background:#12121a;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:28px;color:#fff;font-family:inherit">' +
-        '<h2 style="margin:0 0 6px;font-size:20px">Who are you?</h2>' +
-        '<p style="margin:0 0 20px;color:rgba(255,255,255,.55);font-size:14px">This tailors your DremonPro experience.</p>' +
-        '<button id="q-artist" style="width:100%;padding:14px;border-radius:12px;border:0;background:#fff;color:#111;font-weight:600;font-size:15px;cursor:pointer;margin-bottom:10px">I’m a Tattoo Artist</button>' +
-        '<button id="q-client" style="width:100%;padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:transparent;color:#fff;font-size:15px;cursor:pointer">I’m a Client (getting tattooed)</button>' +
-        '<div id="q-client-note" style="display:none;margin-top:16px;padding:14px;border-radius:12px;background:rgba(255,255,255,.05);font-size:13px;color:rgba(255,255,255,.75)">' +
-          'DremonPro for clients lives in the iPhone app — that’s where you scan and view your tattoos.' +
-          '<a href="' + APP_STORE_URL + '" style="display:block;margin-top:12px;padding:11px;border-radius:10px;background:#fff;color:#111;text-align:center;text-decoration:none;font-weight:600">Download the app</a>' +
-          '<button id="q-client-web" style="width:100%;margin-top:8px;padding:9px;border-radius:10px;border:0;background:transparent;color:rgba(255,255,255,.6);font-size:13px;cursor:pointer;text-decoration:underline">or continue signing up on the web</button>' +
+      '<div style="max-width:420px;width:100%;background:#12100f;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px;color:#fff;font-family:Inter,system-ui,sans-serif">' +
+        '<h2 style="margin:0 0 6px;font-size:20px;font-family:Oswald,Inter,sans-serif">Who are you?</h2>' +
+        '<p style="margin:0 0 18px;color:rgba(255,255,255,.6);font-size:14px">This sets up the right DremonPro for you.</p>' +
+        '<button id="dp-q-artist" style="width:100%;padding:13px;border-radius:10px;border:0;background:#fff;color:#111;font-weight:600;font-size:15px;cursor:pointer;margin-bottom:9px">I\u2019m a Tattoo Artist</button>' +
+        '<button id="dp-q-client" style="width:100%;padding:13px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:15px;cursor:pointer">I\u2019m a Client (getting tattooed)</button>' +
+        '<div id="dp-q-note" style="display:none;margin-top:16px;padding:14px;border-radius:10px;background:rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.78)">' +
+          'DremonPro for clients lives in the iPhone app \u2014 that\u2019s where you scan and see your tattoos.' +
+          '<a href="' + APP_STORE + '" style="display:block;margin-top:12px;padding:11px;border-radius:9px;background:#fff;color:#111;text-align:center;text-decoration:none;font-weight:600">Download the app</a>' +
+          '<button id="dp-q-web" style="width:100%;margin-top:8px;padding:9px;border:0;background:transparent;color:rgba(255,255,255,.6);font-size:13px;cursor:pointer;text-decoration:underline">or continue on the web</button>' +
         '</div>' +
-        '<button id="q-cancel" style="width:100%;margin-top:14px;padding:8px;border:0;background:transparent;color:rgba(255,255,255,.4);font-size:13px;cursor:pointer">Cancel</button>' +
+        '<button id="dp-q-cancel" style="width:100%;margin-top:14px;padding:8px;border:0;background:transparent;color:rgba(255,255,255,.4);font-size:13px;cursor:pointer">Cancel</button>' +
       '</div>';
     document.body.appendChild(ov);
-    ov.querySelector('#q-artist').addEventListener('click', function () { goGoogle('/'); });
-    ov.querySelector('#q-client').addEventListener('click', function () { ov.querySelector('#q-client-note').style.display = 'block'; });
-    ov.querySelector('#q-client-web').addEventListener('click', function () { goGoogle('/'); });
-    ov.querySelector('#q-cancel').addEventListener('click', function () { ov.style.display = 'none'; });
+    ov.querySelector('#dp-q-artist').addEventListener('click', function () { go('artist'); });
+    ov.querySelector('#dp-q-client').addEventListener('click', function () {
+      ov.querySelector('#dp-q-note').style.display = 'block';
+    });
+    ov.querySelector('#dp-q-web').addEventListener('click', function () { go('client'); });
+    ov.querySelector('#dp-q-cancel').addEventListener('click', function () { ov.style.display = 'none'; });
     ov.addEventListener('click', function (e) { if (e.target === ov) ov.style.display = 'none'; });
   }
 
-  document.querySelectorAll('[data-sso]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var provider = b.dataset.sso;
-      var msg = document.querySelector('.panel.is-active .auth-msg');
-      if (provider === 'apple') {
-        if (msg) { msg.textContent = 'Apple sign-in is arriving shortly — use Google for now.'; msg.className = 'auth-msg'; }
-        return;
-      }
-      // Google. On the sign-up panel, ask the qualification question first; on
-      // login, go straight through (existing users skip it).
-      var onSignup = panels.signup && panels.signup.classList.contains('is-active');
-      if (onSignup) showQualify(); else goGoogle('/');
-    });
+  var g = document.getElementById('ssoGoogle');
+  if (g) g.addEventListener('click', function () { isSignup ? qualify() : go(); });
+
+  /* Apple is built in the native apps but its provider is not enabled server-side
+     yet. Say that, rather than opening a flow that dead-ends. */
+  var a = document.getElementById('ssoApple');
+  if (a) a.addEventListener('click', function () {
+    say(isSignup ? 'signupMsg' : 'loginMsg', 'Apple sign-in is arriving shortly \u2014 use Google or the email link for now.', true);
+  });
+
+  /* Email → real magic link (the app sends it; the account needs no password). */
+  var form = document.getElementById('loginForm') || document.getElementById('signupForm');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msgId = isSignup ? 'signupMsg' : 'loginMsg';
+    var input = form.querySelector('input[type=email]');
+    var email = (input && input.value || '').trim().toLowerCase();
+    if (!/.+@.+\..+/.test(email)) { say(msgId, 'Please enter a valid email address.'); return; }
+    say(msgId, 'Sending your sign-in link\u2026', true);
+    fetch(APP + '/auth/sign-in', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, next: '/' })
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        say(msgId, res.ok ? (res.d.message || 'Link sent \u2014 check your email.')
+                          : (res.d.error || 'We could not send the link. Try Google instead.'), res.ok);
+      })
+      .catch(function () { say(msgId, 'Connection error. Please try again.'); });
   });
 })();
 </script>
+
 </body>
 </html>

@@ -1,46 +1,28 @@
-# VENOMPRO — robots.txt
-# AI crawlers welcomed for AIO / GEO discoverability.
+# DREMONPRO — robots.txt
+# https://www.dremonpro.com/robots.txt
+#
+# PRE-LAUNCH: this site is intentionally kept OUT of search results.
+#
+# Crawling is allowed on purpose. Every response carries an
+# `X-Robots-Tag: noindex, nofollow` header (see vercel.json), which is
+# what actually keeps these pages out of the index — and lets search
+# engines re-read the site and DROP anything already indexed.
+#
+# Do NOT switch this to `Disallow: /`: that blocks re-crawling, so any
+# pages already in the index would get stuck there instead of removed.
+#
+# TO GO LIVE IN SEARCH: delete the X-Robots-Tag header from vercel.json,
+# then add the Sitemap line below.
 
 User-agent: *
 Allow: /
-Disallow: /.git/
-Disallow: /.vercel/
 
-# AI / LLM crawlers — explicit allow
-User-agent: GPTBot
-Allow: /
+# Slow aggressive SEO scrapers
+User-agent: AhrefsBot
+Crawl-delay: 10
 
-User-agent: ChatGPT-User
-Allow: /
+User-agent: SemrushBot
+Crawl-delay: 10
 
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Perplexity-User
-Allow: /
-
-User-agent: Applebot
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
-Sitemap: https://venompro.com/sitemap.xml
+# No sitemap published while the site is unlisted.
+# Sitemap: https://www.dremonpro.com/sitemap.xml
