@@ -121,5 +121,97 @@
 </div>
 
 <script src="/assets/app.js"></script>
+<script>
+/* DremonPro gate — real authentication, grafted onto the restored Jul-22 design.
+ *
+ * Google runs through the studio app's server-initiated OAuth route: PKCE lives
+ * on that origin, which avoids the cross-domain verifier trap a static site hits
+ * if it starts the flow itself. Sign-up is the same flow — a first-time Google
+ * user is created and, with no invite, self-signs-up (backend ruling D3). The
+ * qualification only decides WHERE a client is sent, never whether they get in.
+ *
+ * The email form posts to the same app's magic-link route, so a person with no
+ * password (every invited account starts that way) still has a way in.
+ */
+(function () {
+  var APP = 'https://venom-dashboard-full.vercel.app';
+  var APP_STORE = 'https://apps.apple.com/app/venomscan';
+  var isSignup = /\/signup\/?$/.test(location.pathname);
+
+  function go(as) {
+    var u = APP + '/auth/google?next=%2F' + (as ? '&as=' + encodeURIComponent(as) : '');
+    window.location.href = u;
+  }
+  function say(id, text, ok) {
+    var m = document.getElementById(id);
+    if (!m) return;
+    m.textContent = text;
+    m.className = 'auth-msg' + (ok ? ' ok' : '');
+  }
+
+  /* Client qualification — only on sign-up. Artists work on the web; clients
+     live in the iPhone app, but web sign-up stays allowed (owner ruling). */
+  function qualify() {
+    if (document.getElementById('dp-qualify')) {
+      document.getElementById('dp-qualify').style.display = 'flex'; return;
+    }
+    var ov = document.createElement('div');
+    ov.id = 'dp-qualify';
+    ov.style.cssText = 'position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.66);backdrop-filter:blur(6px);padding:20px';
+    ov.innerHTML =
+      '<div style="max-width:420px;width:100%;background:#12100f;border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px;color:#fff;font-family:Inter,system-ui,sans-serif">' +
+        '<h2 style="margin:0 0 6px;font-size:20px;font-family:Oswald,Inter,sans-serif">Who are you?</h2>' +
+        '<p style="margin:0 0 18px;color:rgba(255,255,255,.6);font-size:14px">This sets up the right DremonPro for you.</p>' +
+        '<button id="dp-q-artist" style="width:100%;padding:13px;border-radius:10px;border:0;background:#fff;color:#111;font-weight:600;font-size:15px;cursor:pointer;margin-bottom:9px">I\u2019m a Tattoo Artist</button>' +
+        '<button id="dp-q-client" style="width:100%;padding:13px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;font-size:15px;cursor:pointer">I\u2019m a Client (getting tattooed)</button>' +
+        '<div id="dp-q-note" style="display:none;margin-top:16px;padding:14px;border-radius:10px;background:rgba(255,255,255,.06);font-size:13px;color:rgba(255,255,255,.78)">' +
+          'DremonPro for clients lives in the iPhone app \u2014 that\u2019s where you scan and see your tattoos.' +
+          '<a href="' + APP_STORE + '" style="display:block;margin-top:12px;padding:11px;border-radius:9px;background:#fff;color:#111;text-align:center;text-decoration:none;font-weight:600">Download the app</a>' +
+          '<button id="dp-q-web" style="width:100%;margin-top:8px;padding:9px;border:0;background:transparent;color:rgba(255,255,255,.6);font-size:13px;cursor:pointer;text-decoration:underline">or continue on the web</button>' +
+        '</div>' +
+        '<button id="dp-q-cancel" style="width:100%;margin-top:14px;padding:8px;border:0;background:transparent;color:rgba(255,255,255,.4);font-size:13px;cursor:pointer">Cancel</button>' +
+      '</div>';
+    document.body.appendChild(ov);
+    ov.querySelector('#dp-q-artist').addEventListener('click', function () { go('artist'); });
+    ov.querySelector('#dp-q-client').addEventListener('click', function () {
+      ov.querySelector('#dp-q-note').style.display = 'block';
+    });
+    ov.querySelector('#dp-q-web').addEventListener('click', function () { go('client'); });
+    ov.querySelector('#dp-q-cancel').addEventListener('click', function () { ov.style.display = 'none'; });
+    ov.addEventListener('click', function (e) { if (e.target === ov) ov.style.display = 'none'; });
+  }
+
+  var g = document.getElementById('ssoGoogle');
+  if (g) g.addEventListener('click', function () { isSignup ? qualify() : go(); });
+
+  /* Apple is built in the native apps but its provider is not enabled server-side
+     yet. Say that, rather than opening a flow that dead-ends. */
+  var a = document.getElementById('ssoApple');
+  if (a) a.addEventListener('click', function () {
+    say(isSignup ? 'signupMsg' : 'loginMsg', 'Apple sign-in is arriving shortly \u2014 use Google or the email link for now.', true);
+  });
+
+  /* Email → real magic link (the app sends it; the account needs no password). */
+  var form = document.getElementById('loginForm') || document.getElementById('signupForm');
+  if (form) form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msgId = isSignup ? 'signupMsg' : 'loginMsg';
+    var input = form.querySelector('input[type=email]');
+    var email = (input && input.value || '').trim().toLowerCase();
+    if (!/.+@.+\..+/.test(email)) { say(msgId, 'Please enter a valid email address.'); return; }
+    say(msgId, 'Sending your sign-in link\u2026', true);
+    fetch(APP + '/auth/sign-in', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, next: '/' })
+    }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok, d: d }; }); })
+      .then(function (res) {
+        say(msgId, res.ok ? (res.d.message || 'Link sent \u2014 check your email.')
+                          : (res.d.error || 'We could not send the link. Try Google instead.'), res.ok);
+      })
+      .catch(function () { say(msgId, 'Connection error. Please try again.'); });
+  });
+})();
+</script>
+
 </body>
 </html>
